@@ -14,7 +14,7 @@ import org.hibernate.SessionFactory;
  *
  * @author guilherme
  */
-public class HibernateUtil {
+public class PlanetarioHibernateUtil {
 
     private static final SessionFactory sessionFactory;
     
