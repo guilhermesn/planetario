@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09/05/2016 20:00:12 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="planetario.Planeta" table="PLANETA" catalog="Planetario" optimistic-lock="version">
+        <composite-id name="id" class="planetario.PlanetaId">
+            <key-property name="idPlaneta" type="int">
+                <column name="idPlaneta" />
+            </key-property>
+            <key-property name="estrelasNome" type="string">
+                <column name="ESTRELAS_nome" length="50" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="estrelas" class="planetario.Estrelas" update="false" insert="false" fetch="select">
+            <column name="ESTRELAS_nome" length="50" not-null="true" />
+        </many-to-one>
+        <property name="nomePlaneta" type="string">
+            <column name="nomePlaneta" length="50" not-null="true" />
+        </property>
+        <property name="massa" type="java.lang.Float">
+            <column name="massa" precision="12" scale="0" />
+        </property>
+        <property name="massaErroMin" type="java.lang.Float">
+            <column name="massaErroMin" precision="12" scale="0" />
+        </property>
+        <property name="massaErroMax" type="java.lang.Float">
+            <column name="massaErroMax" precision="12" scale="0" />
+        </property>
+        <property name="raio" type="java.lang.Float">
+            <column name="raio" precision="12" scale="0" />
+        </property>
+        <property name="raioErroMin" type="java.lang.Float">
+            <column name="raioErroMin" precision="12" scale="0" />
+        </property>
+        <property name="raioErroMax" type="java.lang.Float">
+            <column name="raioErroMax" precision="12" scale="0" />
+        </property>
+        <property name="periodoOrbital" type="java.lang.Float">
+            <column name="periodoOrbital" precision="12" scale="0" />
+        </property>
+        <property name="periodoOrbitalErroMin" type="java.lang.Float">
+            <column name="periodoOrbitalErroMin" precision="12" scale="0" />
+        </property>
+        <property name="periodoOrbitalErroMax" type="java.lang.Float">
+            <column name="periodoOrbitalErroMax" precision="12" scale="0" />
+        </property>
+        <property name="inclinacao" type="java.lang.Float">
+            <column name="inclinacao" precision="12" scale="0" />
+        </property>
+        <property name="inclinacaoErroMin" type="java.lang.Float">
+            <column name="inclinacaoErroMin" precision="12" scale="0" />
+        </property>
+        <property name="inclinacaoErroMax" type="java.lang.Float">
+            <column name="inclinacaoErroMax" precision="12" scale="0" />
+        </property>
+        <property name="distanciaAngular" type="java.lang.Float">
+            <column name="distanciaAngular" precision="12" scale="0" />
+        </property>
+        <property name="descoberta" type="java.lang.Integer">
+            <column name="descoberta" />
+        </property>
+        <property name="atualizacao" type="date">
+            <column name="atualizacao" length="10" />
+        </property>
+        <property name="tempoCalculado" type="java.lang.Integer">
+            <column name="tempoCalculado" />
+        </property>
+        <property name="tempoMedido" type="java.lang.Integer">
+            <column name="tempoMedido" />
+        </property>
+        <property name="statusPublicacao" type="string">
+            <column name="statusPublicacao" length="70" />
+        </property>
+        <property name="tipoDeteccao" type="string">
+            <column name="tipoDeteccao" length="50" />
+        </property>
+        <property name="tipoDeteccaoMassa" type="string">
+            <column name="tipoDeteccaoMassa" length="50" />
+        </property>
+        <property name="tipoDeteccaoRaio" type="string">
+            <column name="tipoDeteccaoRaio" length="50" />
+        </property>
+        <property name="nomeAlternativo" type="string">
+            <column name="nomeAlternativo" length="100" />
+        </property>
+        <property name="moleculas" type="string">
+            <column name="moleculas" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>
