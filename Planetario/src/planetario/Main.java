@@ -2534,22 +2534,22 @@ public class Main extends javax.swing.JFrame {
                     ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
                     break;
                 case 20:
-                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), false));
                     break;
                 case 21:
-                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), false));
                     break;
                 case 22:
-                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), false));
                     break;
                 case 23:
-                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), false));
                     break;
                 case 24:
-                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), false));
                     break;
                 case 25:
-                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), false));
                     break;
                 default:
                     ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
@@ -3441,22 +3441,22 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
                     ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
                     break;
                 case 20:
-                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), false));
                     break;
                 case 21:
-                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), false));
                     break;
                 case 22:
-                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), false));
                     break;
                 case 23:
-                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), false));
                     break;
                 case 24:
-                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), false));
                     break;
                 case 25:
-                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), false));
                     break;
                 default:
                     ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
