@@ -9,6 +9,5 @@
     <property name="hibernate.connection.password">root</property>
     <mapping resource="planetario/Estrelas.hbm.xml"/>
     <mapping resource="planetario/Planeta.hbm.xml"/>
-    <mapping resource="../hibernate.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

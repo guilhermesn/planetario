@@ -6,11 +6,17 @@
 package planetario;
 
 import java.awt.CardLayout;
+//import java.sql.Date;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -18,8 +24,10 @@ import java.util.Scanner;
  * @author guilherme
  */
 public class Main extends javax.swing.JFrame {
+
     private Planeta planetas = new Planeta();
     private Estrelas estrelas = new Estrelas();
+    private Controle controle = new Controle();
     /**
      * Creates new form Login
      */
@@ -27,10 +35,8 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelTelaInicial");
-        
-        
-        
+        cl.show(jPanelPrincipal, "jPanelTelaInicial");
+        controle.iniciarConexao();;
     }
 
     /**
@@ -60,14 +66,33 @@ public class Main extends javax.swing.JFrame {
         jButton21 = new javax.swing.JButton();
         jButton23 = new javax.swing.JButton();
         jPanelEditarPlaneta = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
+        jLabel98 = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTablePlanetas1 = new javax.swing.JTable();
+        jComboBoxWhere1 = new javax.swing.JComboBox();
+        jCheckBoxLiteral1 = new javax.swing.JCheckBox();
+        jButton24 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable();
-        jComboBox8 = new javax.swing.JComboBox();
+        jPanelValores1 = new javax.swing.JPanel();
+        jPanelEntreNumeros1 = new javax.swing.JPanel();
+        jLabel99 = new javax.swing.JLabel();
+        jLabel100 = new javax.swing.JLabel();
+        jFormattedTextFieldValor3 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldValor4 = new javax.swing.JFormattedTextField();
+        jPanelNumero1 = new javax.swing.JPanel();
+        jLabel101 = new javax.swing.JLabel();
+        jFormattedTextFieldNumero1 = new javax.swing.JFormattedTextField();
+        jPanelData1 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jFormattedTextData1 = new javax.swing.JFormattedTextField();
+        jPanelEntreDatas1 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jFormattedTextFieldData3 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldData4 = new javax.swing.JFormattedTextField();
+        jPanelString1 = new javax.swing.JPanel();
+        jLabel102 = new javax.swing.JLabel();
+        jTextFieldTexto1 = new javax.swing.JTextField();
         jPanelEditarEstrela = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -84,8 +109,9 @@ public class Main extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
         jTable10 = new javax.swing.JTable();
-        jComboBox11 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jComboBox12 = new javax.swing.JComboBox();
         jPanelExcluirEstrela = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
@@ -97,12 +123,31 @@ public class Main extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jPanelConsultarPlaneta = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTablePlanetas = new javax.swing.JTable();
-        jComboBox10 = new javax.swing.JComboBox();
+        jCheckBoxLiteral = new javax.swing.JCheckBox();
+        jComboBoxWhere = new javax.swing.JComboBox();
+        jPanelValores = new javax.swing.JPanel();
+        jPanelEntreNumeros = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel97 = new javax.swing.JLabel();
+        jFormattedTextFieldValor1 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldValor2 = new javax.swing.JFormattedTextField();
+        jPanelNumero = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jFormattedTextFieldNumero = new javax.swing.JFormattedTextField();
+        jPanelData = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jFormattedTextData = new javax.swing.JFormattedTextField();
+        jPanelEntreDatas = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jFormattedTextFieldData1 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldData2 = new javax.swing.JFormattedTextField();
+        jPanelString = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jTextFieldTexto = new javax.swing.JTextField();
         jPanelConsultarEstrela = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
@@ -379,7 +424,7 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(jPanelConfigurarLayout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 1240, Short.MAX_VALUE))
+                                .addComponent(jFormattedTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 1576, Short.MAX_VALUE))
                             .addGroup(jPanelConfigurarLayout.createSequentialGroup()
                                 .addGroup(jPanelConfigurarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -434,15 +479,9 @@ public class Main extends javax.swing.JFrame {
 
         jPanelPrincipal.add(jPanelConfigurar, "jPanelConfigurar");
 
-        jLabel19.setText("Listar por");
+        jLabel98.setText("Listar por");
 
-        jLabel20.setText("Valor");
-
-        jButton10.setText("Buscar");
-
-        jButton11.setText("Editar");
-
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePlanetas1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -453,20 +492,204 @@ public class Main extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-        });
-        jTable7.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jScrollPane7.setViewportView(jTable7);
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Raio", "Raio erro min", "Raio erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação erro min", "Inclinação erro max", "Distancia angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médido", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas", " " }));
-        jComboBox8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox8ActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
+        jTablePlanetas1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTablePlanetas1.setRowHeight(20);
+        jScrollPane11.setViewportView(jTablePlanetas1);
+
+        jComboBoxWhere1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Raio", "Raio erro min", "Raio erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação erro min", "Inclinação erro max", "Distancia angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médido", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas" }));
+        jComboBoxWhere1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxWhere1ActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxLiteral1.setText("Literal");
+        jCheckBoxLiteral1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxLiteral1ActionPerformed(evt);
+            }
+        });
+
+        jButton24.setText("Buscar");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+
+        jButton11.setText("Editar");
+
+        jPanelValores1.setBackground(new java.awt.Color(117, 89, 61));
+        jPanelValores1.setAutoscrolls(true);
+        jPanelValores1.setLayout(new java.awt.CardLayout());
+
+        jLabel99.setText("Valor inicial");
+
+        jLabel100.setText("Valor final");
+
+        jFormattedTextFieldValor3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.############"))));
+
+        jFormattedTextFieldValor4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.############"))));
+
+        javax.swing.GroupLayout jPanelEntreNumeros1Layout = new javax.swing.GroupLayout(jPanelEntreNumeros1);
+        jPanelEntreNumeros1.setLayout(jPanelEntreNumeros1Layout);
+        jPanelEntreNumeros1Layout.setHorizontalGroup(
+            jPanelEntreNumeros1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreNumeros1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel99, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldValor3, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel100, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldValor4, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelEntreNumeros1Layout.setVerticalGroup(
+            jPanelEntreNumeros1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreNumeros1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel99)
+                .addComponent(jLabel100)
+                .addComponent(jFormattedTextFieldValor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFormattedTextFieldValor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores1.add(jPanelEntreNumeros1, "jPanelEntreNumeros1");
+
+        jLabel101.setText("Valor");
+
+        jFormattedTextFieldNumero1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.###############"))));
+        jFormattedTextFieldNumero1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldNumero1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelNumero1Layout = new javax.swing.GroupLayout(jPanelNumero1);
+        jPanelNumero1.setLayout(jPanelNumero1Layout);
+        jPanelNumero1Layout.setHorizontalGroup(
+            jPanelNumero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNumero1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel101)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldNumero1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE))
+        );
+        jPanelNumero1Layout.setVerticalGroup(
+            jPanelNumero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNumero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel101)
+                .addComponent(jFormattedTextFieldNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores1.add(jPanelNumero1, "jPanelNumero1");
+
+        jLabel19.setText("Data inicial");
+
+        try {
+            jFormattedTextData1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextData1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextData1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelData1Layout = new javax.swing.GroupLayout(jPanelData1);
+        jPanelData1.setLayout(jPanelData1Layout);
+        jPanelData1Layout.setHorizontalGroup(
+            jPanelData1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelData1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jFormattedTextData1, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelData1Layout.setVerticalGroup(
+            jPanelData1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelData1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel19)
+                .addComponent(jFormattedTextData1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores1.add(jPanelData1, "jPanelData1");
+
+        jLabel20.setText("Data inicial");
+
+        jLabel21.setText("Data final");
+
+        try {
+            jFormattedTextFieldData3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jFormattedTextFieldData4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        javax.swing.GroupLayout jPanelEntreDatas1Layout = new javax.swing.GroupLayout(jPanelEntreDatas1);
+        jPanelEntreDatas1.setLayout(jPanelEntreDatas1Layout);
+        jPanelEntreDatas1Layout.setHorizontalGroup(
+            jPanelEntreDatas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreDatas1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldData3, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldData4, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelEntreDatas1Layout.setVerticalGroup(
+            jPanelEntreDatas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreDatas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel20)
+                .addComponent(jLabel21)
+                .addComponent(jFormattedTextFieldData3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFormattedTextFieldData4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores1.add(jPanelEntreDatas1, "jPanelEntreDatas1");
+
+        jLabel102.setText("Valor");
+
+        javax.swing.GroupLayout jPanelString1Layout = new javax.swing.GroupLayout(jPanelString1);
+        jPanelString1.setLayout(jPanelString1Layout);
+        jPanelString1Layout.setHorizontalGroup(
+            jPanelString1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelString1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel102, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldTexto1, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelString1Layout.setVerticalGroup(
+            jPanelString1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelString1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jTextFieldTexto1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel102))
+        );
+
+        jPanelValores1.add(jPanelString1, "jPanelString1");
 
         javax.swing.GroupLayout jPanelEditarPlanetaLayout = new javax.swing.GroupLayout(jPanelEditarPlaneta);
         jPanelEditarPlaneta.setLayout(jPanelEditarPlanetaLayout);
@@ -475,34 +698,34 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanelEditarPlanetaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelEditarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane11)
                     .addGroup(jPanelEditarPlanetaLayout.createSequentialGroup()
-                        .addComponent(jLabel19)
+                        .addComponent(jLabel98, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox8, 0, 457, Short.MAX_VALUE)
+                        .addComponent(jComboBoxWhere1, 0, 305, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel20)
+                        .addComponent(jCheckBoxLiteral1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                        .addComponent(jPanelValores1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane7))
+                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanelEditarPlanetaLayout.setVerticalGroup(
             jPanelEditarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelEditarPlanetaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelEditarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel20)
-                    .addComponent(jButton10)
-                    .addComponent(jButton11)
-                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelEditarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel98)
+                    .addComponent(jComboBoxWhere1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBoxLiteral1)
+                    .addComponent(jPanelValores1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton24)
+                    .addComponent(jButton11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -540,7 +763,7 @@ public class Main extends javax.swing.JFrame {
         jTable5.setAutoscrolls(false);
         jScrollPane5.setViewportView(jTable5);
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID ", "Nome ", "Distancia ", "Metalicidade ", "Massa ", "Idade ", "Temperatura", "Planeta" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID ", "Nome ", "Distancia ", "Metalicidade ", "Massa ", "Idade ", "Temperatura", "Raio", "Planeta" }));
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox5ActionPerformed(evt);
@@ -557,11 +780,11 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanelEditarEstrelaLayout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox5, 0, 457, Short.MAX_VALUE)
+                        .addComponent(jComboBox5, 0, 624, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -581,7 +804,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -604,22 +827,31 @@ public class Main extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jTable10.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane10.setViewportView(jTable10);
 
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Raio", "Raio erro min", "Raio erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação erro min", "Inclinação erro max", "Distancia angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médido", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas", " " }));
-        jComboBox11.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Excluir");
+
+        jCheckBox2.setText("Literal");
+
+        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Raio", "Raio erro min", "Raio erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação erro min", "Inclinação erro max", "Distancia angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médido", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas", " " }));
+        jComboBox12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox11ActionPerformed(evt);
+                jComboBox12ActionPerformed(evt);
             }
         });
-
-        jButton1.setText("Excluir");
 
         javax.swing.GroupLayout jPanelExcluirPlanetaLayout = new javax.swing.GroupLayout(jPanelExcluirPlaneta);
         jPanelExcluirPlaneta.setLayout(jPanelExcluirPlanetaLayout);
@@ -631,11 +863,13 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanelExcluirPlanetaLayout.createSequentialGroup()
                         .addComponent(jLabel25)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox11, 0, 457, Short.MAX_VALUE)
+                        .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCheckBox2)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel87)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                        .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -652,10 +886,12 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel25)
                     .addComponent(jLabel87)
                     .addComponent(jButton14)
-                    .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addGroup(jPanelExcluirPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCheckBox2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -706,15 +942,15 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanelExcluirEstrelaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelExcluirEstrelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1264, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1600, Short.MAX_VALUE)
                     .addGroup(jPanelExcluirEstrelaLayout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox6, 0, 457, Short.MAX_VALUE)
+                        .addComponent(jComboBox6, 0, 624, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
                         .addGap(12, 12, 12)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -733,15 +969,13 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jPanelPrincipal.add(jPanelExcluirEstrela, "jPanelExcluirEstrela");
 
         jLabel23.setText("Listar por");
-
-        jLabel24.setText("Valor");
 
         jButton13.setText("Buscar");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -761,20 +995,195 @@ public class Main extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-        });
-        jTablePlanetas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jScrollPane9.setViewportView(jTablePlanetas);
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Raio", "Raio erro min", "Raio erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação erro min", "Inclinação erro max", "Distancia angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médido", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas", " " }));
-        jComboBox10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox10ActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
+        jTablePlanetas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTablePlanetas.setRowHeight(20);
+        jScrollPane9.setViewportView(jTablePlanetas);
+
+        jCheckBoxLiteral.setText("Literal");
+        jCheckBoxLiteral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxLiteralActionPerformed(evt);
+            }
+        });
+
+        jComboBoxWhere.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Raio", "Raio erro min", "Raio erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação erro min", "Inclinação erro max", "Distancia angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médido", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas" }));
+        jComboBoxWhere.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxWhereActionPerformed(evt);
+            }
+        });
+
+        jPanelValores.setBackground(new java.awt.Color(117, 89, 61));
+        jPanelValores.setAutoscrolls(true);
+        jPanelValores.setLayout(new java.awt.CardLayout());
+
+        jLabel24.setText("Valor inicial");
+
+        jLabel97.setText("Valor final");
+
+        jFormattedTextFieldValor1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.############"))));
+
+        jFormattedTextFieldValor2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.############"))));
+
+        javax.swing.GroupLayout jPanelEntreNumerosLayout = new javax.swing.GroupLayout(jPanelEntreNumeros);
+        jPanelEntreNumeros.setLayout(jPanelEntreNumerosLayout);
+        jPanelEntreNumerosLayout.setHorizontalGroup(
+            jPanelEntreNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreNumerosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldValor1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel97, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldValor2, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelEntreNumerosLayout.setVerticalGroup(
+            jPanelEntreNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreNumerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel24)
+                .addComponent(jLabel97)
+                .addComponent(jFormattedTextFieldValor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFormattedTextFieldValor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores.add(jPanelEntreNumeros, "jPanelEntreNumeros");
+
+        jLabel22.setText("Valor");
+
+        jFormattedTextFieldNumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.###############"))));
+        jFormattedTextFieldNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldNumeroActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelNumeroLayout = new javax.swing.GroupLayout(jPanelNumero);
+        jPanelNumero.setLayout(jPanelNumeroLayout);
+        jPanelNumeroLayout.setHorizontalGroup(
+            jPanelNumeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNumeroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldNumero, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE))
+        );
+        jPanelNumeroLayout.setVerticalGroup(
+            jPanelNumeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNumeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel22)
+                .addComponent(jFormattedTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores.add(jPanelNumero, "jPanelNumero");
+
+        jLabel18.setText("Data inicial");
+
+        try {
+            jFormattedTextData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextDataActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelDataLayout = new javax.swing.GroupLayout(jPanelData);
+        jPanelData.setLayout(jPanelDataLayout);
+        jPanelDataLayout.setHorizontalGroup(
+            jPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDataLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jFormattedTextData, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelDataLayout.setVerticalGroup(
+            jPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel18)
+                .addComponent(jFormattedTextData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores.add(jPanelData, "jPanelData");
+
+        jLabel16.setText("Data inicial");
+
+        jLabel17.setText("Data final");
+
+        try {
+            jFormattedTextFieldData1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jFormattedTextFieldData2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        javax.swing.GroupLayout jPanelEntreDatasLayout = new javax.swing.GroupLayout(jPanelEntreDatas);
+        jPanelEntreDatas.setLayout(jPanelEntreDatasLayout);
+        jPanelEntreDatasLayout.setHorizontalGroup(
+            jPanelEntreDatasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreDatasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldData1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldData2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelEntreDatasLayout.setVerticalGroup(
+            jPanelEntreDatasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreDatasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel16)
+                .addComponent(jLabel17)
+                .addComponent(jFormattedTextFieldData1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFormattedTextFieldData2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores.add(jPanelEntreDatas, "jPanelEntreDatas");
+
+        jLabel14.setText("Valor");
+
+        javax.swing.GroupLayout jPanelStringLayout = new javax.swing.GroupLayout(jPanelString);
+        jPanelString.setLayout(jPanelStringLayout);
+        jPanelStringLayout.setHorizontalGroup(
+            jPanelStringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelStringLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelStringLayout.setVerticalGroup(
+            jPanelStringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelStringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jTextFieldTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel14))
+        );
+
+        jPanelValores.add(jPanelString, "jPanelString");
 
         javax.swing.GroupLayout jPanelConsultarPlanetaLayout = new javax.swing.GroupLayout(jPanelConsultarPlaneta);
         jPanelConsultarPlaneta.setLayout(jPanelConsultarPlanetaLayout);
@@ -783,31 +1192,31 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanelConsultarPlanetaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelConsultarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane9)
                     .addGroup(jPanelConsultarPlanetaLayout.createSequentialGroup()
-                        .addComponent(jLabel23)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox10, 0, 457, Short.MAX_VALUE)
+                        .addComponent(jComboBoxWhere, 0, 305, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel24)
+                        .addComponent(jCheckBoxLiteral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane9))
+                        .addComponent(jPanelValores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanelConsultarPlanetaLayout.setVerticalGroup(
             jPanelConsultarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelConsultarPlanetaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelConsultarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelConsultarPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel23)
-                    .addComponent(jLabel24)
-                    .addComponent(jButton13)
-                    .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxWhere, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBoxLiteral)
+                    .addComponent(jPanelValores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -851,15 +1260,15 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanelConsultarEstrelaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelConsultarEstrelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1264, Short.MAX_VALUE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1600, Short.MAX_VALUE)
                     .addGroup(jPanelConsultarEstrelaLayout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox9, 0, 457, Short.MAX_VALUE)
+                        .addComponent(jComboBox9, 0, 624, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
                         .addGap(12, 12, 12)
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -875,7 +1284,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -998,7 +1407,7 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel42)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField30, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                                .addComponent(jTextField30, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel41))
                             .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
@@ -1008,11 +1417,11 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
-                                .addComponent(jTextField29, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                .addComponent(jTextField29, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel43)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField31, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
+                                .addComponent(jTextField31, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE))
                             .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel44)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1170,7 +1579,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(jButton5)
                     .addComponent(jButton6))
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(246, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelNovoPlaneta, "jPanelNovoPlaneta");
@@ -1241,7 +1650,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel86)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField69, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE))
+                        .addComponent(jTextField69, javax.swing.GroupLayout.DEFAULT_SIZE, 1059, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoEstrelaLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1408,7 +1817,7 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel65)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField50, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                                .addComponent(jTextField50, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel64))
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
@@ -1418,11 +1827,11 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
-                                .addComponent(jTextField49, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                .addComponent(jTextField49, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel66)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField51, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
+                                .addComponent(jTextField51, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE))
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel67)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1577,7 +1986,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton18)
                     .addComponent(jButton20))
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(246, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelEdicaoPlaneta, "jPanelEdicaoPlaneta");
@@ -1646,7 +2055,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel96)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField77, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE))
+                        .addComponent(jTextField77, javax.swing.GroupLayout.DEFAULT_SIZE, 1059, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEdicaoEstrelaLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1699,17 +2108,16 @@ public class Main extends javax.swing.JFrame {
         jPanelGerarRelatorio.setLayout(jPanelGerarRelatorioLayout);
         jPanelGerarRelatorioLayout.setHorizontalGroup(
             jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1288, Short.MAX_VALUE)
+            .addGap(0, 1624, Short.MAX_VALUE)
         );
         jPanelGerarRelatorioLayout.setVerticalGroup(
             jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 849, Short.MAX_VALUE)
+            .addGap(0, 850, Short.MAX_VALUE)
         );
 
         jPanelPrincipal.add(jPanelGerarRelatorio, "jPanelGerarRelatorio");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/As_galáxias-2.jpg"))); // NOI18N
-        jLabel7.setText("jLabel7");
 
         javax.swing.GroupLayout jPanelTelaInicialLayout = new javax.swing.GroupLayout(jPanelTelaInicial);
         jPanelTelaInicial.setLayout(jPanelTelaInicialLayout);
@@ -1717,15 +2125,15 @@ public class Main extends javax.swing.JFrame {
             jPanelTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTelaInicialLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1264, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelTelaInicialLayout.setVerticalGroup(
             jPanelTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTelaInicialLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanelPrincipal.add(jPanelTelaInicial, "jPanelTelaInicial");
@@ -1867,8 +2275,8 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuConfigurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuConfigurarActionPerformed
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelConfigurar");
-        
+        cl.show(jPanelPrincipal, "jPanelConfigurar");
+
     }//GEN-LAST:event_jMenuConfigurarActionPerformed
 
     private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
@@ -1877,21 +2285,21 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuEstrelaEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEstrelaEditarActionPerformed
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelEditarEstrela");
-        
+        cl.show(jPanelPrincipal, "jPanelEditarEstrela");
+
     }//GEN-LAST:event_jMenuEstrelaEditarActionPerformed
 
     private void jMenuPlanetaEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPlanetaEditarActionPerformed
-         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelEditarPlaneta");
-        
-        
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelEditarPlaneta");
+
+
     }//GEN-LAST:event_jMenuPlanetaEditarActionPerformed
 
     private void jMenuEstrelaNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEstrelaNovoActionPerformed
 
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelNovoEstrela");
+        cl.show(jPanelPrincipal, "jPanelNovoEstrela");
     }//GEN-LAST:event_jMenuEstrelaNovoActionPerformed
 
     private void jFormattedTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField4ActionPerformed
@@ -1907,13 +2315,13 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jMenuPlanetaNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPlanetaNovoActionPerformed
-CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelNovoPlaneta");
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelNovoPlaneta");
     }//GEN-LAST:event_jMenuPlanetaNovoActionPerformed
 
     private void jMenuGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGerarRelatorioActionPerformed
-CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelGerarRelatorio");
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelGerarRelatorio");
     }//GEN-LAST:event_jMenuGerarRelatorioActionPerformed
 
     private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
@@ -1922,13 +2330,13 @@ CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelExcluirPlaneta");
+        cl.show(jPanelPrincipal, "jPanelExcluirPlaneta");
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        
+
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelExcluirEstrela"); 
+        cl.show(jPanelPrincipal, "jPanelExcluirEstrela");
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
@@ -1936,27 +2344,15 @@ CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
     }//GEN-LAST:event_jComboBox5ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-         
-                 CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelConsultarEstrela"); 
+
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelConsultarEstrela");
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelConsultarPlaneta"); 
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelConsultarPlaneta");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox8ActionPerformed
-
-    private void jComboBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox10ActionPerformed
-
-    private void jComboBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox11ActionPerformed
 
     private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
         // TODO add your handling code here:
@@ -1968,39 +2364,1128 @@ CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelTelaInicial");
-        
+        cl.show(jPanelPrincipal, "jPanelTelaInicial");
+
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       
-        
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
+    private ArrayList< String[]> buscaPlanetas() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy/MM/dd");
+        String dateInString;
+        //String dateInString1;
+        //String dateInString2;
+        
+        ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
+        if (jCheckBoxLiteral.isSelected()) {
+            switch (jComboBoxWhere.getSelectedIndex()) {
+                case 0:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 1:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), true));
+                    break;
+                case 2:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), true));
+                    break;
+                case 3:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 4:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 5:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 6:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 7:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 8:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 9:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 10:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 11:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 12:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 13:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 14:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 15:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 16:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 17:
+                    dateInString = jFormattedTextData.getText();
+
+                    try {
+                        java.util.Date date = formatter.parse(dateInString);
+                        ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), formatterMYSQL.format(date).toString(), true));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 18:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 19:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldNumero.getText().replace(',', '.'), true));
+                    break;
+                case 20:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), true));
+                    break;
+                case 21:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), true));
+                    break;
+                case 22:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), true));
+                    break;
+                case 23:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), true));
+                    break;
+                case 24:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), true));
+                    break;
+                case 25:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), true));
+                    break;
+                default:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), true));
+                    break;
+            }
+        } else {
+            switch (jComboBoxWhere.getSelectedIndex()) {
+                case 0:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 1:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), false));
+                    break;
+                case 2:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jTextFieldTexto.getText(), false));
+                    break;
+                case 3:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 4:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 5:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 6:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 7:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 8:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 9:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 10:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 11:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 12:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 13:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 14:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 15:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 16:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 17:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldData1.getText(), jFormattedTextFieldData2.getText()));
+                    break;
+                case 18:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 19:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 20:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 21:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 22:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 23:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 24:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                case 25:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+                default:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere.getSelectedItem().toString(), jFormattedTextFieldValor1.getText().replace(',', '.'), jFormattedTextFieldValor2.getText().replace(',', '.')));
+                    break;
+
+            }
+        }
+        return ArrayPlanetas;
+    }
+    private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox12ActionPerformed
+
+    private void jFormattedTextFieldNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldNumeroActionPerformed
+
+    private void jFormattedTextDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextDataActionPerformed
+
+    private void jCheckBoxLiteralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxLiteralActionPerformed
+        CardLayout cl = (CardLayout) jPanelValores.getLayout();
+        if (jCheckBoxLiteral.isSelected()) {
+            switch (jComboBoxWhere.getSelectedIndex()) {
+                case 0:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 1:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 2:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 3:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 4:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 5:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 6:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 7:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 8:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 9:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 10:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 11:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 12:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 13:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 14:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 15:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 16:
+                cl.show(jPanelValores, "jPanelData");
+                break;
+                case 17:
+                cl.show(jPanelValores, "jPanelData");
+                break;
+                case 18:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 19:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 20:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 21:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 22:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 23:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 24:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 25:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                default:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+            }
+        } else {
+            switch (jComboBoxWhere.getSelectedIndex()) {
+                case 0:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 1:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 2:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 3:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 4:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 5:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 6:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 7:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 8:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 9:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 10:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 11:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 12:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 13:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 14:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 15:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 16:
+                cl.show(jPanelValores, "jPanelEntreDatas");
+                break;
+                case 17:
+                cl.show(jPanelValores, "jPanelEntreDatas");
+                break;
+                case 18:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 19:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 20:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 21:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 22:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 23:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 24:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 25:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                default:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+            }
+        }
+    }//GEN-LAST:event_jCheckBoxLiteralActionPerformed
+
+    private void jComboBoxWhereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxWhereActionPerformed
+        CardLayout cl = (CardLayout) jPanelValores.getLayout();
+        if (jCheckBoxLiteral.isSelected()) {
+            switch (jComboBoxWhere.getSelectedIndex()) {
+                case 0:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 1:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 2:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 3:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 4:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 5:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 6:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 7:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 8:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 9:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 10:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 11:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 12:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 13:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 14:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 15:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 16:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 17:
+                cl.show(jPanelValores, "jPanelData");
+                break;
+                case 18:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 19:
+                cl.show(jPanelValores, "jPanelNumero");
+                break;
+                case 20:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 21:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 22:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 23:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 24:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 25:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                default:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+            }
+        } else {
+            switch (jComboBoxWhere.getSelectedIndex()) {
+                case 0:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 1:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 2:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 3:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 4:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 5:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 6:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 7:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 8:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 9:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 10:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 11:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 12:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 13:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 14:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 15:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 16:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 17:
+                cl.show(jPanelValores, "jPanelEntreDatas");
+                break;
+                case 18:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 19:
+                cl.show(jPanelValores, "jPanelEntreNumeros");
+                break;
+                case 20:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 21:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 22:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 23:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 24:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                case 25:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+                default:
+                cl.show(jPanelValores, "jPanelString");
+                break;
+
+            }
+        }
+    }//GEN-LAST:event_jComboBoxWhereActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
-                Iterator i = sessao.createQuery("from Products").list().iterator();
-                
-                while (i.hasNext()) {
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas.getModel();
+        model.getDataVector().removeAllElements();
+        ArrayList< String[]> ArrayPlanetas = buscaPlanetas();
 
-                    planetas = (Planeta) i.next();
-                    //javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas.getModel();  
-                    
-                    //Object[] linha = planetas.getNomePlaneta();
-                    
-                    /*model.addRow(new String [] {
-                        "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação orbital min", "Inclinação orbital max", "Distancia Angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médio", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas"
-                    });*/
-                    
-                    //jTablePlanetas.add();
-                    System.out.print("" + planetas.getMoleculas()+ ", " + planetas.getNomePlaneta()+ "\n");
-
-                }
-                sessao.close();
-                CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal,"jPanelConsultarPlaneta");
-                
+        for (String[] linha : ArrayPlanetas) {
+            model.addRow(linha);
+        }
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelConsultarPlaneta");
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jComboBoxWhere1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxWhere1ActionPerformed
+        CardLayout cl = (CardLayout) jPanelValores1.getLayout();
+        if (jCheckBoxLiteral1.isSelected()) {
+            switch (jComboBoxWhere1.getSelectedIndex()) {
+                case 0:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 1:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 2:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 3:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 4:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 5:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 6:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 7:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 8:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 9:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 10:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 11:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 12:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 13:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 14:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 15:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 16:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 17:
+                cl.show(jPanelValores1, "jPanelData1");
+                break;
+                case 18:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 19:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 20:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 21:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 22:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 23:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 24:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 25:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                default:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+            }
+        } else {
+            switch (jComboBoxWhere1.getSelectedIndex()) {
+                case 0:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 1:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 2:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 3:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 4:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 5:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 6:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 7:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 8:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 9:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 10:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 11:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 12:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 13:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 14:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 15:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 16:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 17:
+                cl.show(jPanelValores1, "jPanelEntreDatas1");
+                break;
+                case 18:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 19:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 20:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 21:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 22:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 23:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 24:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 25:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                default:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+
+            }
+        }
+        
+        
+        
+    }//GEN-LAST:event_jComboBoxWhere1ActionPerformed
+
+    private void jCheckBoxLiteral1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxLiteral1ActionPerformed
+CardLayout cl = (CardLayout) jPanelValores1.getLayout();
+        if (jCheckBoxLiteral1.isSelected()) {
+            switch (jComboBoxWhere1.getSelectedIndex()) {
+                case 0:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 1:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 2:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 3:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 4:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 5:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 6:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 7:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 8:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 9:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 10:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 11:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 12:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 13:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 14:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 15:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 16:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 17:
+                cl.show(jPanelValores1, "jPanelData1");
+                break;
+                case 18:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 19:
+                cl.show(jPanelValores1, "jPanelNumero1");
+                break;
+                case 20:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 21:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 22:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 23:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 24:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 25:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                default:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+            }
+        } else {
+            switch (jComboBoxWhere1.getSelectedIndex()) {
+                case 0:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 1:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 2:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 3:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 4:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 5:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 6:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 7:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 8:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 9:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 10:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 11:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 12:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 13:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 14:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 15:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 16:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 17:
+                cl.show(jPanelValores1, "jPanelEntreDatas1");
+                break;
+                case 18:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 19:
+                cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                break;
+                case 20:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 21:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 22:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 23:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 24:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                case 25:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+                default:
+                cl.show(jPanelValores1, "jPanelString1");
+                break;
+
+            }
+        }
+    }//GEN-LAST:event_jCheckBoxLiteral1ActionPerformed
+
+    private ArrayList< String[]> buscaPlanetasEdit() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy/MM/dd");
+        String dateInString;
+        
+        ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
+        if (jCheckBoxLiteral1.isSelected()) {
+            switch (jComboBoxWhere1.getSelectedIndex()) {
+                case 0:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 1:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), true));
+                    break;
+                case 2:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), true));
+                    break;
+                case 3:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 4:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 5:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 6:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 7:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 8:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 9:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 10:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 11:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 12:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 13:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 14:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 15:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 16:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 17:
+                    dateInString = jFormattedTextData.getText();
+
+                    try {
+                        java.util.Date date = formatter.parse(dateInString);
+                        ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), formatterMYSQL.format(date).toString(), true));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 18:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 19:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldNumero1.getText().replace(',', '.'), true));
+                    break;
+                case 20:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), true));
+                    break;
+                case 21:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), true));
+                    break;
+                case 22:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), true));
+                    break;
+                case 23:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), true));
+                    break;
+                case 24:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), true));
+                    break;
+                case 25:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), true));
+                    break;
+                default:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), true));
+                    break;
+            }
+        } else {
+            switch (jComboBoxWhere1.getSelectedIndex()) {
+                case 0:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 1:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), false));
+                    break;
+                case 2:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jTextFieldTexto1.getText(), false));
+                    break;
+                case 3:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 4:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 5:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 6:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 7:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 8:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 9:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 10:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 11:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 12:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 13:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 14:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 15:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 16:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 17:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldData1.getText(), jFormattedTextFieldData2.getText()));
+                    break;
+                case 18:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 19:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 20:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 21:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 22:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 23:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 24:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                case 25:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+                default:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere1.getSelectedItem().toString(), jFormattedTextFieldValor3.getText().replace(',', '.'), jFormattedTextFieldValor4.getText().replace(',', '.')));
+                    break;
+
+            }
+        }
+        return ArrayPlanetas;
+    }
+    
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+          javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas1.getModel();
+        model.getDataVector().removeAllElements();
+        ArrayList< String[]> ArrayPlanetas = buscaPlanetasEdit();
+
+        for (String[] linha : ArrayPlanetas) {
+            model.addRow(linha);
+        }
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelEditarPlaneta");
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jFormattedTextFieldNumero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumero1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldNumero1ActionPerformed
+
+    private void jFormattedTextData1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextData1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextData1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2040,7 +3525,6 @@ CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
@@ -2055,6 +3539,7 @@ CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -2062,25 +3547,49 @@ CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox10;
-    private javax.swing.JComboBox jComboBox11;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBoxLiteral;
+    private javax.swing.JCheckBox jCheckBoxLiteral1;
+    private javax.swing.JComboBox jComboBox12;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
-    private javax.swing.JComboBox jComboBox8;
     private javax.swing.JComboBox jComboBox9;
+    private javax.swing.JComboBox jComboBoxWhere;
+    private javax.swing.JComboBox jComboBoxWhere1;
+    private javax.swing.JFormattedTextField jFormattedTextData;
+    private javax.swing.JFormattedTextField jFormattedTextData1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JFormattedTextField jFormattedTextField4;
     private javax.swing.JFormattedTextField jFormattedTextField5;
+    private javax.swing.JFormattedTextField jFormattedTextFieldData1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldData2;
+    private javax.swing.JFormattedTextField jFormattedTextFieldData3;
+    private javax.swing.JFormattedTextField jFormattedTextFieldData4;
+    private javax.swing.JFormattedTextField jFormattedTextFieldNumero;
+    private javax.swing.JFormattedTextField jFormattedTextFieldNumero1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldValor1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldValor2;
+    private javax.swing.JFormattedTextField jFormattedTextFieldValor3;
+    private javax.swing.JFormattedTextField jFormattedTextFieldValor4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel102;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -2161,6 +3670,9 @@ CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
     private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
+    private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JMenu jMenuArquivo;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuConfigurar;
@@ -2181,22 +3693,34 @@ CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
     private javax.swing.JPanel jPanelConfigurar;
     private javax.swing.JPanel jPanelConsultarEstrela;
     private javax.swing.JPanel jPanelConsultarPlaneta;
+    private javax.swing.JPanel jPanelData;
+    private javax.swing.JPanel jPanelData1;
     private javax.swing.JPanel jPanelEdicaoEstrela;
     private javax.swing.JPanel jPanelEdicaoPlaneta;
     private javax.swing.JPanel jPanelEditarEstrela;
     private javax.swing.JPanel jPanelEditarPlaneta;
+    private javax.swing.JPanel jPanelEntreDatas;
+    private javax.swing.JPanel jPanelEntreDatas1;
+    private javax.swing.JPanel jPanelEntreNumeros;
+    private javax.swing.JPanel jPanelEntreNumeros1;
     private javax.swing.JPanel jPanelExcluirEstrela;
     private javax.swing.JPanel jPanelExcluirPlaneta;
     private javax.swing.JPanel jPanelGerarRelatorio;
     private javax.swing.JPanel jPanelNovoEstrela;
     private javax.swing.JPanel jPanelNovoPlaneta;
+    private javax.swing.JPanel jPanelNumero;
+    private javax.swing.JPanel jPanelNumero1;
     private javax.swing.JPanel jPanelPrincipal;
+    private javax.swing.JPanel jPanelString;
+    private javax.swing.JPanel jPanelString1;
     private javax.swing.JPanel jPanelTelaInicial;
+    private javax.swing.JPanel jPanelValores;
+    private javax.swing.JPanel jPanelValores1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
@@ -2221,9 +3745,9 @@ CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
     private javax.swing.JTable jTable10;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable7;
     private javax.swing.JTable jTable8;
     private javax.swing.JTable jTablePlanetas;
+    private javax.swing.JTable jTablePlanetas1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
@@ -2283,7 +3807,6 @@ CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
     private javax.swing.JTextField jTextField67;
     private javax.swing.JTextField jTextField68;
     private javax.swing.JTextField jTextField69;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField70;
     private javax.swing.JTextField jTextField71;
     private javax.swing.JTextField jTextField72;
@@ -2293,6 +3816,7 @@ CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
     private javax.swing.JTextField jTextField76;
     private javax.swing.JTextField jTextField77;
     private javax.swing.JTextField jTextField78;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextFieldTexto;
+    private javax.swing.JTextField jTextFieldTexto1;
     // End of variables declaration//GEN-END:variables
 }
