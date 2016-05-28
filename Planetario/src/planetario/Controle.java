@@ -325,12 +325,13 @@ public class Controle {
     }
 
     public void editarPlaneta(String[] planeta) throws ParseException {
+        
         int id = Integer.parseInt(planeta[0]);
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         Planeta planetas = new Planeta();
         Transaction tr = sessao.beginTransaction();
         
-        planetas = (Planeta) sessao.load(Planeta.class, id);
+        //planetas = (Planeta) sessao.load(Planeta.class, id);
         
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy/MM/dd");
