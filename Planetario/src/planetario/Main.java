@@ -762,7 +762,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton24)
                     .addComponent(jButtonEditarPlan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -846,7 +846,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1098,7 +1098,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton25)
                     .addComponent(jButton26))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1176,7 +1176,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1423,7 +1423,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jPanelValores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1491,7 +1491,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1786,7 +1786,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(jButton5)
                     .addComponent(jButton6))
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelNovoPlaneta, "jPanelNovoPlaneta");
@@ -2349,7 +2349,7 @@ public class Main extends javax.swing.JFrame {
         );
         jPanelGerarRelatorioLayout.setVerticalGroup(
             jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
+            .addGap(0, 824, Short.MAX_VALUE)
         );
 
         jPanelPrincipal.add(jPanelGerarRelatorio, "jPanelGerarRelatorio");
@@ -2369,7 +2369,7 @@ public class Main extends javax.swing.JFrame {
             jPanelTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTelaInicialLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2499,7 +2499,7 @@ public class Main extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
@@ -3746,6 +3746,10 @@ public class Main extends javax.swing.JFrame {
 
     private void jButtonEditarPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarPlanActionPerformed
         int linha = jTablePlanetas1.getSelectedRow();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy-MM-dd");
+        String data2;
+
         try {
             jLabelNomeEstrelaEdit.setText(jTablePlanetas1.getValueAt(linha, 2).toString().replace("null", ""));
             jLabelIDedit.setText(jTablePlanetas1.getValueAt(linha, 0).toString().replace("null", ""));
@@ -3765,7 +3769,12 @@ public class Main extends javax.swing.JFrame {
             jTextFieldInclinacaoEdit.setText(jTablePlanetas1.getValueAt(linha, 9).toString().replace("null", ""));
             jTextFieldIclinacaoEMinEdit.setText(jTablePlanetas1.getValueAt(linha, 10).toString().replace("null", ""));
             jTextFieldInclinacaoEMaxEdit.setText(jTablePlanetas1.getValueAt(linha, 11).toString().replace("null", ""));
-            jTextFieldAtualizacaoEdit.setText(jTablePlanetas1.getValueAt(linha, 14).toString().replace("null", ""));
+            try {
+                java.util.Date date = formatterMYSQL.parse(jTablePlanetas1.getValueAt(linha, 14).toString().replace("null", ""));
+                data2 = formatter.format(date).toString();
+                jTextFieldAtualizacaoEdit.setText(data2);
+            } catch (Exception ex) {
+            }
             jTextFieldDescobertaEdit.setText(jTablePlanetas1.getValueAt(linha, 13).toString().replace("null", ""));
             jTextFieldTempCalcEdit.setText(jTablePlanetas1.getValueAt(linha, 15).toString().replace("null", ""));
             jTextFieldDisAnguEdit.setText(jTablePlanetas1.getValueAt(linha, 12).toString().replace("null", ""));
@@ -3795,7 +3804,6 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        //JOptionPane.showConfirmDialog(null, "Tem certeza que deseja editar esse planeta?", "Deseja continuar?", JOptionPane.YES_NO_OPTION);
         int option = JOptionPane.showOptionDialog(null, "Tem certeza que deseja editar esse planeta?", "Deseja continuar?",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Não");
@@ -3826,14 +3834,16 @@ public class Main extends javax.swing.JFrame {
                 jTextFieldTDMassaEdit.getText(),
                 jTextFieldTDRaioEdit.getText(),
                 jTextFieldMolEncEdit.getText(),
-                jTextFieldTempMedioEdit.getText()
+                jTextFieldTempMedioEdit.getText(),
+                jLabelNomeEstrelaEdit.getText()
+
             };
-           try {
+            try {
                 controle.editarPlaneta(planeta);
             } catch (ParseException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             jButtonEditarPlan.setEnabled(false);
             javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas1.getModel();
             model.getDataVector().removeAllElements();

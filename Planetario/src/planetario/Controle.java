@@ -279,6 +279,16 @@ public class Controle {
         return ArrayPlanetas;
     }
 
+    public Planeta getPlaneta(String valor) {
+        ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
+        Planeta planetas;
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Iterator i = sessao.createQuery("from Planeta " + "where idPlaneta = '" + valor + "'").list().iterator();
+        planetas = (Planeta) i.next();
+        sessao.close();
+        return planetas;
+    }
+
     public void iniciarConexao() {
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         sessao.close();
@@ -325,47 +335,97 @@ public class Controle {
     }
 
     public void editarPlaneta(String[] planeta) throws ParseException {
-        
-        int id = Integer.parseInt(planeta[0]);
+
+
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         Planeta planetas = new Planeta();
-        Transaction tr = sessao.beginTransaction();
-        
-        //planetas = (Planeta) sessao.load(Planeta.class, id);
-        
+
+        planetas = getPlaneta(planeta[0]);
+
+        //System.out.print(planetas.getNomePlaneta());
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy/MM/dd");
         java.util.Date date = formatter.parse(planeta[15]);
         String data2 = formatterMYSQL.format(date).toString();
 
-        planetas.setNomePlaneta(planeta[1]);
-        planetas.setNomeAlternativo(planeta[2]);
-        planetas.setMassa(Float.parseFloat(planeta[3]));
-        planetas.setMassaErroMax(Float.parseFloat(planeta[4]));
-        planetas.setMassaErroMax(Float.parseFloat(planeta[5]));
-        planetas.setRaio(Float.parseFloat(planeta[6]));
-        planetas.setRaioErroMin(Float.parseFloat(planeta[7]));
-        planetas.setRaioErroMin(Float.parseFloat(planeta[8]));
-        planetas.setPeriodoOrbital(Float.parseFloat(planeta[9]));
-        planetas.setPeriodoOrbitalErroMin(Float.parseFloat(planeta[10]));
-        planetas.setPeriodoOrbitalErroMax(Float.parseFloat(planeta[11]));
-        planetas.setInclinacao(Float.parseFloat(planeta[12]));
-        planetas.setInclinacaoErroMin(Float.parseFloat(planeta[13]));
-        planetas.setInclinacaoErroMax(Float.parseFloat(planeta[14]));
-        planetas.setAtualizacao(formatterMYSQL.parse(data2));
-        planetas.setDescoberta(Integer.parseInt(planeta[16]));
-        planetas.setTempoCalculado(Integer.parseInt(planeta[17]));
-        planetas.setDistanciaAngular(Float.parseFloat(planeta[18]));
-        planetas.setStatusPublicacao(planeta[19]);
-        planetas.setTipoDeteccao(planeta[20]);
-        planetas.setTipoDeteccaoMassa(planeta[21]);
-        planetas.setTipoDeteccaoMassa(planeta[22]);
-        planetas.setTipoDeteccaoRaio(planeta[23]);
-        planetas.setTempoMedido(Integer.parseInt(planeta[24]));
-        
-        
-        tr.commit();
+        //planetas.setId(id);
+        if (!planeta[1].trim().isEmpty() && !planeta[1].trim().isEmpty()) {
+            planetas.setNomePlaneta(planeta[1].toString());
+        }
+        if (!planeta[2].trim().isEmpty() && !planeta[2].trim().isEmpty()) {
+            planetas.setNomeAlternativo(planeta[2].toString());
+        }
+        if (!planeta[3].trim().isEmpty() && !planeta[3].trim().isEmpty()) {
+            planetas.setMassa(Float.parseFloat(planeta[3]));
+        }
+        if (!planeta[4].trim().isEmpty() && !planeta[4].trim().isEmpty()) {
+            planetas.setMassaErroMax(Float.parseFloat(planeta[4]));
+        }
+        if (!planeta[5].trim().isEmpty() && !planeta[5].trim().isEmpty()) {
+            planetas.setMassaErroMax(Float.parseFloat(planeta[5]));
+        }
+        if (!planeta[6].trim().isEmpty() && !planeta[6].trim().isEmpty()) {
+            planetas.setRaio(Float.parseFloat(planeta[6]));
+        }
+        if (!planeta[7].trim().isEmpty() && !planeta[7].trim().isEmpty()) {
+            planetas.setRaioErroMin(Float.parseFloat(planeta[7]));
+        }
+        if (!planeta[8].trim().isEmpty() && !planeta[8].trim().isEmpty()) {
+            planetas.setRaioErroMin(Float.parseFloat(planeta[8]));
+        }
+        if (!planeta[9].trim().isEmpty() && !planeta[9].trim().isEmpty()) {
+            planetas.setPeriodoOrbital(Float.parseFloat(planeta[9]));
+        }
+        if (!planeta[10].trim().isEmpty() && !planeta[10].trim().isEmpty()) {
+            planetas.setPeriodoOrbitalErroMin(Float.parseFloat(planeta[10]));
+        }
+        if (!planeta[11].trim().isEmpty() && !planeta[11].trim().isEmpty()) {
+            planetas.setPeriodoOrbitalErroMax(Float.parseFloat(planeta[11]));
+        }
+        if (!planeta[12].trim().isEmpty() && !planeta[12].trim().isEmpty()) {
+            planetas.setInclinacao(Float.parseFloat(planeta[12]));
+        }
+        if (!planeta[13].trim().isEmpty() && !planeta[13].trim().isEmpty()) {
+            planetas.setInclinacaoErroMin(Float.parseFloat(planeta[13]));
+        }
+        if (!planeta[14].trim().isEmpty() && !planeta[14].trim().isEmpty()) {
+            planetas.setInclinacaoErroMax(Float.parseFloat(planeta[14]));
+        }
+        if (!planeta[15].trim().isEmpty() && !planeta[15].trim().isEmpty()) {
+            planetas.setAtualizacao(formatterMYSQL.parse(data2));
+        }
+        if (!planeta[16].trim().isEmpty() && !planeta[16].trim().isEmpty()) {
+            planetas.setDescoberta(Integer.parseInt(planeta[16]));
+        }
+        if (!planeta[17].trim().isEmpty() && !planeta[17].trim().isEmpty()) {
+            planetas.setTempoCalculado(Integer.parseInt(planeta[17]));
+        }
+        if (!planeta[18].trim().isEmpty() && !planeta[18].trim().isEmpty()) {
+            planetas.setDistanciaAngular(Float.parseFloat(planeta[18]));
+        }
+        if (!planeta[19].trim().isEmpty() && !planeta[19].trim().isEmpty()) {
+            planetas.setStatusPublicacao(planeta[19].toString());
+        }
+        if (!planeta[20].trim().isEmpty() && !planeta[20].trim().isEmpty()) {
+            planetas.setTipoDeteccao(planeta[20].toString());
+        }
+        if (!planeta[21].trim().isEmpty() && !planeta[21].trim().isEmpty()) {
+            planetas.setTipoDeteccaoMassa(planeta[21].toString());
+        }
+        if (!planeta[22].trim().isEmpty() && !planeta[22].trim().isEmpty()) {
+            planetas.setTipoDeteccaoMassa(planeta[22].toString());
+        }
+        if (!planeta[23].trim().isEmpty() && !planeta[23].trim().isEmpty()) {
+            planetas.setTipoDeteccaoRaio(planeta[23].toString());
+        }
+        if (!planeta[24].trim().isEmpty() && !planeta[24].trim().isEmpty()) {
+            planetas.setTempoMedido(Integer.parseInt(planeta[24]));
+        }
+
         sessao.update(planetas);
+        Transaction tr = sessao.beginTransaction();
+
+        tr.commit();
         sessao.close();
 
     }
