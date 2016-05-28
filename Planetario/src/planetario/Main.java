@@ -18,6 +18,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,6 +31,7 @@ public class Main extends javax.swing.JFrame {
     private Planeta planetas = new Planeta();
     private Estrelas estrelas = new Estrelas();
     private Controle controle = new Controle();
+
     /**
      * Creates new form Login
      */
@@ -72,7 +76,7 @@ public class Main extends javax.swing.JFrame {
         jComboBoxWhere1 = new javax.swing.JComboBox();
         jCheckBoxLiteral1 = new javax.swing.JCheckBox();
         jButton24 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        jButtonEditarPlan = new javax.swing.JButton();
         jPanelValores1 = new javax.swing.JPanel();
         jPanelEntreNumeros1 = new javax.swing.JPanel();
         jLabel99 = new javax.swing.JLabel();
@@ -103,15 +107,33 @@ public class Main extends javax.swing.JFrame {
         jTable5 = new javax.swing.JTable();
         jComboBox5 = new javax.swing.JComboBox();
         jPanelExcluirPlaneta = new javax.swing.JPanel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel87 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jButton14 = new javax.swing.JButton();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        jTable10 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jComboBox12 = new javax.swing.JComboBox();
+        jLabel103 = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTablePlanetas2 = new javax.swing.JTable();
+        jComboBoxWhere2 = new javax.swing.JComboBox();
+        jCheckBoxLiteral2 = new javax.swing.JCheckBox();
+        jButton25 = new javax.swing.JButton();
+        jButton26 = new javax.swing.JButton();
+        jPanelValores2 = new javax.swing.JPanel();
+        jPanelEntreNumeros2 = new javax.swing.JPanel();
+        jLabel104 = new javax.swing.JLabel();
+        jLabel105 = new javax.swing.JLabel();
+        jFormattedTextFieldValor5 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldValor6 = new javax.swing.JFormattedTextField();
+        jPanelNumero2 = new javax.swing.JPanel();
+        jLabel106 = new javax.swing.JLabel();
+        jFormattedTextFieldNumero2 = new javax.swing.JFormattedTextField();
+        jPanelData2 = new javax.swing.JPanel();
+        jLabel107 = new javax.swing.JLabel();
+        jFormattedTextData2 = new javax.swing.JFormattedTextField();
+        jPanelEntreDatas2 = new javax.swing.JPanel();
+        jLabel108 = new javax.swing.JLabel();
+        jLabel109 = new javax.swing.JLabel();
+        jFormattedTextFieldData5 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldData6 = new javax.swing.JFormattedTextField();
+        jPanelString2 = new javax.swing.JPanel();
+        jLabel110 = new javax.swing.JLabel();
+        jTextFieldTexto2 = new javax.swing.JTextField();
         jPanelExcluirEstrela = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
@@ -242,65 +264,69 @@ public class Main extends javax.swing.JFrame {
         jButton17 = new javax.swing.JButton();
         jPanelEdicaoPlaneta = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
-        jTextField39 = new javax.swing.JTextField();
+        jTextFieldStatusPEdit = new javax.swing.JTextField();
         jLabel53 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
-        jTextField40 = new javax.swing.JTextField();
+        jTextFieldNomeEdit = new javax.swing.JTextField();
         jLabel55 = new javax.swing.JLabel();
-        jTextField41 = new javax.swing.JTextField();
+        jTextFieldMassaEMaxEdit = new javax.swing.JTextField();
         jLabel56 = new javax.swing.JLabel();
-        jTextField42 = new javax.swing.JTextField();
-        jTextField43 = new javax.swing.JTextField();
-        jTextField44 = new javax.swing.JTextField();
+        jTextFieldMassaEdit = new javax.swing.JTextField();
+        jTextFieldRaioEdit = new javax.swing.JTextField();
+        jTextFieldMassaEMinEdit = new javax.swing.JTextField();
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
         jSeparator11 = new javax.swing.JSeparator();
         jLabel60 = new javax.swing.JLabel();
-        jTextField45 = new javax.swing.JTextField();
-        jTextField46 = new javax.swing.JTextField();
-        jLabel61 = new javax.swing.JLabel();
+        jTextFieldTDObjetoEdit = new javax.swing.JTextField();
+        jTextFieldTDRaioEdit = new javax.swing.JTextField();
+        jLabel554 = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
-        jTextField47 = new javax.swing.JTextField();
+        jTextFieldTDMassaEdit = new javax.swing.JTextField();
         jLabel63 = new javax.swing.JLabel();
         jSeparator12 = new javax.swing.JSeparator();
         jLabel64 = new javax.swing.JLabel();
-        jTextField48 = new javax.swing.JTextField();
-        jTextField49 = new javax.swing.JTextField();
+        jTextFieldDisAnguEdit = new javax.swing.JTextField();
+        jTextFieldDescobertaEdit = new javax.swing.JTextField();
         jLabel65 = new javax.swing.JLabel();
-        jTextField50 = new javax.swing.JTextField();
+        jTextFieldAtualizacaoEdit = new javax.swing.JTextField();
         jLabel66 = new javax.swing.JLabel();
-        jTextField51 = new javax.swing.JTextField();
+        jTextFieldTempCalcEdit = new javax.swing.JTextField();
         jLabel67 = new javax.swing.JLabel();
-        jTextField52 = new javax.swing.JTextField();
+        jTextFieldTempMedioEdit = new javax.swing.JTextField();
         jLabel68 = new javax.swing.JLabel();
-        jTextField53 = new javax.swing.JTextField();
+        jTextFieldPOEMaxEdit = new javax.swing.JTextField();
         jLabel69 = new javax.swing.JLabel();
-        jTextField54 = new javax.swing.JTextField();
+        jTextFieldPOEMinEdit = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
-        jTextField55 = new javax.swing.JTextField();
+        jTextFieldInclinacaoEMaxEdit = new javax.swing.JTextField();
         jSeparator13 = new javax.swing.JSeparator();
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
-        jTextField56 = new javax.swing.JTextField();
-        jTextField57 = new javax.swing.JTextField();
+        jTextFieldInclinacaoEdit = new javax.swing.JTextField();
+        jTextFieldIclinacaoEMinEdit = new javax.swing.JTextField();
         jLabel73 = new javax.swing.JLabel();
-        jTextField58 = new javax.swing.JTextField();
+        jTextFieldPOEdit = new javax.swing.JTextField();
         jLabel74 = new javax.swing.JLabel();
         jLabel75 = new javax.swing.JLabel();
         jLabel76 = new javax.swing.JLabel();
-        jTextField59 = new javax.swing.JTextField();
-        jTextField60 = new javax.swing.JTextField();
+        jTextFieldMolEncEdit = new javax.swing.JTextField();
+        jTextFieldRaioEMinEdit = new javax.swing.JTextField();
         jLabel77 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator14 = new javax.swing.JSeparator();
-        jTextField61 = new javax.swing.JTextField();
+        jTextFieldRaioEMaxEdit = new javax.swing.JTextField();
         jSeparator15 = new javax.swing.JSeparator();
-        jTextField62 = new javax.swing.JTextField();
+        jTextFieldNomeAltEdit = new javax.swing.JTextField();
         jSeparator16 = new javax.swing.JSeparator();
         jSeparator17 = new javax.swing.JSeparator();
         jButton18 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
+        jLabel87 = new javax.swing.JLabel();
+        jLabelIDedit = new javax.swing.JLabel();
+        jLabel111 = new javax.swing.JLabel();
+        jLabelNomeEstrelaEdit = new javax.swing.JLabel();
         jPanelEdicaoEstrela = new javax.swing.JPanel();
         jLabel88 = new javax.swing.JLabel();
         jLabel89 = new javax.swing.JLabel();
@@ -486,14 +512,14 @@ public class Main extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação orbital min", "Inclinação orbital max", "Distancia Angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médio", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas"
+                "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação orbital min", "Inclinação orbital max", "Distancia Angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médio", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas", "Raio", "Raio erro max", "Raio erro min"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -506,6 +532,11 @@ public class Main extends javax.swing.JFrame {
         });
         jTablePlanetas1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTablePlanetas1.setRowHeight(20);
+        jTablePlanetas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablePlanetas1MouseClicked(evt);
+            }
+        });
         jScrollPane11.setViewportView(jTablePlanetas1);
 
         jComboBoxWhere1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Raio", "Raio erro min", "Raio erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação erro min", "Inclinação erro max", "Distancia angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médido", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas" }));
@@ -529,7 +560,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton11.setText("Editar");
+        jButtonEditarPlan.setText("Editar");
+        jButtonEditarPlan.setEnabled(false);
+        jButtonEditarPlan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarPlanActionPerformed(evt);
+            }
+        });
 
         jPanelValores1.setBackground(new java.awt.Color(117, 89, 61));
         jPanelValores1.setAutoscrolls(true);
@@ -710,7 +747,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonEditarPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanelEditarPlanetaLayout.setVerticalGroup(
@@ -723,9 +760,9 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jCheckBoxLiteral1)
                     .addComponent(jPanelValores1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton24)
-                    .addComponent(jButton11))
+                    .addComponent(jButtonEditarPlan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -743,6 +780,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton4.setText("Editar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -810,25 +852,21 @@ public class Main extends javax.swing.JFrame {
 
         jPanelPrincipal.add(jPanelEditarEstrela, "jPanelEditarEstrela");
 
-        jLabel25.setText("Listar por");
+        jLabel103.setText("Listar por");
 
-        jLabel87.setText("Valor");
-
-        jButton14.setText("Buscar");
-
-        jTable10.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePlanetas2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação orbital min", "Inclinação orbital max", "Distancia Angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médio", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas"
+                "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação orbital min", "Inclinação orbital max", "Distancia Angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médio", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas", "Raio", "Raio erro min", "Raio erro max"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -839,19 +877,192 @@ public class Main extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable10.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jScrollPane10.setViewportView(jTable10);
+        jTablePlanetas2.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTablePlanetas2.setRowHeight(20);
+        jScrollPane12.setViewportView(jTablePlanetas2);
 
-        jButton1.setText("Excluir");
-
-        jCheckBox2.setText("Literal");
-
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Raio", "Raio erro min", "Raio erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação erro min", "Inclinação erro max", "Distancia angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médido", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas", " " }));
-        jComboBox12.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxWhere2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Raio", "Raio erro min", "Raio erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação erro min", "Inclinação erro max", "Distancia angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médido", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas" }));
+        jComboBoxWhere2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox12ActionPerformed(evt);
+                jComboBoxWhere2ActionPerformed(evt);
             }
         });
+
+        jCheckBoxLiteral2.setText("Literal");
+        jCheckBoxLiteral2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxLiteral2ActionPerformed(evt);
+            }
+        });
+
+        jButton25.setText("Buscar");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
+
+        jButton26.setText("Excluir");
+
+        jPanelValores2.setBackground(new java.awt.Color(117, 89, 61));
+        jPanelValores2.setAutoscrolls(true);
+        jPanelValores2.setLayout(new java.awt.CardLayout());
+
+        jLabel104.setText("Valor inicial");
+
+        jLabel105.setText("Valor final");
+
+        jFormattedTextFieldValor5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.############"))));
+
+        jFormattedTextFieldValor6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.############"))));
+
+        javax.swing.GroupLayout jPanelEntreNumeros2Layout = new javax.swing.GroupLayout(jPanelEntreNumeros2);
+        jPanelEntreNumeros2.setLayout(jPanelEntreNumeros2Layout);
+        jPanelEntreNumeros2Layout.setHorizontalGroup(
+            jPanelEntreNumeros2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreNumeros2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel104, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldValor5, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel105, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldValor6, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelEntreNumeros2Layout.setVerticalGroup(
+            jPanelEntreNumeros2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreNumeros2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel104)
+                .addComponent(jLabel105)
+                .addComponent(jFormattedTextFieldValor5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFormattedTextFieldValor6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores2.add(jPanelEntreNumeros2, "jPanelEntreNumeros1");
+
+        jLabel106.setText("Valor");
+
+        jFormattedTextFieldNumero2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.###############"))));
+        jFormattedTextFieldNumero2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldNumero2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelNumero2Layout = new javax.swing.GroupLayout(jPanelNumero2);
+        jPanelNumero2.setLayout(jPanelNumero2Layout);
+        jPanelNumero2Layout.setHorizontalGroup(
+            jPanelNumero2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNumero2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel106)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldNumero2, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE))
+        );
+        jPanelNumero2Layout.setVerticalGroup(
+            jPanelNumero2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNumero2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel106)
+                .addComponent(jFormattedTextFieldNumero2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores2.add(jPanelNumero2, "jPanelNumero1");
+
+        jLabel107.setText("Data inicial");
+
+        try {
+            jFormattedTextData2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jFormattedTextData2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextData2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelData2Layout = new javax.swing.GroupLayout(jPanelData2);
+        jPanelData2.setLayout(jPanelData2Layout);
+        jPanelData2Layout.setHorizontalGroup(
+            jPanelData2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelData2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel107)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jFormattedTextData2, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelData2Layout.setVerticalGroup(
+            jPanelData2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelData2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel107)
+                .addComponent(jFormattedTextData2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores2.add(jPanelData2, "jPanelData1");
+
+        jLabel108.setText("Data inicial");
+
+        jLabel109.setText("Data final");
+
+        try {
+            jFormattedTextFieldData5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jFormattedTextFieldData6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        javax.swing.GroupLayout jPanelEntreDatas2Layout = new javax.swing.GroupLayout(jPanelEntreDatas2);
+        jPanelEntreDatas2.setLayout(jPanelEntreDatas2Layout);
+        jPanelEntreDatas2Layout.setHorizontalGroup(
+            jPanelEntreDatas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreDatas2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel108, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldData5, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel109)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldData6, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelEntreDatas2Layout.setVerticalGroup(
+            jPanelEntreDatas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreDatas2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel108)
+                .addComponent(jLabel109)
+                .addComponent(jFormattedTextFieldData5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFormattedTextFieldData6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores2.add(jPanelEntreDatas2, "jPanelEntreDatas1");
+
+        jLabel110.setText("Valor");
+
+        javax.swing.GroupLayout jPanelString2Layout = new javax.swing.GroupLayout(jPanelString2);
+        jPanelString2.setLayout(jPanelString2Layout);
+        jPanelString2Layout.setHorizontalGroup(
+            jPanelString2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelString2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel110, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldTexto2, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelString2Layout.setVerticalGroup(
+            jPanelString2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelString2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jTextFieldTexto2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel110))
+        );
+
+        jPanelValores2.add(jPanelString2, "jPanelString1");
 
         javax.swing.GroupLayout jPanelExcluirPlanetaLayout = new javax.swing.GroupLayout(jPanelExcluirPlaneta);
         jPanelExcluirPlaneta.setLayout(jPanelExcluirPlanetaLayout);
@@ -860,38 +1071,34 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanelExcluirPlanetaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelExcluirPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane12)
                     .addGroup(jPanelExcluirPlanetaLayout.createSequentialGroup()
-                        .addComponent(jLabel25)
+                        .addComponent(jLabel103, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxWhere2, 0, 305, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jCheckBox2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel87)
+                        .addComponent(jCheckBoxLiteral2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
+                        .addComponent(jPanelValores2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane10))
+                        .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanelExcluirPlanetaLayout.setVerticalGroup(
             jPanelExcluirPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelExcluirPlanetaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelExcluirPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel87)
-                    .addComponent(jButton14)
-                    .addComponent(jButton1)
-                    .addGroup(jPanelExcluirPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCheckBox2)))
+                .addGroup(jPanelExcluirPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel103)
+                    .addComponent(jComboBoxWhere2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBoxLiteral2)
+                    .addComponent(jPanelValores2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton25)
+                    .addComponent(jButton26))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -989,14 +1196,14 @@ public class Main extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação orbital min", "Inclinação orbital max", "Distancia Angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médio", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas"
+                "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação orbital min", "Inclinação orbital max", "Distancia Angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médio", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas", "Raio", "Raio erro min", "Raio erro min"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1720,7 +1927,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel60.setText("Tipos de detecção");
 
-        jLabel61.setText("Nome alternativo");
+        jLabel554.setText("Nome alternativo");
 
         jLabel62.setText("Do objeto");
 
@@ -1755,8 +1962,26 @@ public class Main extends javax.swing.JFrame {
         jLabel77.setText("Moleculas encontradas");
 
         jButton18.setText("Editar planeta");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
 
         jButton20.setText("Cancelar");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
+        jLabel87.setText("ID do planeta:");
+
+        jLabelIDedit.setText("id");
+
+        jLabel111.setText("Nome da estrela:");
+
+        jLabelNomeEstrelaEdit.setText("estrela");
 
         javax.swing.GroupLayout jPanelEdicaoPlanetaLayout = new javax.swing.GroupLayout(jPanelEdicaoPlaneta);
         jPanelEdicaoPlaneta.setLayout(jPanelEdicaoPlanetaLayout);
@@ -1774,117 +1999,125 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelEdicaoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel73)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField58))
+                                .addComponent(jTextFieldPOEdit))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelEdicaoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel75)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField43)))
+                                .addComponent(jTextFieldRaioEdit)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel74)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField60)
+                                .addComponent(jTextFieldRaioEMinEdit)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel76)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField61))
+                                .addComponent(jTextFieldRaioEMaxEdit))
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel70)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField54)
+                                .addComponent(jTextFieldPOEMinEdit)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel69)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField53))))
+                                .addComponent(jTextFieldPOEMaxEdit))))
                     .addComponent(jSeparator14)
                     .addComponent(jSeparator15)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEdicaoPlanetaLayout.createSequentialGroup()
                         .addComponent(jLabel68)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField56)
+                        .addComponent(jTextFieldInclinacaoEdit)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel71)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField57)
+                        .addComponent(jTextFieldIclinacaoEMinEdit)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel72)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField55))
+                        .addComponent(jTextFieldInclinacaoEMaxEdit))
                     .addComponent(jSeparator13)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEdicaoPlanetaLayout.createSequentialGroup()
                         .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel65)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField50, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
+                                .addComponent(jTextFieldAtualizacaoEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel64))
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel63)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField48)))
+                                .addComponent(jTextFieldDisAnguEdit)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
-                                .addComponent(jTextField49, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                                .addComponent(jTextFieldDescobertaEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel66)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField51, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE))
+                                .addComponent(jTextFieldTempCalcEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE))
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel67)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField52))))
+                                .addComponent(jTextFieldTempMedioEdit))))
                     .addComponent(jSeparator11, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEdicaoPlanetaLayout.createSequentialGroup()
                         .addComponent(jLabel62)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField45)
+                        .addComponent(jTextFieldTDObjetoEdit)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel59)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField47)
+                        .addComponent(jTextFieldTDMassaEdit)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel52)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField46))
-                    .addComponent(jTextField59)
-                    .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
-                        .addComponent(jLabel54)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField40))
-                    .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
-                        .addComponent(jLabel61)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField62))
+                        .addComponent(jTextFieldTDRaioEdit))
+                    .addComponent(jTextFieldMolEncEdit)
                     .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
                         .addComponent(jLabel56)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField42)
+                        .addComponent(jTextFieldMassaEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel58)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField41)
+                        .addComponent(jTextFieldMassaEMaxEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel57)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField44))
-                    .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
-                        .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel55, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel60, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel77, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jTextFieldMassaEMinEdit))
                     .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
                         .addComponent(jLabel53)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField39))
+                        .addComponent(jTextFieldStatusPEdit))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEdicaoPlanetaLayout.createSequentialGroup()
+                        .addComponent(jLabel87)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelIDedit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel54)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 1359, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEdicaoPlanetaLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
+                        .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel55)
+                            .addComponent(jLabel60)
+                            .addComponent(jLabel77))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
+                        .addComponent(jLabel111)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelNomeEstrelaEdit)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel554)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldNomeAltEdit)))
                 .addContainerGap())
         );
         jPanelEdicaoPlanetaLayout.setVerticalGroup(
@@ -1895,98 +2128,102 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel54)
-                    .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel87)
+                    .addComponent(jLabelIDedit))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel61))
+                    .addComponent(jTextFieldNomeAltEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel554)
+                    .addComponent(jLabel111)
+                    .addComponent(jLabelNomeEstrelaEdit))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldMassaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel57, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldMassaEMinEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldMassaEMaxEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel75)
-                    .addComponent(jTextField43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldRaioEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel74)
-                    .addComponent(jTextField60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldRaioEMinEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel76)
-                    .addComponent(jTextField61, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldRaioEMaxEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel73)
-                    .addComponent(jTextField58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPOEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel70)
-                    .addComponent(jTextField54, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPOEMinEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel69)
-                    .addComponent(jTextField53, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldPOEMaxEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel68)
-                    .addComponent(jTextField56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldInclinacaoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel71)
-                    .addComponent(jTextField57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldIclinacaoEMinEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel72)
-                    .addComponent(jTextField55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldInclinacaoEMaxEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel64)
-                    .addComponent(jTextField49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDescobertaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel66)
-                    .addComponent(jTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTempCalcEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel65)
-                    .addComponent(jTextField50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAtualizacaoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTempMedioEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel63)
-                    .addComponent(jTextField48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDisAnguEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel67))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel53)
-                    .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldStatusPEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel60)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTDObjetoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel62)
                     .addComponent(jLabel59)
-                    .addComponent(jTextField47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTDMassaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel52)
-                    .addComponent(jTextField46, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldTDRaioEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel77)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField59, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldMolEncEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton18)
                     .addComponent(jButton20))
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelEdicaoPlaneta, "jPanelEdicaoPlaneta");
@@ -2378,7 +2615,7 @@ public class Main extends javax.swing.JFrame {
         String dateInString;
         //String dateInString1;
         //String dateInString2;
-        
+
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         if (jCheckBoxLiteral.isSelected()) {
             switch (jComboBoxWhere.getSelectedIndex()) {
@@ -2559,10 +2796,6 @@ public class Main extends javax.swing.JFrame {
         }
         return ArrayPlanetas;
     }
-    private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox12ActionPerformed
-
     private void jFormattedTextFieldNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldNumeroActionPerformed
@@ -2576,170 +2809,170 @@ public class Main extends javax.swing.JFrame {
         if (jCheckBoxLiteral.isSelected()) {
             switch (jComboBoxWhere.getSelectedIndex()) {
                 case 0:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 1:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 2:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 3:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 4:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 5:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 6:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 7:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 8:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 9:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 10:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 11:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 12:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 13:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 14:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 15:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 16:
-                cl.show(jPanelValores, "jPanelData");
-                break;
+                    cl.show(jPanelValores, "jPanelData");
+                    break;
                 case 17:
-                cl.show(jPanelValores, "jPanelData");
-                break;
+                    cl.show(jPanelValores, "jPanelData");
+                    break;
                 case 18:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 19:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 20:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 21:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 22:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 23:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 24:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 25:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 default:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
             }
         } else {
             switch (jComboBoxWhere.getSelectedIndex()) {
                 case 0:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 1:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 2:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 3:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 4:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 5:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 6:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 7:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 8:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 9:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 10:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 11:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 12:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 13:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 14:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 15:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 16:
-                cl.show(jPanelValores, "jPanelEntreDatas");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreDatas");
+                    break;
                 case 17:
-                cl.show(jPanelValores, "jPanelEntreDatas");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreDatas");
+                    break;
                 case 18:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 19:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 20:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 21:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 22:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 23:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 24:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 25:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 default:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
             }
         }
     }//GEN-LAST:event_jCheckBoxLiteralActionPerformed
@@ -2749,170 +2982,170 @@ public class Main extends javax.swing.JFrame {
         if (jCheckBoxLiteral.isSelected()) {
             switch (jComboBoxWhere.getSelectedIndex()) {
                 case 0:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 1:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 2:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 3:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 4:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 5:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 6:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 7:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 8:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 9:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 10:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 11:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 12:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 13:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 14:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 15:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 16:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 17:
-                cl.show(jPanelValores, "jPanelData");
-                break;
+                    cl.show(jPanelValores, "jPanelData");
+                    break;
                 case 18:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 19:
-                cl.show(jPanelValores, "jPanelNumero");
-                break;
+                    cl.show(jPanelValores, "jPanelNumero");
+                    break;
                 case 20:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 21:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 22:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 23:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 24:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 25:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 default:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
             }
         } else {
             switch (jComboBoxWhere.getSelectedIndex()) {
                 case 0:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 1:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 2:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 3:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 4:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 5:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 6:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 7:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 8:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 9:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 10:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 11:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 12:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 13:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 14:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 15:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 16:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 17:
-                cl.show(jPanelValores, "jPanelEntreDatas");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreDatas");
+                    break;
                 case 18:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 19:
-                cl.show(jPanelValores, "jPanelEntreNumeros");
-                break;
+                    cl.show(jPanelValores, "jPanelEntreNumeros");
+                    break;
                 case 20:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 21:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 22:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 23:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 24:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 case 25:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
                 default:
-                cl.show(jPanelValores, "jPanelString");
-                break;
+                    cl.show(jPanelValores, "jPanelString");
+                    break;
 
             }
         }
@@ -2935,347 +3168,346 @@ public class Main extends javax.swing.JFrame {
         if (jCheckBoxLiteral1.isSelected()) {
             switch (jComboBoxWhere1.getSelectedIndex()) {
                 case 0:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 1:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 2:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 3:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 4:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 5:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 6:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 7:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 8:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 9:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 10:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 11:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 12:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 13:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 14:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 15:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 16:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 17:
-                cl.show(jPanelValores1, "jPanelData1");
-                break;
+                    cl.show(jPanelValores1, "jPanelData1");
+                    break;
                 case 18:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 19:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 20:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 21:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 22:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 23:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 24:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 25:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 default:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
             }
         } else {
             switch (jComboBoxWhere1.getSelectedIndex()) {
                 case 0:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 1:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 2:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 3:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 4:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 5:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 6:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 7:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 8:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 9:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 10:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 11:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 12:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 13:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 14:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 15:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 16:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 17:
-                cl.show(jPanelValores1, "jPanelEntreDatas1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreDatas1");
+                    break;
                 case 18:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 19:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 20:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 21:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 22:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 23:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 24:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 25:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 default:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
 
             }
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_jComboBoxWhere1ActionPerformed
 
     private void jCheckBoxLiteral1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxLiteral1ActionPerformed
-CardLayout cl = (CardLayout) jPanelValores1.getLayout();
+        CardLayout cl = (CardLayout) jPanelValores1.getLayout();
         if (jCheckBoxLiteral1.isSelected()) {
             switch (jComboBoxWhere1.getSelectedIndex()) {
                 case 0:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 1:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 2:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 3:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 4:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 5:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 6:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 7:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 8:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 9:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 10:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 11:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 12:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 13:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 14:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 15:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 16:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 17:
-                cl.show(jPanelValores1, "jPanelData1");
-                break;
+                    cl.show(jPanelValores1, "jPanelData1");
+                    break;
                 case 18:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 19:
-                cl.show(jPanelValores1, "jPanelNumero1");
-                break;
+                    cl.show(jPanelValores1, "jPanelNumero1");
+                    break;
                 case 20:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 21:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 22:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 23:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 24:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 25:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 default:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
             }
         } else {
             switch (jComboBoxWhere1.getSelectedIndex()) {
                 case 0:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 1:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 2:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 3:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 4:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 5:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 6:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 7:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 8:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 9:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 10:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 11:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 12:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 13:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 14:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 15:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 16:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 17:
-                cl.show(jPanelValores1, "jPanelEntreDatas1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreDatas1");
+                    break;
                 case 18:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 19:
-                cl.show(jPanelValores1, "jPanelEntreNumeros1");
-                break;
+                    cl.show(jPanelValores1, "jPanelEntreNumeros1");
+                    break;
                 case 20:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 21:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 22:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 23:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 24:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 case 25:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
                 default:
-                cl.show(jPanelValores1, "jPanelString1");
-                break;
+                    cl.show(jPanelValores1, "jPanelString1");
+                    break;
 
             }
         }
@@ -3285,7 +3517,7 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy/MM/dd");
         String dateInString;
-        
+
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         if (jCheckBoxLiteral1.isSelected()) {
             switch (jComboBoxWhere1.getSelectedIndex()) {
@@ -3466,9 +3698,10 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
         }
         return ArrayPlanetas;
     }
-    
+
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
-          javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas1.getModel();
+        jButtonEditarPlan.setEnabled(false);
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas1.getModel();
         model.getDataVector().removeAllElements();
         ArrayList< String[]> ArrayPlanetas = buscaPlanetasEdit();
 
@@ -3487,15 +3720,140 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextData1ActionPerformed
 
+    private void jComboBoxWhere2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxWhere2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxWhere2ActionPerformed
+
+    private void jCheckBoxLiteral2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxLiteral2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxLiteral2ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jFormattedTextFieldNumero2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumero2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldNumero2ActionPerformed
+
+    private void jFormattedTextData2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextData2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextData2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButtonEditarPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarPlanActionPerformed
+        int linha = jTablePlanetas1.getSelectedRow();
+        try {
+            jLabelNomeEstrelaEdit.setText(jTablePlanetas1.getValueAt(linha, 2).toString().replace("null", ""));
+            jLabelIDedit.setText(jTablePlanetas1.getValueAt(linha, 0).toString().replace("null", ""));
+            jTextFieldNomeEdit.setText(jTablePlanetas1.getValueAt(linha, 1).toString().replace("null", ""));
+            jTextFieldNomeAltEdit.setText(jTablePlanetas1.getValueAt(linha, 21).toString().replace("null", ""));
+            jTextFieldMassaEdit.setText(jTablePlanetas1.getValueAt(linha, 3).toString().replace("null", ""));
+            jTextFieldMassaEMaxEdit.setText(jTablePlanetas1.getValueAt(linha, 4).toString().replace("null", ""));
+            jTextFieldMassaEMinEdit.setText(jTablePlanetas1.getValueAt(linha, 5).toString().replace("null", ""));
+
+            jTextFieldRaioEdit.setText(jTablePlanetas1.getValueAt(linha, 23).toString().replace("null", ""));
+            jTextFieldRaioEMinEdit.setText(jTablePlanetas1.getValueAt(linha, 24).toString().replace("null", ""));
+            jTextFieldRaioEMaxEdit.setText(jTablePlanetas1.getValueAt(linha, 25).toString().replace("null", ""));
+            jTextFieldPOEdit.setText(jTablePlanetas1.getValueAt(linha, 6).toString().replace("null", ""));
+            jTextFieldPOEMinEdit.setText(jTablePlanetas1.getValueAt(linha, 7).toString().replace("null", ""));
+            jTextFieldPOEMaxEdit.setText(jTablePlanetas1.getValueAt(linha, 8).toString().replace("null", ""));
+
+            jTextFieldInclinacaoEdit.setText(jTablePlanetas1.getValueAt(linha, 9).toString().replace("null", ""));
+            jTextFieldIclinacaoEMinEdit.setText(jTablePlanetas1.getValueAt(linha, 10).toString().replace("null", ""));
+            jTextFieldInclinacaoEMaxEdit.setText(jTablePlanetas1.getValueAt(linha, 11).toString().replace("null", ""));
+            jTextFieldAtualizacaoEdit.setText(jTablePlanetas1.getValueAt(linha, 14).toString().replace("null", ""));
+            jTextFieldDescobertaEdit.setText(jTablePlanetas1.getValueAt(linha, 13).toString().replace("null", ""));
+            jTextFieldTempCalcEdit.setText(jTablePlanetas1.getValueAt(linha, 15).toString().replace("null", ""));
+            jTextFieldDisAnguEdit.setText(jTablePlanetas1.getValueAt(linha, 12).toString().replace("null", ""));
+            jTextFieldStatusPEdit.setText(jTablePlanetas1.getValueAt(linha, 17).toString().replace("null", ""));
+            jTextFieldTDObjetoEdit.setText(jTablePlanetas1.getValueAt(linha, 18).toString().replace("null", ""));
+            jTextFieldTDMassaEdit.setText(jTablePlanetas1.getValueAt(linha, 19).toString().replace("null", ""));
+            jTextFieldTDRaioEdit.setText(jTablePlanetas1.getValueAt(linha, 20).toString().replace("null", ""));
+            jTextFieldMolEncEdit.setText(jTablePlanetas1.getValueAt(linha, 22).toString().replace("null", ""));
+            jTextFieldTempMedioEdit.setText(jTablePlanetas1.getValueAt(linha, 16).toString().replace("null", ""));
+
+        } catch (Exception ex) {
+        }
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelEdicaoPlaneta");
+
+    }//GEN-LAST:event_jButtonEditarPlanActionPerformed
+
+    private void jTablePlanetas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePlanetas1MouseClicked
+        jButtonEditarPlan.setEnabled(true);
+
+
+    }//GEN-LAST:event_jTablePlanetas1MouseClicked
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelEditarPlaneta");
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        //JOptionPane.showConfirmDialog(null, "Tem certeza que deseja editar esse planeta?", "Deseja continuar?", JOptionPane.YES_NO_OPTION);
+        int option = JOptionPane.showOptionDialog(null, "Tem certeza que deseja editar esse planeta?", "Deseja continuar?",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Não");
+        if (option < 1) {
+
+            String[] planeta = new String[]{
+                jLabelIDedit.getText(),
+                jTextFieldNomeEdit.getText(),
+                jTextFieldNomeAltEdit.getText(),
+                jTextFieldMassaEdit.getText(),
+                jTextFieldMassaEMaxEdit.getText(),
+                jTextFieldMassaEMinEdit.getText(),
+                jTextFieldRaioEdit.getText(),
+                jTextFieldRaioEMinEdit.getText(),
+                jTextFieldRaioEMaxEdit.getText(),
+                jTextFieldPOEdit.getText(),
+                jTextFieldPOEMinEdit.getText(),
+                jTextFieldPOEMaxEdit.getText(),
+                jTextFieldInclinacaoEdit.getText(),
+                jTextFieldIclinacaoEMinEdit.getText(),
+                jTextFieldInclinacaoEMaxEdit.getText(),
+                jTextFieldAtualizacaoEdit.getText(),
+                jTextFieldDescobertaEdit.getText(),
+                jTextFieldTempCalcEdit.getText(),
+                jTextFieldDisAnguEdit.getText(),
+                jTextFieldStatusPEdit.getText(),
+                jTextFieldTDObjetoEdit.getText(),
+                jTextFieldTDMassaEdit.getText(),
+                jTextFieldTDRaioEdit.getText(),
+                jTextFieldMolEncEdit.getText(),
+                jTextFieldTempMedioEdit.getText()
+            };
+           try {
+                controle.editarPlaneta(planeta);
+            } catch (ParseException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            jButtonEditarPlan.setEnabled(false);
+            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas1.getModel();
+            model.getDataVector().removeAllElements();
+            ArrayList< String[]> ArrayPlanetas = buscaPlanetasEdit();
+
+            for (String[] linha : ArrayPlanetas) {
+                model.addRow(linha);
+            }
+            CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+            cl.show(jPanelPrincipal, "jPanelEditarPlaneta");
+
+        }
+
+    }//GEN-LAST:event_jButton18ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -3524,11 +3882,8 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
@@ -3540,6 +3895,8 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -3547,17 +3904,19 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JButton jButtonEditarPlan;
     private javax.swing.JCheckBox jCheckBoxLiteral;
     private javax.swing.JCheckBox jCheckBoxLiteral1;
-    private javax.swing.JComboBox jComboBox12;
+    private javax.swing.JCheckBox jCheckBoxLiteral2;
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JComboBox jComboBox9;
     private javax.swing.JComboBox jComboBoxWhere;
     private javax.swing.JComboBox jComboBoxWhere1;
+    private javax.swing.JComboBox jComboBoxWhere2;
     private javax.swing.JFormattedTextField jFormattedTextData;
     private javax.swing.JFormattedTextField jFormattedTextData1;
+    private javax.swing.JFormattedTextField jFormattedTextData2;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JFormattedTextField jFormattedTextField4;
@@ -3566,18 +3925,32 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
     private javax.swing.JFormattedTextField jFormattedTextFieldData2;
     private javax.swing.JFormattedTextField jFormattedTextFieldData3;
     private javax.swing.JFormattedTextField jFormattedTextFieldData4;
+    private javax.swing.JFormattedTextField jFormattedTextFieldData5;
+    private javax.swing.JFormattedTextField jFormattedTextFieldData6;
     private javax.swing.JFormattedTextField jFormattedTextFieldNumero;
     private javax.swing.JFormattedTextField jFormattedTextFieldNumero1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldNumero2;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor1;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor2;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor3;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor4;
+    private javax.swing.JFormattedTextField jFormattedTextFieldValor5;
+    private javax.swing.JFormattedTextField jFormattedTextFieldValor6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
+    private javax.swing.JLabel jLabel103;
+    private javax.swing.JLabel jLabel104;
+    private javax.swing.JLabel jLabel105;
+    private javax.swing.JLabel jLabel106;
+    private javax.swing.JLabel jLabel107;
+    private javax.swing.JLabel jLabel108;
+    private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel110;
+    private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -3592,7 +3965,6 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -3626,13 +3998,13 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel554;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
@@ -3673,6 +4045,8 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
+    private javax.swing.JLabel jLabelIDedit;
+    private javax.swing.JLabel jLabelNomeEstrelaEdit;
     private javax.swing.JMenu jMenuArquivo;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuConfigurar;
@@ -3695,14 +4069,17 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
     private javax.swing.JPanel jPanelConsultarPlaneta;
     private javax.swing.JPanel jPanelData;
     private javax.swing.JPanel jPanelData1;
+    private javax.swing.JPanel jPanelData2;
     private javax.swing.JPanel jPanelEdicaoEstrela;
     private javax.swing.JPanel jPanelEdicaoPlaneta;
     private javax.swing.JPanel jPanelEditarEstrela;
     private javax.swing.JPanel jPanelEditarPlaneta;
     private javax.swing.JPanel jPanelEntreDatas;
     private javax.swing.JPanel jPanelEntreDatas1;
+    private javax.swing.JPanel jPanelEntreDatas2;
     private javax.swing.JPanel jPanelEntreNumeros;
     private javax.swing.JPanel jPanelEntreNumeros1;
+    private javax.swing.JPanel jPanelEntreNumeros2;
     private javax.swing.JPanel jPanelExcluirEstrela;
     private javax.swing.JPanel jPanelExcluirPlaneta;
     private javax.swing.JPanel jPanelGerarRelatorio;
@@ -3710,15 +4087,18 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
     private javax.swing.JPanel jPanelNovoPlaneta;
     private javax.swing.JPanel jPanelNumero;
     private javax.swing.JPanel jPanelNumero1;
+    private javax.swing.JPanel jPanelNumero2;
     private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JPanel jPanelString;
     private javax.swing.JPanel jPanelString1;
+    private javax.swing.JPanel jPanelString2;
     private javax.swing.JPanel jPanelTelaInicial;
     private javax.swing.JPanel jPanelValores;
     private javax.swing.JPanel jPanelValores1;
+    private javax.swing.JPanel jPanelValores2;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane8;
@@ -3742,13 +4122,12 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTable jTable10;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable8;
     private javax.swing.JTable jTablePlanetas;
     private javax.swing.JTable jTablePlanetas1;
-    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTable jTablePlanetas2;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
@@ -3775,31 +4154,7 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
     private javax.swing.JTextField jTextField36;
     private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField38;
-    private javax.swing.JTextField jTextField39;
-    private javax.swing.JTextField jTextField40;
-    private javax.swing.JTextField jTextField41;
-    private javax.swing.JTextField jTextField42;
-    private javax.swing.JTextField jTextField43;
-    private javax.swing.JTextField jTextField44;
-    private javax.swing.JTextField jTextField45;
-    private javax.swing.JTextField jTextField46;
-    private javax.swing.JTextField jTextField47;
-    private javax.swing.JTextField jTextField48;
-    private javax.swing.JTextField jTextField49;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField50;
-    private javax.swing.JTextField jTextField51;
-    private javax.swing.JTextField jTextField52;
-    private javax.swing.JTextField jTextField53;
-    private javax.swing.JTextField jTextField54;
-    private javax.swing.JTextField jTextField55;
-    private javax.swing.JTextField jTextField56;
-    private javax.swing.JTextField jTextField57;
-    private javax.swing.JTextField jTextField58;
-    private javax.swing.JTextField jTextField59;
-    private javax.swing.JTextField jTextField60;
-    private javax.swing.JTextField jTextField61;
-    private javax.swing.JTextField jTextField62;
     private javax.swing.JTextField jTextField63;
     private javax.swing.JTextField jTextField64;
     private javax.swing.JTextField jTextField65;
@@ -3816,7 +4171,32 @@ CardLayout cl = (CardLayout) jPanelValores1.getLayout();
     private javax.swing.JTextField jTextField76;
     private javax.swing.JTextField jTextField77;
     private javax.swing.JTextField jTextField78;
+    private javax.swing.JTextField jTextFieldAtualizacaoEdit;
+    private javax.swing.JTextField jTextFieldDescobertaEdit;
+    private javax.swing.JTextField jTextFieldDisAnguEdit;
+    private javax.swing.JTextField jTextFieldIclinacaoEMinEdit;
+    private javax.swing.JTextField jTextFieldInclinacaoEMaxEdit;
+    private javax.swing.JTextField jTextFieldInclinacaoEdit;
+    private javax.swing.JTextField jTextFieldMassaEMaxEdit;
+    private javax.swing.JTextField jTextFieldMassaEMinEdit;
+    private javax.swing.JTextField jTextFieldMassaEdit;
+    private javax.swing.JTextField jTextFieldMolEncEdit;
+    private javax.swing.JTextField jTextFieldNomeAltEdit;
+    private javax.swing.JTextField jTextFieldNomeEdit;
+    private javax.swing.JTextField jTextFieldPOEMaxEdit;
+    private javax.swing.JTextField jTextFieldPOEMinEdit;
+    private javax.swing.JTextField jTextFieldPOEdit;
+    private javax.swing.JTextField jTextFieldRaioEMaxEdit;
+    private javax.swing.JTextField jTextFieldRaioEMinEdit;
+    private javax.swing.JTextField jTextFieldRaioEdit;
+    private javax.swing.JTextField jTextFieldStatusPEdit;
+    private javax.swing.JTextField jTextFieldTDMassaEdit;
+    private javax.swing.JTextField jTextFieldTDObjetoEdit;
+    private javax.swing.JTextField jTextFieldTDRaioEdit;
+    private javax.swing.JTextField jTextFieldTempCalcEdit;
+    private javax.swing.JTextField jTextFieldTempMedioEdit;
     private javax.swing.JTextField jTextFieldTexto;
     private javax.swing.JTextField jTextFieldTexto1;
+    private javax.swing.JTextField jTextFieldTexto2;
     // End of variables declaration//GEN-END:variables
 }
