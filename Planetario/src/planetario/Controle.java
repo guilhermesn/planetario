@@ -5,14 +5,9 @@
  */
 package planetario;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
-import net.sf.ehcache.hibernate.HibernateUtil;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -111,8 +106,8 @@ public class Controle {
                         default:
                             return "";
                     }
-                } else {
-                    switch (buscar) {
+                }else{
+                     switch (buscar) {
                         case "ID":
                             return "where idPlaneta LIKE '%" + valor + "%'";
                         case "Nome":
@@ -167,7 +162,7 @@ public class Controle {
                             return "where moleculas LIKE '%" + valor + "%'";
                         default:
                             return "";
-                    }
+                    }     
                 }
             }
             return "";
@@ -175,70 +170,70 @@ public class Controle {
         return "";
     }
 
-    public String selecionaWherePlaneta(String buscar, String valor1, String valor2) {
+    public String selecionaWherePlaneta(String buscar, String valor1,String valor2) {
 
         if (valor1 != null && valor2 != null) {
             if (!valor1.trim().isEmpty() && !valor2.trim().isEmpty()) {
-                switch (buscar) {
-                    case "ID":
-                        return "where idPlaneta >= '" + valor1 + "' and idPlaneta <= '" + valor2 + "'";
-                    case "Massa erro min":
-                        return "where massaErroMin >= '" + valor1 + "' and massaErroMin <= '" + valor2 + "'";
-                    case "Massa erro max":
-                        return "where massaErroMax >= '" + valor1 + "' and massaErroMax <= '" + valor2 + "'";
-                    case "Massa":
-                        return "where massa >= '" + valor1 + "' and massa <= '" + valor2 + "'";
-                    case "Raio":
-                        return "where raio >= '" + valor1 + "' and raio <= '" + valor2 + "'";
-                    case "Raio erro min":
-                        return "where raioErroMin >= '" + valor1 + "' and raioErroMin <= '" + valor2 + "'";
-                    case "Raio erro max":
-                        return "where raioErroMax >= '" + valor1 + "' and raioErroMax <= '" + valor2 + "'";
-                    case "Periodo orbital":
-                        return "periodoOrbital >= '" + valor1 + "' and periodoOrbital <= '" + valor2 + "'";
-                    case "Periodo orbital erro min":
-                        return "where periodoOrbitalErroMin >= '" + valor1 + "' and periodoOrbitalErroMin <= '" + valor2 + "'";
-                    case "Periodo orbital erro max":
-                        return "where nomePlaneta >= '" + valor1 + "' and nomePlaneta <= '" + valor2 + "'";
-                    case "periodoOrbitalErroMax":
-                        return "where nomePlaneta >= '" + valor1 + "' and nomePlaneta <= '" + valor2 + "'";
-                    case "Inclinação":
-                        return "where inclinacao >= '" + valor1 + "' and inclinacao <= '" + valor2 + "'";
-                    case "Inclinação erro min":
-                        return "where inclinacaoErroMin >= '" + valor1 + "' and inclinacaoErroMin <= '" + valor2 + "'";
-                    case "Inclinação erro max":
-                        return "where inclinacaoErroMax >= '" + valor1 + "' and inclinacaoErroMax <= '" + valor2 + "'";
-                    case "Distancia angular":
-                        return "where distanciaAngular >= '" + valor1 + "' and distanciaAngular <= '" + valor2 + "'";
-                    case "Descoberta":
-                        return "where descoberta >= '" + valor1 + "' and descoberta <= '" + valor2 + "'";
-                    case "Atualização":
-                        return "where atualizacao >= '" + valor1 + "' and atualizacao <= '" + valor2 + "'";
-                    case "Tempo calculado":
-                        return "where tempoCalculado >= '" + valor1 + "' and tempoCalculado <= '" + valor2 + "'";
-                    case "Tempo médido":
-                        return "where tempoMedido >= '" + valor1 + "' and tempoMedido <= '" + valor2 + "'";
-                    case "Status da publição":
-                        return "where statusPublicacao >= '" + valor1 + "' and statusPublicacao <= '" + valor2 + "'";
-                    case "Tipo de detecção":
-                        return "where tipoDeteccao >= '" + valor1 + "' and tipoDeteccao <= '" + valor2 + "'";
-                    case "Tipo de detecção de massa":
-                        return "where tipoDeteccaoMassa >= '" + valor1 + "' and tipoDeteccaoMassa <= '" + valor2 + "'";
-                    case "Tipo de detecção de raio":
-                        return "where tipoDeteccaoRaio >= '" + valor1 + "' and tipoDeteccaoRaio <= '" + valor2 + "'";
-                    case "Nome alternativo":
-                        return "where nomeAlternativo >= '" + valor1 + "' and nomeAlternativo <= '" + valor2 + "'";
-                    case "Moleculas encontradas":
-                        return "where moleculas >= '" + valor1 + "' and moleculas <= '" + valor2 + "'";
-                    default:
-                        return "";
-                }
+                    switch (buscar) {
+                        case "ID":
+                            return "where idPlaneta >= '" + valor1 + "' and idPlaneta <= '" + valor2 + "'";
+                        case "Massa erro min":
+                            return "where massaErroMin >= '" + valor1 + "' and massaErroMin <= '" + valor2 + "'";
+                        case "Massa erro max":
+                            return "where massaErroMax >= '" + valor1 + "' and massaErroMax <= '" + valor2 + "'";
+                        case "Massa":
+                            return "where massa >= '" + valor1 + "' and massa <= '" + valor2 + "'";
+                        case "Raio":
+                            return "where raio >= '" + valor1 + "' and raio <= '" + valor2 + "'";
+                        case "Raio erro min":
+                            return "where raioErroMin >= '" + valor1 + "' and raioErroMin <= '" + valor2 + "'";
+                        case "Raio erro max":
+                            return "where raioErroMax >= '" + valor1 + "' and raioErroMax <= '" + valor2 + "'";
+                        case "Periodo orbital":
+                            return "periodoOrbital >= '" + valor1 + "' and periodoOrbital <= '" + valor2 + "'";
+                        case "Periodo orbital erro min":
+                            return "where periodoOrbitalErroMin >= '" + valor1 + "' and periodoOrbitalErroMin <= '" + valor2 + "'";
+                        case "Periodo orbital erro max":
+                            return "where nomePlaneta >= '" + valor1 + "' and nomePlaneta <= '" + valor2 + "'";
+                        case "periodoOrbitalErroMax":
+                            return "where nomePlaneta >= '" + valor1 + "' and nomePlaneta <= '" + valor2 + "'";
+                        case "Inclinação":
+                            return "where inclinacao >= '" + valor1 + "' and inclinacao <= '" + valor2 + "'";
+                        case "Inclinação erro min":
+                            return "where inclinacaoErroMin >= '" + valor1 + "' and inclinacaoErroMin <= '" + valor2 + "'";
+                        case "Inclinação erro max":
+                            return "where inclinacaoErroMax >= '" + valor1 + "' and inclinacaoErroMax <= '" + valor2 + "'";
+                        case "Distancia angular":
+                            return "where distanciaAngular >= '" + valor1 + "' and distanciaAngular <= '" + valor2 + "'";
+                        case "Descoberta":
+                            return "where descoberta >= '" + valor1 + "' and descoberta <= '" + valor2 + "'";
+                        case "Atualização":
+                            return "where atualizacao >= '" + valor1 + "' and atualizacao <= '" + valor2 + "'";
+                        case "Tempo calculado":
+                            return "where tempoCalculado >= '" + valor1 + "' and tempoCalculado <= '" + valor2 + "'";
+                        case "Tempo médido":
+                            return "where tempoMedido >= '" + valor1 + "' and tempoMedido <= '" + valor2 + "'";
+                        case "Status da publição":
+                            return "where statusPublicacao >= '" + valor1 + "' and statusPublicacao <= '" + valor2 + "'";
+                        case "Tipo de detecção":
+                            return "where tipoDeteccao >= '" + valor1 + "' and tipoDeteccao <= '" + valor2 + "'";
+                        case "Tipo de detecção de massa":
+                            return "where tipoDeteccaoMassa >= '" + valor1 + "' and tipoDeteccaoMassa <= '" + valor2 + "'";
+                        case "Tipo de detecção de raio":
+                            return "where tipoDeteccaoRaio >= '" + valor1 + "' and tipoDeteccaoRaio <= '" + valor2 + "'";
+                        case "Nome alternativo":
+                            return "where nomeAlternativo >= '" + valor1 + "' and nomeAlternativo <= '" + valor2 + "'";
+                        case "Moleculas encontradas":
+                            return "where moleculas >= '" + valor1 + "' and moleculas <= '" + valor2 + "'";
+                        default:
+                            return "";
+                    }
             }
             return "";
         }
         return "";
     }
-
+    
     public ArrayList<String[]> listaPlanetas(String busca, String valor, boolean literal) {
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         Planeta planetas;
@@ -269,21 +264,16 @@ public class Controle {
                 planetas.getTipoDeteccaoMassa() + "",
                 planetas.getTipoDeteccaoRaio() + "",
                 planetas.getNomeAlternativo() + "",
-                planetas.getMoleculas() + "",
-                planetas.getRaio() + "",
-                planetas.getRaioErroMin() + "",
-                planetas.getRaioErroMax() + ""
+                planetas.getMoleculas() + ""
             });
         }
         sessao.close();
         return ArrayPlanetas;
     }
-
-    public void iniciarConexao() {
+    public void iniciarConexao(){
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         sessao.close();
     }
-
     public ArrayList<String[]> listaPlanetas(String busca, String valor1, String valor2) {
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         Planeta planetas;
@@ -314,58 +304,11 @@ public class Controle {
                 planetas.getTipoDeteccaoMassa() + "",
                 planetas.getTipoDeteccaoRaio() + "",
                 planetas.getNomeAlternativo() + "",
-                planetas.getMoleculas() + "",
-                planetas.getRaio() + "",
-                planetas.getRaioErroMin() + "",
-                planetas.getRaioErroMax() + ""
+                planetas.getMoleculas() + ""
             });
         }
         sessao.close();
         return ArrayPlanetas;
     }
-
-    public void editarPlaneta(String[] planeta) throws ParseException {
-        int id = Integer.parseInt(planeta[0]);
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
-        Planeta planetas = new Planeta();
-        Transaction tr = sessao.beginTransaction();
-        
-        planetas = (Planeta) sessao.load(Planeta.class, id);
-        
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy/MM/dd");
-        java.util.Date date = formatter.parse(planeta[15]);
-        String data2 = formatterMYSQL.format(date).toString();
-
-        planetas.setNomePlaneta(planeta[1]);
-        planetas.setNomeAlternativo(planeta[2]);
-        planetas.setMassa(Float.parseFloat(planeta[3]));
-        planetas.setMassaErroMax(Float.parseFloat(planeta[4]));
-        planetas.setMassaErroMax(Float.parseFloat(planeta[5]));
-        planetas.setRaio(Float.parseFloat(planeta[6]));
-        planetas.setRaioErroMin(Float.parseFloat(planeta[7]));
-        planetas.setRaioErroMin(Float.parseFloat(planeta[8]));
-        planetas.setPeriodoOrbital(Float.parseFloat(planeta[9]));
-        planetas.setPeriodoOrbitalErroMin(Float.parseFloat(planeta[10]));
-        planetas.setPeriodoOrbitalErroMax(Float.parseFloat(planeta[11]));
-        planetas.setInclinacao(Float.parseFloat(planeta[12]));
-        planetas.setInclinacaoErroMin(Float.parseFloat(planeta[13]));
-        planetas.setInclinacaoErroMax(Float.parseFloat(planeta[14]));
-        planetas.setAtualizacao(formatterMYSQL.parse(data2));
-        planetas.setDescoberta(Integer.parseInt(planeta[16]));
-        planetas.setTempoCalculado(Integer.parseInt(planeta[17]));
-        planetas.setDistanciaAngular(Float.parseFloat(planeta[18]));
-        planetas.setStatusPublicacao(planeta[19]);
-        planetas.setTipoDeteccao(planeta[20]);
-        planetas.setTipoDeteccaoMassa(planeta[21]);
-        planetas.setTipoDeteccaoMassa(planeta[22]);
-        planetas.setTipoDeteccaoRaio(planeta[23]);
-        planetas.setTempoMedido(Integer.parseInt(planeta[24]));
-        
-        
-        tr.commit();
-        sessao.update(planetas);
-        sessao.close();
-
-    }
+    
 }
