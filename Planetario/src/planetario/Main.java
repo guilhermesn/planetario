@@ -113,7 +113,7 @@ public class Main extends javax.swing.JFrame {
         jComboBoxWhere2 = new javax.swing.JComboBox();
         jCheckBoxLiteral2 = new javax.swing.JCheckBox();
         jButton25 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
+        jButtonExcluirPlan = new javax.swing.JButton();
         jPanelValores2 = new javax.swing.JPanel();
         jPanelEntreNumeros2 = new javax.swing.JPanel();
         jLabel104 = new javax.swing.JLabel();
@@ -879,6 +879,11 @@ public class Main extends javax.swing.JFrame {
         });
         jTablePlanetas2.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTablePlanetas2.setRowHeight(20);
+        jTablePlanetas2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablePlanetas2MouseClicked(evt);
+            }
+        });
         jScrollPane12.setViewportView(jTablePlanetas2);
 
         jComboBoxWhere2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Estrela", "Massa", "Massa erro min", "Massa erro max", "Raio", "Raio erro min", "Raio erro max", "Periodo orbital", "Periodo orbital erro min", "Periodo orbital erro max", "Inclinação", "Inclinação erro min", "Inclinação erro max", "Distancia angular", "Descoberta", "Atualização", "Tempo calculado", "Tempo médido", "Status da publição", "Tipo de detecção", "Tipo de detecção de massa", "Tipo de detecção de raio", "Nome alternativo", "Moleculas encontradas" }));
@@ -902,7 +907,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton26.setText("Excluir");
+        jButtonExcluirPlan.setText("Excluir");
+        jButtonExcluirPlan.setEnabled(false);
+        jButtonExcluirPlan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirPlanActionPerformed(evt);
+            }
+        });
 
         jPanelValores2.setBackground(new java.awt.Color(117, 89, 61));
         jPanelValores2.setAutoscrolls(true);
@@ -940,7 +951,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jFormattedTextFieldValor6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanelValores2.add(jPanelEntreNumeros2, "jPanelEntreNumeros1");
+        jPanelValores2.add(jPanelEntreNumeros2, "jPanelEntreNumeros2");
 
         jLabel106.setText("Valor");
 
@@ -968,7 +979,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jFormattedTextFieldNumero2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanelValores2.add(jPanelNumero2, "jPanelNumero1");
+        jPanelValores2.add(jPanelNumero2, "jPanelNumero2");
 
         jLabel107.setText("Data inicial");
 
@@ -1000,7 +1011,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jFormattedTextData2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanelValores2.add(jPanelData2, "jPanelData1");
+        jPanelValores2.add(jPanelData2, "jPanelData2");
 
         jLabel108.setText("Data inicial");
 
@@ -1041,7 +1052,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jFormattedTextFieldData6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanelValores2.add(jPanelEntreDatas2, "jPanelEntreDatas1");
+        jPanelValores2.add(jPanelEntreDatas2, "jPanelEntreDatas2");
 
         jLabel110.setText("Valor");
 
@@ -1062,7 +1073,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel110))
         );
 
-        jPanelValores2.add(jPanelString2, "jPanelString1");
+        jPanelValores2.add(jPanelString2, "jPanelString2");
 
         javax.swing.GroupLayout jPanelExcluirPlanetaLayout = new javax.swing.GroupLayout(jPanelExcluirPlaneta);
         jPanelExcluirPlaneta.setLayout(jPanelExcluirPlanetaLayout);
@@ -1083,7 +1094,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonExcluirPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanelExcluirPlanetaLayout.setVerticalGroup(
@@ -1096,7 +1107,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jCheckBoxLiteral2)
                     .addComponent(jPanelValores2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton25)
-                    .addComponent(jButton26))
+                    .addComponent(jButtonExcluirPlan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
                 .addContainerGap())
@@ -2499,7 +2510,7 @@ public class Main extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)
+                .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
@@ -3721,15 +3732,550 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jFormattedTextData1ActionPerformed
 
     private void jComboBoxWhere2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxWhere2ActionPerformed
-        // TODO add your handling code here:
+        CardLayout cl = (CardLayout) jPanelValores2.getLayout();
+        if (jCheckBoxLiteral2.isSelected()) {
+            switch (jComboBoxWhere2.getSelectedIndex()) {
+                case 0:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 1:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 2:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 3:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 4:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 5:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 6:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 7:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 8:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 9:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 10:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 11:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 12:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 13:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 14:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 15:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 16:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 17:
+                    cl.show(jPanelValores2, "jPanelData2");
+                    break;
+                case 18:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 19:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 20:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 21:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 22:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 23:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 24:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 25:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                default:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+            }
+        } else {
+            switch (jComboBoxWhere2.getSelectedIndex()) {
+                case 0:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 1:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 2:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 3:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 4:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 5:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 6:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 7:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 8:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 9:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 10:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 11:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 12:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 13:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 14:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 15:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 16:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 17:
+                    cl.show(jPanelValores2, "jPanelEntreDatas2");
+                    break;
+                case 18:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 19:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 20:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 21:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 22:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 23:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 24:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 25:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                default:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+
+            }
+        }
     }//GEN-LAST:event_jComboBoxWhere2ActionPerformed
 
     private void jCheckBoxLiteral2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxLiteral2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxLiteral2ActionPerformed
+        CardLayout cl = (CardLayout) jPanelValores2.getLayout();
+        if (jCheckBoxLiteral2.isSelected()) {
+            switch (jComboBoxWhere2.getSelectedIndex()) {
+                case 0:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 1:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 2:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 3:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 4:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 5:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 6:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 7:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 8:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 9:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 10:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 11:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 12:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 13:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 14:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 15:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 16:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 17:
+                    cl.show(jPanelValores2, "jPanelData2");
+                    break;
+                case 18:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 19:
+                    cl.show(jPanelValores2, "jPanelNumero2");
+                    break;
+                case 20:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 21:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 22:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 23:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 24:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 25:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                default:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+            }
+        } else {
+            switch (jComboBoxWhere2.getSelectedIndex()) {
+                case 0:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 1:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 2:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 3:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 4:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 5:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 6:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 7:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 8:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 9:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 10:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 11:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 12:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 13:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 14:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 15:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 16:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 17:
+                    cl.show(jPanelValores2, "jPanelEntreDatas2");
+                    break;
+                case 18:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 19:
+                    cl.show(jPanelValores2, "jPanelEntreNumeros2");
+                    break;
+                case 20:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 21:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 22:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 23:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 24:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                case 25:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
+                default:
+                    cl.show(jPanelValores2, "jPanelString2");
+                    break;
 
+            }
+        }
+    }//GEN-LAST:event_jCheckBoxLiteral2ActionPerformed
+    
+    private ArrayList< String[]> buscaPlanetasExcluir() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy/MM/dd");
+        String dateInString;
+
+        ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
+        if (jCheckBoxLiteral2.isSelected()) {
+            switch (jComboBoxWhere2.getSelectedIndex()) {
+                case 0:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 1:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), true));
+                    break;
+                case 2:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), true));
+                    break;
+                case 3:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 4:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 5:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 6:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 7:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 8:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 9:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 10:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 11:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 12:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 13:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 14:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 15:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 16:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 17:
+                    dateInString = jFormattedTextData.getText();
+
+                    try {
+                        java.util.Date date = formatter.parse(dateInString);
+                        ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), formatterMYSQL.format(date).toString(), true));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 18:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 19:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldNumero2.getText().replace(',', '.'), true));
+                    break;
+                case 20:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), true));
+                    break;
+                case 21:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), true));
+                    break;
+                case 22:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), true));
+                    break;
+                case 23:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), true));
+                    break;
+                case 24:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), true));
+                    break;
+                case 25:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), true));
+                    break;
+                default:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), true));
+                    break;
+            }
+        } else {
+            switch (jComboBoxWhere2.getSelectedIndex()) {
+                case 0:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 1:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), false));
+                    break;
+                case 2:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), false));
+                    break;
+                case 3:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 4:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 5:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 6:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 7:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 8:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 9:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 10:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 11:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 12:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 13:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 14:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 15:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 16:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 17:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldData2.getText(), jFormattedTextFieldData2.getText()));
+                    break;
+                case 18:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 19:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+                case 20:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), false));
+                    break;
+                case 21:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), false));
+                    break;
+                case 22:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), false));
+                    break;
+                case 23:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), false));
+                    break;
+                case 24:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), false));
+                    break;
+                case 25:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jTextFieldTexto2.getText(), false));
+                    break;
+                default:
+                    ArrayPlanetas = new ArrayList(controle.listaPlanetas(jComboBoxWhere2.getSelectedItem().toString(), jFormattedTextFieldValor5.getText().replace(',', '.'), jFormattedTextFieldValor6.getText().replace(',', '.')));
+                    break;
+
+            }
+        }
+        return ArrayPlanetas;
+    }
+    
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        // TODO add your handling code here:
+        jButtonExcluirPlan.setEnabled(false);
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas2.getModel();
+        model.getDataVector().removeAllElements();
+        ArrayList< String[]> ArrayPlanetas = buscaPlanetasExcluir();
+
+        for (String[] linha : ArrayPlanetas) {
+            model.addRow(linha);
+        }
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelExcluirPlaneta");
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jFormattedTextFieldNumero2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumero2ActionPerformed
@@ -3787,6 +4333,8 @@ public class Main extends javax.swing.JFrame {
 
         } catch (Exception ex) {
         }
+        
+        
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
         cl.show(jPanelPrincipal, "jPanelEdicaoPlaneta");
 
@@ -3859,9 +4407,31 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton18ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jTablePlanetas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePlanetas2MouseClicked
+        jButtonExcluirPlan.setEnabled(true);
+    }//GEN-LAST:event_jTablePlanetas2MouseClicked
+
+    private void jButtonExcluirPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirPlanActionPerformed
+        int linha = jTablePlanetas2.getSelectedRow();
+        try {
+        controle.excluirPlaneta(jTablePlanetas2.getValueAt(linha, 0).toString());
+        } catch (Exception ex) {
+        }
+        
+        jButtonExcluirPlan.setEnabled(false);
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas2.getModel();
+        model.getDataVector().removeAllElements();
+        ArrayList< String[]> ArrayPlanetas = buscaPlanetasExcluir();
+
+        for (String[] linhas : ArrayPlanetas) {
+            model.addRow(linhas);
+        }
+        
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelExcluirPlaneta");    
+    }//GEN-LAST:event_jButtonExcluirPlanActionPerformed
+
+    
     public static void main(String args[]) {
 
         try {
@@ -3906,7 +4476,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -3915,6 +4484,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonEditarPlan;
+    private javax.swing.JButton jButtonExcluirPlan;
     private javax.swing.JCheckBox jCheckBoxLiteral;
     private javax.swing.JCheckBox jCheckBoxLiteral1;
     private javax.swing.JCheckBox jCheckBoxLiteral2;

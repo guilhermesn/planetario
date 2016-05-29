@@ -165,7 +165,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="jPanelPrincipal" pref="824" max="32767" attributes="0"/>
+              <Component id="jPanelPrincipal" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -943,7 +943,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton25" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton26" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="jButtonExcluirPlan" min="-2" pref="98" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -960,7 +960,7 @@
                           <Component id="jCheckBoxLiteral2" alignment="2" max="-2" attributes="0"/>
                           <Component id="jPanelValores2" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton25" alignment="2" max="-2" attributes="0"/>
-                          <Component id="jButton26" alignment="2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonExcluirPlan" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane12" pref="759" max="32767" attributes="0"/>
@@ -1017,6 +1017,9 @@
                     <Property name="autoResizeMode" type="int" value="0"/>
                     <Property name="rowHeight" type="int" value="20"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTablePlanetas2MouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1073,10 +1076,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton25ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton26">
+            <Component class="javax.swing.JButton" name="jButtonExcluirPlan">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Excluir"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExcluirPlanActionPerformed"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanelValores2">
               <Properties>
@@ -1091,7 +1098,7 @@
                 <Container class="javax.swing.JPanel" name="jPanelEntreNumeros2">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                      <CardConstraints cardName="jPanelEntreNumeros1"/>
+                      <CardConstraints cardName="jPanelEntreNumeros2"/>
                     </Constraint>
                   </Constraints>
 
@@ -1152,7 +1159,7 @@
                 <Container class="javax.swing.JPanel" name="jPanelNumero2">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                      <CardConstraints cardName="jPanelNumero1"/>
+                      <CardConstraints cardName="jPanelNumero2"/>
                     </Constraint>
                   </Constraints>
 
@@ -1197,7 +1204,7 @@
                 <Container class="javax.swing.JPanel" name="jPanelData2">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                      <CardConstraints cardName="jPanelData1"/>
+                      <CardConstraints cardName="jPanelData2"/>
                     </Constraint>
                   </Constraints>
 
@@ -1242,7 +1249,7 @@
                 <Container class="javax.swing.JPanel" name="jPanelEntreDatas2">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                      <CardConstraints cardName="jPanelEntreDatas1"/>
+                      <CardConstraints cardName="jPanelEntreDatas2"/>
                     </Constraint>
                   </Constraints>
 
@@ -1302,7 +1309,7 @@
                 <Container class="javax.swing.JPanel" name="jPanelString2">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                      <CardConstraints cardName="jPanelString1"/>
+                      <CardConstraints cardName="jPanelString2"/>
                     </Constraint>
                   </Constraints>
 

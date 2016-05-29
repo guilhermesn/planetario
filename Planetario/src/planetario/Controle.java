@@ -280,7 +280,6 @@ public class Controle {
     }
 
     public Planeta getPlaneta(String valor) {
-        ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         Planeta planetas;
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         Iterator i = sessao.createQuery("from Planeta " + "where idPlaneta = '" + valor + "'").list().iterator();
@@ -288,7 +287,17 @@ public class Controle {
         sessao.close();
         return planetas;
     }
-
+    
+    public void excluirPlaneta(String valor) {
+        
+        Planeta planetas = new Planeta();
+        planetas = getPlaneta(valor);
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        sessao.delete(planetas);
+        Transaction tr = sessao.beginTransaction();
+        tr.commit();
+        sessao.close();
+    }
     public void iniciarConexao() {
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         sessao.close();
@@ -334,6 +343,7 @@ public class Controle {
         return ArrayPlanetas;
     }
 
+        
     public void editarPlaneta(String[] planeta) throws ParseException {
 
 
