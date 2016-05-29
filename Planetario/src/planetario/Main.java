@@ -178,7 +178,7 @@ public class Main extends javax.swing.JFrame {
         jComboBox9 = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        jPanelNovoPlaneta = new javax.swing.JPanel();
+        jPanelNovoPlaneta2 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jTextField15 = new javax.swing.JTextField();
@@ -327,6 +327,70 @@ public class Main extends javax.swing.JFrame {
         jLabelIDedit = new javax.swing.JLabel();
         jLabel111 = new javax.swing.JLabel();
         jLabelNomeEstrelaEdit = new javax.swing.JLabel();
+        jPanelNovoPlaneta = new javax.swing.JPanel();
+        jLabel61 = new javax.swing.JLabel();
+        jTextFieldStatusPEdit1 = new javax.swing.JTextField();
+        jLabel112 = new javax.swing.JLabel();
+        jLabel113 = new javax.swing.JLabel();
+        jTextFieldNomeEdit1 = new javax.swing.JTextField();
+        jLabel114 = new javax.swing.JLabel();
+        jTextFieldMassaEMaxEdit1 = new javax.swing.JTextField();
+        jLabel115 = new javax.swing.JLabel();
+        jTextFieldMassaEdit1 = new javax.swing.JTextField();
+        jTextFieldRaioEdit1 = new javax.swing.JTextField();
+        jTextFieldMassaEMinEdit1 = new javax.swing.JTextField();
+        jLabel116 = new javax.swing.JLabel();
+        jLabel117 = new javax.swing.JLabel();
+        jLabel118 = new javax.swing.JLabel();
+        jSeparator18 = new javax.swing.JSeparator();
+        jLabel119 = new javax.swing.JLabel();
+        jTextFieldTDObjetoEdit1 = new javax.swing.JTextField();
+        jTextFieldTDRaioEdit1 = new javax.swing.JTextField();
+        jLabel555 = new javax.swing.JLabel();
+        jLabel120 = new javax.swing.JLabel();
+        jTextFieldTDMassaEdit1 = new javax.swing.JTextField();
+        jLabel121 = new javax.swing.JLabel();
+        jSeparator19 = new javax.swing.JSeparator();
+        jLabel122 = new javax.swing.JLabel();
+        jTextFieldDisAnguEdit1 = new javax.swing.JTextField();
+        jTextFieldDescobertaEdit1 = new javax.swing.JTextField();
+        jLabel123 = new javax.swing.JLabel();
+        jTextFieldAtualizacaoEdit1 = new javax.swing.JTextField();
+        jLabel124 = new javax.swing.JLabel();
+        jTextFieldTempCalcEdit1 = new javax.swing.JTextField();
+        jLabel125 = new javax.swing.JLabel();
+        jTextFieldTempMedioEdit1 = new javax.swing.JTextField();
+        jLabel126 = new javax.swing.JLabel();
+        jTextFieldPOEMaxEdit1 = new javax.swing.JTextField();
+        jLabel127 = new javax.swing.JLabel();
+        jTextFieldPOEMinEdit1 = new javax.swing.JTextField();
+        jLabel128 = new javax.swing.JLabel();
+        jTextFieldInclinacaoEMaxEdit1 = new javax.swing.JTextField();
+        jSeparator20 = new javax.swing.JSeparator();
+        jLabel129 = new javax.swing.JLabel();
+        jLabel130 = new javax.swing.JLabel();
+        jTextFieldInclinacaoEdit1 = new javax.swing.JTextField();
+        jTextFieldIclinacaoEMinEdit1 = new javax.swing.JTextField();
+        jLabel131 = new javax.swing.JLabel();
+        jTextFieldPOEdit1 = new javax.swing.JTextField();
+        jLabel132 = new javax.swing.JLabel();
+        jLabel133 = new javax.swing.JLabel();
+        jLabel134 = new javax.swing.JLabel();
+        jTextFieldMolEncEdit1 = new javax.swing.JTextField();
+        jTextFieldRaioEMinEdit1 = new javax.swing.JTextField();
+        jLabel135 = new javax.swing.JLabel();
+        jSeparator21 = new javax.swing.JSeparator();
+        jSeparator22 = new javax.swing.JSeparator();
+        jTextFieldRaioEMaxEdit1 = new javax.swing.JTextField();
+        jSeparator25 = new javax.swing.JSeparator();
+        jTextFieldNomeAltEdit1 = new javax.swing.JTextField();
+        jSeparator26 = new javax.swing.JSeparator();
+        jSeparator27 = new javax.swing.JSeparator();
+        jButton26 = new javax.swing.JButton();
+        jButton27 = new javax.swing.JButton();
+        jLabel137 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jTextFieldEstrelaNome = new javax.swing.JTextField();
         jPanelEdicaoEstrela = new javax.swing.JPanel();
         jLabel88 = new javax.swing.JLabel();
         jLabel89 = new javax.swing.JLabel();
@@ -1566,30 +1630,30 @@ public class Main extends javax.swing.JFrame {
 
         jButton6.setText("Cancelar");
 
-        javax.swing.GroupLayout jPanelNovoPlanetaLayout = new javax.swing.GroupLayout(jPanelNovoPlaneta);
-        jPanelNovoPlaneta.setLayout(jPanelNovoPlanetaLayout);
-        jPanelNovoPlanetaLayout.setHorizontalGroup(
-            jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelNovoPlaneta2Layout = new javax.swing.GroupLayout(jPanelNovoPlaneta2);
+        jPanelNovoPlaneta2.setLayout(jPanelNovoPlaneta2Layout);
+        jPanelNovoPlaneta2Layout.setHorizontalGroup(
+            jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator10, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator8)
                     .addComponent(jSeparator3)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlanetaLayout.createSequentialGroup()
-                        .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelNovoPlanetaLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlaneta2Layout.createSequentialGroup()
+                        .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelNovoPlaneta2Layout.createSequentialGroup()
                                 .addComponent(jLabel34)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField22))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelNovoPlanetaLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelNovoPlaneta2Layout.createSequentialGroup()
                                 .addComponent(jLabel31)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField19)))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                        .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
                                 .addComponent(jLabel32)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField20)
@@ -1597,7 +1661,7 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jLabel33)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField21))
-                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                            .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
                                 .addComponent(jLabel35)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField23)
@@ -1607,7 +1671,7 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jTextField24))))
                     .addComponent(jSeparator4)
                     .addComponent(jSeparator5)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlanetaLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlaneta2Layout.createSequentialGroup()
                         .addComponent(jLabel37)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField25)
@@ -1620,32 +1684,32 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField27))
                     .addComponent(jSeparator7)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlanetaLayout.createSequentialGroup()
-                        .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlaneta2Layout.createSequentialGroup()
+                        .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
                                 .addComponent(jLabel42)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField30, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel41))
-                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                            .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
                                 .addComponent(jLabel40)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField28)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                        .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
                                 .addComponent(jTextField29, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel43)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField31, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE))
-                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                            .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
                                 .addComponent(jLabel44)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField32))))
                     .addComponent(jSeparator9, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlanetaLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlaneta2Layout.createSequentialGroup()
                         .addComponent(jLabel49)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField35)
@@ -1658,15 +1722,15 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField37))
                     .addComponent(jTextField38)
-                    .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                    .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
                         .addComponent(jLabel27)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField15))
-                    .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                    .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
                         .addComponent(jLabel50)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField34))
-                    .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                    .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
                         .addComponent(jLabel28)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField16)
@@ -1678,17 +1742,17 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel30)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField18))
-                    .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                    .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
                         .addComponent(jLabel45)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField33))
-                    .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
-                        .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
+                        .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel26)
                             .addComponent(jLabel47)
                             .addComponent(jLabel51))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlanetaLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlaneta2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1697,29 +1761,29 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        jPanelNovoPlanetaLayout.setVerticalGroup(
-            jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+        jPanelNovoPlaneta2Layout.setVerticalGroup(
+            jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNovoPlaneta2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel27)
                     .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel50))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextField18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1727,7 +1791,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32)
@@ -1737,7 +1801,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
                     .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel35)
@@ -1747,7 +1811,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37)
                     .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel38)
@@ -1757,7 +1821,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel41)
                     .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel43)
@@ -1765,13 +1829,13 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel42)
                     .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel40)
                     .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel44))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel45)
                     .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1779,7 +1843,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel47)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel49)
                     .addComponent(jLabel48)
@@ -1793,14 +1857,14 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelNovoPlaneta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton5)
                     .addComponent(jButton6))
                 .addContainerGap(220, Short.MAX_VALUE))
         );
 
-        jPanelPrincipal.add(jPanelNovoPlaneta, "jPanelNovoPlaneta");
+        jPanelPrincipal.add(jPanelNovoPlaneta2, "as");
 
         jLabel78.setText("Inserir nova estrela");
 
@@ -2238,6 +2302,318 @@ public class Main extends javax.swing.JFrame {
         );
 
         jPanelPrincipal.add(jPanelEdicaoPlaneta, "jPanelEdicaoPlaneta");
+
+        jLabel61.setText("Raio");
+
+        jLabel112.setText("Status da publicação");
+
+        jLabel113.setText("Nome");
+
+        jLabel114.setText("Inserir novo planeta");
+
+        jLabel115.setText("Massa");
+
+        jLabel116.setText("Massa erro max");
+
+        jLabel117.setText("Massa erro min");
+
+        jLabel118.setText("Massa");
+
+        jLabel119.setText("Tipos de detecção");
+
+        jLabel555.setText("Nome alternativo");
+
+        jLabel120.setText("Do objeto");
+
+        jLabel121.setText("Distancia angular");
+
+        jLabel122.setText("Data da descoberta");
+
+        jLabel123.setText("Data de atualização");
+
+        jLabel124.setText("Tempo calculado");
+
+        jLabel125.setText("Tempo médio");
+
+        jLabel126.setText("Inclinação");
+
+        jLabel127.setText("Erro max");
+
+        jLabel128.setText("Erro min");
+
+        jLabel129.setText("Erro min");
+
+        jLabel130.setText("Erro max");
+
+        jLabel131.setText("Periodo orbital");
+
+        jLabel132.setText("Erro min");
+
+        jLabel133.setText("Raio");
+
+        jLabel134.setText("Erro max");
+
+        jLabel135.setText("Moleculas encontradas");
+
+        jButton26.setText("Inserir planeta");
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
+            }
+        });
+
+        jButton27.setText("Limpar campos");
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
+
+        jLabel137.setText("Estrela:");
+
+        jButton1.setText("Selecionar estrela");
+
+        jTextFieldEstrelaNome.setEditable(false);
+
+        javax.swing.GroupLayout jPanelNovoPlanetaLayout = new javax.swing.GroupLayout(jPanelNovoPlaneta);
+        jPanelNovoPlaneta.setLayout(jPanelNovoPlanetaLayout);
+        jPanelNovoPlanetaLayout.setHorizontalGroup(
+            jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator26, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator19)
+                    .addComponent(jSeparator21)
+                    .addComponent(jSeparator27, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlanetaLayout.createSequentialGroup()
+                        .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelNovoPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel131)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldPOEdit1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelNovoPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel133)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldRaioEdit1)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel132)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldRaioEMinEdit1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel134)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldRaioEMaxEdit1))
+                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel128)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldPOEMinEdit1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel127)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldPOEMaxEdit1))))
+                    .addComponent(jSeparator22)
+                    .addComponent(jSeparator25)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlanetaLayout.createSequentialGroup()
+                        .addComponent(jLabel126)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldInclinacaoEdit1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel129)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldIclinacaoEMinEdit1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel130)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldInclinacaoEMaxEdit1))
+                    .addComponent(jSeparator20)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlanetaLayout.createSequentialGroup()
+                        .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel123)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldAtualizacaoEdit1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel122))
+                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel121)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldDisAnguEdit1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                                .addComponent(jTextFieldDescobertaEdit1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel124)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldTempCalcEdit1))
+                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                                .addComponent(jLabel125)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldTempMedioEdit1))))
+                    .addComponent(jSeparator18, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoPlanetaLayout.createSequentialGroup()
+                        .addComponent(jLabel120)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldTDObjetoEdit1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel118)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldTDMassaEdit1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel61)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldTDRaioEdit1))
+                    .addComponent(jTextFieldMolEncEdit1)
+                    .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                        .addComponent(jLabel115)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldMassaEdit1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel117)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldMassaEMaxEdit1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel116)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldMassaEMinEdit1))
+                    .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                        .addComponent(jLabel112)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldStatusPEdit1))
+                    .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                        .addComponent(jLabel113)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldNomeEdit1))
+                    .addComponent(jLabel114)
+                    .addComponent(jLabel119)
+                    .addComponent(jLabel135)
+                    .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                        .addComponent(jLabel137, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                                .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                                .addComponent(jTextFieldEstrelaNome, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel555, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldNomeAltEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 1009, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
+        );
+        jPanelNovoPlanetaLayout.setVerticalGroup(
+            jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel114)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator19, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldNomeEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel113))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldNomeAltEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel555)
+                    .addComponent(jLabel137)
+                    .addComponent(jButton1)
+                    .addComponent(jTextFieldEstrelaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel115, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldMassaEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel116, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldMassaEMinEdit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel117, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldMassaEMaxEdit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator21, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel133)
+                    .addComponent(jTextFieldRaioEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel132)
+                    .addComponent(jTextFieldRaioEMinEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel134)
+                    .addComponent(jTextFieldRaioEMaxEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel131)
+                    .addComponent(jTextFieldPOEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel128)
+                    .addComponent(jTextFieldPOEMinEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel127)
+                    .addComponent(jTextFieldPOEMaxEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel126)
+                    .addComponent(jTextFieldInclinacaoEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel129)
+                    .addComponent(jTextFieldIclinacaoEMinEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel130)
+                    .addComponent(jTextFieldInclinacaoEMaxEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel122)
+                    .addComponent(jTextFieldDescobertaEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel124)
+                    .addComponent(jTextFieldTempCalcEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel123)
+                    .addComponent(jTextFieldAtualizacaoEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldTempMedioEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel121)
+                    .addComponent(jTextFieldDisAnguEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel125))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel112)
+                    .addComponent(jTextFieldStatusPEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel119)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldTDObjetoEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel120)
+                    .addComponent(jLabel118)
+                    .addComponent(jTextFieldTDMassaEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel61)
+                    .addComponent(jTextFieldTDRaioEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator26, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel135)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldMolEncEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton26)
+                    .addComponent(jButton27))
+                .addContainerGap(218, Short.MAX_VALUE))
+        );
+
+        jPanelPrincipal.add(jPanelNovoPlaneta, "jPanelNovoPlaneta");
 
         jLabel88.setText("Alterar dados da estrela");
 
@@ -4078,7 +4454,7 @@ public class Main extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jCheckBoxLiteral2ActionPerformed
-    
+
     private ArrayList< String[]> buscaPlanetasExcluir() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy/MM/dd");
@@ -4264,7 +4640,7 @@ public class Main extends javax.swing.JFrame {
         }
         return ArrayPlanetas;
     }
-    
+
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
         jButtonExcluirPlan.setEnabled(false);
         javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas2.getModel();
@@ -4333,8 +4709,7 @@ public class Main extends javax.swing.JFrame {
 
         } catch (Exception ex) {
         }
-        
-        
+
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
         cl.show(jPanelPrincipal, "jPanelEdicaoPlaneta");
 
@@ -4414,10 +4789,10 @@ public class Main extends javax.swing.JFrame {
     private void jButtonExcluirPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirPlanActionPerformed
         int linha = jTablePlanetas2.getSelectedRow();
         try {
-        controle.excluirPlaneta(jTablePlanetas2.getValueAt(linha, 0).toString());
+            controle.excluirPlaneta(jTablePlanetas2.getValueAt(linha, 0).toString());
         } catch (Exception ex) {
         }
-        
+
         jButtonExcluirPlan.setEnabled(false);
         javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas2.getModel();
         model.getDataVector().removeAllElements();
@@ -4426,12 +4801,111 @@ public class Main extends javax.swing.JFrame {
         for (String[] linhas : ArrayPlanetas) {
             model.addRow(linhas);
         }
-        
+
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-        cl.show(jPanelPrincipal, "jPanelExcluirPlaneta");    
+        cl.show(jPanelPrincipal, "jPanelExcluirPlaneta");
     }//GEN-LAST:event_jButtonExcluirPlanActionPerformed
 
-    
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        int option = JOptionPane.showOptionDialog(null, "Tem certeza que deseja cadastrar esse planeta?", "Deseja continuar?",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Não");
+        if (option < 1) {
+
+            String[] planeta = new String[]{
+                //jLabelIDEdit1.getText(),
+
+                jTextFieldNomeEdit1.getText(),
+                jTextFieldNomeAltEdit1.getText(),
+                jTextFieldMassaEdit1.getText(),
+                jTextFieldMassaEMaxEdit1.getText(),
+                jTextFieldMassaEMinEdit1.getText(),
+                jTextFieldRaioEdit1.getText(),
+                jTextFieldRaioEMinEdit1.getText(),
+                jTextFieldRaioEMaxEdit1.getText(),
+                jTextFieldPOEdit1.getText(),
+                jTextFieldPOEMinEdit1.getText(),
+                jTextFieldPOEMaxEdit1.getText(),
+                jTextFieldInclinacaoEdit1.getText(),
+                jTextFieldIclinacaoEMinEdit1.getText(),
+                jTextFieldInclinacaoEMaxEdit1.getText(),
+                jTextFieldAtualizacaoEdit1.getText(),
+                jTextFieldDescobertaEdit1.getText(),
+                jTextFieldTempCalcEdit1.getText(),
+                jTextFieldDisAnguEdit1.getText(),
+                jTextFieldStatusPEdit1.getText(),
+                jTextFieldTDObjetoEdit1.getText(),
+                jTextFieldTDMassaEdit1.getText(),
+                jTextFieldTDRaioEdit1.getText(),
+                jTextFieldMolEncEdit1.getText(),
+                jTextFieldTempMedioEdit1.getText(), //jLabelNomeEstrelaEdit1.getText()
+            };
+            try {
+                controle.cadastrarPlaneta(planeta);
+                jTextFieldNomeEdit1.setText("");
+                jTextFieldNomeAltEdit1.setText("");
+                jTextFieldMassaEdit1.setText("");
+                jTextFieldMassaEMaxEdit1.setText("");
+                jTextFieldMassaEMinEdit1.setText("");
+                jTextFieldRaioEdit1.setText("");
+                jTextFieldRaioEMinEdit1.setText("");
+                jTextFieldRaioEMaxEdit1.setText("");
+                jTextFieldPOEdit1.setText("");
+                jTextFieldPOEMinEdit1.setText("");
+                jTextFieldPOEMaxEdit1.setText("");
+                jTextFieldInclinacaoEdit1.setText("");
+                jTextFieldIclinacaoEMinEdit1.setText("");
+                jTextFieldInclinacaoEMaxEdit1.setText("");
+                jTextFieldAtualizacaoEdit1.setText("");
+                jTextFieldDescobertaEdit1.setText("");
+                jTextFieldTempCalcEdit1.setText("");
+                jTextFieldDisAnguEdit1.setText("");
+                jTextFieldStatusPEdit1.setText("");
+                jTextFieldTDObjetoEdit1.setText("");
+                jTextFieldTDMassaEdit1.setText("");
+                jTextFieldTDRaioEdit1.setText("");
+                jTextFieldMolEncEdit1.setText("");
+                jTextFieldTempMedioEdit1.setText("");
+                JOptionPane.showMessageDialog(null, "Planeta cadastrado com sucesso!");
+            } catch (ParseException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+    }//GEN-LAST:event_jButton26ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        int option = JOptionPane.showOptionDialog(null, "Tem certeza que deseja limpar os campos?", "Deseja continuar?",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Não");
+        if (option < 1) {
+            jTextFieldNomeEdit1.setText("");
+            jTextFieldNomeAltEdit1.setText("");
+            jTextFieldMassaEdit1.setText("");
+            jTextFieldMassaEMaxEdit1.setText("");
+            jTextFieldMassaEMinEdit1.setText("");
+            jTextFieldRaioEdit1.setText("");
+            jTextFieldRaioEMinEdit1.setText("");
+            jTextFieldRaioEMaxEdit1.setText("");
+            jTextFieldPOEdit1.setText("");
+            jTextFieldPOEMinEdit1.setText("");
+            jTextFieldPOEMaxEdit1.setText("");
+            jTextFieldInclinacaoEdit1.setText("");
+            jTextFieldIclinacaoEMinEdit1.setText("");
+            jTextFieldInclinacaoEMaxEdit1.setText("");
+            jTextFieldAtualizacaoEdit1.setText("");
+            jTextFieldDescobertaEdit1.setText("");
+            jTextFieldTempCalcEdit1.setText("");
+            jTextFieldDisAnguEdit1.setText("");
+            jTextFieldStatusPEdit1.setText("");
+            jTextFieldTDObjetoEdit1.setText("");
+            jTextFieldTDMassaEdit1.setText("");
+            jTextFieldTDRaioEdit1.setText("");
+            jTextFieldMolEncEdit1.setText("");
+            jTextFieldTempMedioEdit1.setText("");
+        }
+    }//GEN-LAST:event_jButton27ActionPerformed
+
     public static void main(String args[]) {
 
         try {
@@ -4462,6 +4936,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton15;
@@ -4476,6 +4951,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -4531,8 +5008,33 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel110;
     private javax.swing.JLabel jLabel111;
+    private javax.swing.JLabel jLabel112;
+    private javax.swing.JLabel jLabel113;
+    private javax.swing.JLabel jLabel114;
+    private javax.swing.JLabel jLabel115;
+    private javax.swing.JLabel jLabel116;
+    private javax.swing.JLabel jLabel117;
+    private javax.swing.JLabel jLabel118;
+    private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
+    private javax.swing.JLabel jLabel122;
+    private javax.swing.JLabel jLabel123;
+    private javax.swing.JLabel jLabel124;
+    private javax.swing.JLabel jLabel125;
+    private javax.swing.JLabel jLabel126;
+    private javax.swing.JLabel jLabel127;
+    private javax.swing.JLabel jLabel128;
+    private javax.swing.JLabel jLabel129;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel130;
+    private javax.swing.JLabel jLabel131;
+    private javax.swing.JLabel jLabel132;
+    private javax.swing.JLabel jLabel133;
+    private javax.swing.JLabel jLabel134;
+    private javax.swing.JLabel jLabel135;
+    private javax.swing.JLabel jLabel137;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -4579,12 +5081,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel554;
+    private javax.swing.JLabel jLabel555;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
@@ -4665,6 +5169,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelGerarRelatorio;
     private javax.swing.JPanel jPanelNovoEstrela;
     private javax.swing.JPanel jPanelNovoPlaneta;
+    private javax.swing.JPanel jPanelNovoPlaneta2;
     private javax.swing.JPanel jPanelNumero;
     private javax.swing.JPanel jPanelNumero1;
     private javax.swing.JPanel jPanelNumero2;
@@ -4692,9 +5197,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator17;
+    private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator20;
+    private javax.swing.JSeparator jSeparator21;
+    private javax.swing.JSeparator jSeparator22;
     private javax.swing.JSeparator jSeparator23;
     private javax.swing.JSeparator jSeparator24;
+    private javax.swing.JSeparator jSeparator25;
+    private javax.swing.JSeparator jSeparator26;
+    private javax.swing.JSeparator jSeparator27;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
@@ -4752,29 +5265,54 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField77;
     private javax.swing.JTextField jTextField78;
     private javax.swing.JTextField jTextFieldAtualizacaoEdit;
+    private javax.swing.JTextField jTextFieldAtualizacaoEdit1;
     private javax.swing.JTextField jTextFieldDescobertaEdit;
+    private javax.swing.JTextField jTextFieldDescobertaEdit1;
     private javax.swing.JTextField jTextFieldDisAnguEdit;
+    private javax.swing.JTextField jTextFieldDisAnguEdit1;
+    private javax.swing.JTextField jTextFieldEstrelaNome;
     private javax.swing.JTextField jTextFieldIclinacaoEMinEdit;
+    private javax.swing.JTextField jTextFieldIclinacaoEMinEdit1;
     private javax.swing.JTextField jTextFieldInclinacaoEMaxEdit;
+    private javax.swing.JTextField jTextFieldInclinacaoEMaxEdit1;
     private javax.swing.JTextField jTextFieldInclinacaoEdit;
+    private javax.swing.JTextField jTextFieldInclinacaoEdit1;
     private javax.swing.JTextField jTextFieldMassaEMaxEdit;
+    private javax.swing.JTextField jTextFieldMassaEMaxEdit1;
     private javax.swing.JTextField jTextFieldMassaEMinEdit;
+    private javax.swing.JTextField jTextFieldMassaEMinEdit1;
     private javax.swing.JTextField jTextFieldMassaEdit;
+    private javax.swing.JTextField jTextFieldMassaEdit1;
     private javax.swing.JTextField jTextFieldMolEncEdit;
+    private javax.swing.JTextField jTextFieldMolEncEdit1;
     private javax.swing.JTextField jTextFieldNomeAltEdit;
+    private javax.swing.JTextField jTextFieldNomeAltEdit1;
     private javax.swing.JTextField jTextFieldNomeEdit;
+    private javax.swing.JTextField jTextFieldNomeEdit1;
     private javax.swing.JTextField jTextFieldPOEMaxEdit;
+    private javax.swing.JTextField jTextFieldPOEMaxEdit1;
     private javax.swing.JTextField jTextFieldPOEMinEdit;
+    private javax.swing.JTextField jTextFieldPOEMinEdit1;
     private javax.swing.JTextField jTextFieldPOEdit;
+    private javax.swing.JTextField jTextFieldPOEdit1;
     private javax.swing.JTextField jTextFieldRaioEMaxEdit;
+    private javax.swing.JTextField jTextFieldRaioEMaxEdit1;
     private javax.swing.JTextField jTextFieldRaioEMinEdit;
+    private javax.swing.JTextField jTextFieldRaioEMinEdit1;
     private javax.swing.JTextField jTextFieldRaioEdit;
+    private javax.swing.JTextField jTextFieldRaioEdit1;
     private javax.swing.JTextField jTextFieldStatusPEdit;
+    private javax.swing.JTextField jTextFieldStatusPEdit1;
     private javax.swing.JTextField jTextFieldTDMassaEdit;
+    private javax.swing.JTextField jTextFieldTDMassaEdit1;
     private javax.swing.JTextField jTextFieldTDObjetoEdit;
+    private javax.swing.JTextField jTextFieldTDObjetoEdit1;
     private javax.swing.JTextField jTextFieldTDRaioEdit;
+    private javax.swing.JTextField jTextFieldTDRaioEdit1;
     private javax.swing.JTextField jTextFieldTempCalcEdit;
+    private javax.swing.JTextField jTextFieldTempCalcEdit1;
     private javax.swing.JTextField jTextFieldTempMedioEdit;
+    private javax.swing.JTextField jTextFieldTempMedioEdit1;
     private javax.swing.JTextField jTextFieldTexto;
     private javax.swing.JTextField jTextFieldTexto1;
     private javax.swing.JTextField jTextFieldTexto2;
