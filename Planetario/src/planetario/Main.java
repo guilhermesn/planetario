@@ -146,14 +146,25 @@ public class Main extends javax.swing.JFrame {
         jLabel110 = new javax.swing.JLabel();
         jTextFieldTexto2 = new javax.swing.JTextField();
         jPanelExcluirEstrela = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        jComboBox6 = new javax.swing.JComboBox();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jLabel152 = new javax.swing.JLabel();
+        jComboBoxWhere6 = new javax.swing.JComboBox();
+        jCheckBoxLiteral6 = new javax.swing.JCheckBox();
+        jButtonSelecionarEstrelaBuscar3 = new javax.swing.JButton();
+        jButtonEditarEstrela1 = new javax.swing.JButton();
+        jPanelValores6 = new javax.swing.JPanel();
+        jPanelEntreNumeros6 = new javax.swing.JPanel();
+        jLabel153 = new javax.swing.JLabel();
+        jLabel154 = new javax.swing.JLabel();
+        jFormattedTextFieldValor13 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldValor14 = new javax.swing.JFormattedTextField();
+        jPanelNumero6 = new javax.swing.JPanel();
+        jLabel155 = new javax.swing.JLabel();
+        jFormattedTextFieldNumero6 = new javax.swing.JFormattedTextField();
+        jPanelString6 = new javax.swing.JPanel();
+        jLabel156 = new javax.swing.JLabel();
+        jTextFieldTexto6 = new javax.swing.JTextField();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        jTableEstrela3 = new javax.swing.JTable();
         jPanelConsultarPlaneta = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
@@ -371,6 +382,9 @@ public class Main extends javax.swing.JFrame {
         jLabel137 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jTextFieldEstrelaNome = new javax.swing.JTextField();
+        jPanelGerarRelatorio = new javax.swing.JPanel();
+        jPanelTelaInicial = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         jPanelEdicaoEstrela = new javax.swing.JPanel();
         jLabel88 = new javax.swing.JLabel();
         jLabel89 = new javax.swing.JLabel();
@@ -390,13 +404,10 @@ public class Main extends javax.swing.JFrame {
         jLabel96 = new javax.swing.JLabel();
         jTextFieldTemperaturaEstrela = new javax.swing.JTextField();
         jSeparator24 = new javax.swing.JSeparator();
-        jButton19 = new javax.swing.JButton();
+        jButtonEdicaoEstrela = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jTextFieldIDEstrela = new javax.swing.JTextField();
-        jPanelGerarRelatorio = new javax.swing.JPanel();
-        jPanelTelaInicial = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivo = new javax.swing.JMenu();
         jMenuConfigurar = new javax.swing.JMenuItem();
@@ -1258,23 +1269,130 @@ public class Main extends javax.swing.JFrame {
 
         jPanelPrincipal.add(jPanelExcluirPlaneta, "jPanelExcluirPlaneta");
 
-        jLabel13.setText("Listar por");
+        jLabel152.setText("Listar por");
 
-        jButton7.setText("Buscar");
-
-        jButton8.setText("Excluir");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxWhere6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Distancia", "Metalicidade", "Massa", "Idade", "Temperatura", "Planeta" }));
+        jComboBoxWhere6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                jComboBoxWhere6ActionPerformed(evt);
             }
         });
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        jCheckBoxLiteral6.setText("Literal");
+        jCheckBoxLiteral6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxLiteral6ActionPerformed(evt);
+            }
+        });
+
+        jButtonSelecionarEstrelaBuscar3.setText("Buscar");
+        jButtonSelecionarEstrelaBuscar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSelecionarEstrelaBuscar3ActionPerformed(evt);
+            }
+        });
+
+        jButtonEditarEstrela1.setText("Editar");
+        jButtonEditarEstrela1.setEnabled(false);
+        jButtonEditarEstrela1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarEstrela1ActionPerformed(evt);
+            }
+        });
+
+        jPanelValores6.setBackground(new java.awt.Color(117, 89, 61));
+        jPanelValores6.setAutoscrolls(true);
+        jPanelValores6.setLayout(new java.awt.CardLayout());
+
+        jLabel153.setText("Valor inicial");
+
+        jLabel154.setText("Valor final");
+
+        jFormattedTextFieldValor13.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.############"))));
+
+        jFormattedTextFieldValor14.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.############"))));
+
+        javax.swing.GroupLayout jPanelEntreNumeros6Layout = new javax.swing.GroupLayout(jPanelEntreNumeros6);
+        jPanelEntreNumeros6.setLayout(jPanelEntreNumeros6Layout);
+        jPanelEntreNumeros6Layout.setHorizontalGroup(
+            jPanelEntreNumeros6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreNumeros6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel153, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldValor13, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel154, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldValor14, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelEntreNumeros6Layout.setVerticalGroup(
+            jPanelEntreNumeros6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntreNumeros6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel153)
+                .addComponent(jLabel154)
+                .addComponent(jFormattedTextFieldValor13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFormattedTextFieldValor14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores6.add(jPanelEntreNumeros6, "jPanelEntreNumeros1");
+
+        jLabel155.setText("Valor");
+
+        jFormattedTextFieldNumero6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.###############"))));
+        jFormattedTextFieldNumero6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldNumero6ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelNumero6Layout = new javax.swing.GroupLayout(jPanelNumero6);
+        jPanelNumero6.setLayout(jPanelNumero6Layout);
+        jPanelNumero6Layout.setHorizontalGroup(
+            jPanelNumero6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNumero6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel155)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextFieldNumero6, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE))
+        );
+        jPanelNumero6Layout.setVerticalGroup(
+            jPanelNumero6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNumero6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel155)
+                .addComponent(jFormattedTextFieldNumero6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanelValores6.add(jPanelNumero6, "jPanelNumero1");
+
+        jLabel156.setText("Valor");
+
+        javax.swing.GroupLayout jPanelString6Layout = new javax.swing.GroupLayout(jPanelString6);
+        jPanelString6.setLayout(jPanelString6Layout);
+        jPanelString6Layout.setHorizontalGroup(
+            jPanelString6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelString6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel156, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldTexto6, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelString6Layout.setVerticalGroup(
+            jPanelString6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelString6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jTextFieldTexto6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel156))
+        );
+
+        jPanelValores6.add(jPanelString6, "jPanelString1");
+
+        jTableEstrela3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Nome", "Ral", "Dec2L", "Distancia", "Metalicidade", "Massa", "Idade", "Temperatura"
+                "ID", "Nome", "Raio", "Dec2L", "Distancia", "Metalicidade", "Massa", "Idade", "Temperatura"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1285,16 +1403,12 @@ public class Main extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jTable4);
-
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID ", "Nome ", "Distancia ", "Metalicidade ", "Massa ", "Idade ", "Temperatura", "Planeta" }));
-        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox6ActionPerformed(evt);
+        jTableEstrela3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableEstrela3MouseClicked(evt);
             }
         });
-
-        jLabel11.setText("Valor");
+        jScrollPane15.setViewportView(jTableEstrela3);
 
         javax.swing.GroupLayout jPanelExcluirEstrelaLayout = new javax.swing.GroupLayout(jPanelExcluirEstrela);
         jPanelExcluirEstrela.setLayout(jPanelExcluirEstrelaLayout);
@@ -1303,34 +1417,34 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanelExcluirEstrelaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelExcluirEstrelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1618, Short.MAX_VALUE)
                     .addGroup(jPanelExcluirEstrelaLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
+                        .addComponent(jLabel152, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox6, 0, 633, Short.MAX_VALUE)
+                        .addComponent(jComboBoxWhere6, 0, 313, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel11)
+                        .addComponent(jCheckBoxLiteral6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanelValores6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonSelecionarEstrelaBuscar3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonEditarEstrela1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 1618, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelExcluirEstrelaLayout.setVerticalGroup(
             jPanelExcluirEstrelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelExcluirEstrelaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelExcluirEstrelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelExcluirEstrelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel152)
+                    .addComponent(jComboBoxWhere6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBoxLiteral6)
+                    .addComponent(jPanelValores6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSelecionarEstrelaBuscar3)
+                    .addComponent(jButtonEditarEstrela1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1698,7 +1812,7 @@ public class Main extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "Ral", "Dec2L", "Distancia", "Metalicidade", "Massa", "Idade", "Temperatura"
+                "RA", "Nome", "Raio", "Dec2L", "Distancia", "Metalicidade", "Massa", "Idade", "Temperatura"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -2701,9 +2815,45 @@ public class Main extends javax.swing.JFrame {
 
         jPanelPrincipal.add(jPanelNovoPlaneta, "jPanelNovoPlaneta");
 
+        javax.swing.GroupLayout jPanelGerarRelatorioLayout = new javax.swing.GroupLayout(jPanelGerarRelatorio);
+        jPanelGerarRelatorio.setLayout(jPanelGerarRelatorioLayout);
+        jPanelGerarRelatorioLayout.setHorizontalGroup(
+            jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1642, Short.MAX_VALUE)
+        );
+        jPanelGerarRelatorioLayout.setVerticalGroup(
+            jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 824, Short.MAX_VALUE)
+        );
+
+        jPanelPrincipal.add(jPanelGerarRelatorio, "jPanelGerarRelatorio");
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/As_galáxias-2.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jPanelTelaInicialLayout = new javax.swing.GroupLayout(jPanelTelaInicial);
+        jPanelTelaInicial.setLayout(jPanelTelaInicialLayout);
+        jPanelTelaInicialLayout.setHorizontalGroup(
+            jPanelTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTelaInicialLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelTelaInicialLayout.setVerticalGroup(
+            jPanelTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTelaInicialLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanelPrincipal.add(jPanelTelaInicial, "jPanelTelaInicial");
+
         jLabel88.setText("Alterar dados da estrela");
 
         jLabel89.setText("Nome");
+
+        jTextFieldNomeEstrela.setEditable(false);
 
         jLabel90.setText("Distancia");
 
@@ -2725,10 +2875,16 @@ public class Main extends javax.swing.JFrame {
 
         jLabel96.setText("Dec_2");
 
-        jButton19.setText("Editar estrela");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldTemperaturaEstrela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                jTextFieldTemperaturaEstrelaActionPerformed(evt);
+            }
+        });
+
+        jButtonEdicaoEstrela.setText("Editar estrela");
+        jButtonEdicaoEstrela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEdicaoEstrelaActionPerformed(evt);
             }
         });
 
@@ -2777,7 +2933,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonEdicaoEstrela, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelEdicaoEstrelaLayout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2827,46 +2983,12 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jTextFieldTemperaturaEstrela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelEdicaoEstrelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton19)
+                    .addComponent(jButtonEdicaoEstrela)
                     .addComponent(jButton22))
                 .addGap(547, 547, 547))
         );
 
         jPanelPrincipal.add(jPanelEdicaoEstrela, "jPanelEdicaoEstrela");
-
-        javax.swing.GroupLayout jPanelGerarRelatorioLayout = new javax.swing.GroupLayout(jPanelGerarRelatorio);
-        jPanelGerarRelatorio.setLayout(jPanelGerarRelatorioLayout);
-        jPanelGerarRelatorioLayout.setHorizontalGroup(
-            jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1642, Short.MAX_VALUE)
-        );
-        jPanelGerarRelatorioLayout.setVerticalGroup(
-            jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 824, Short.MAX_VALUE)
-        );
-
-        jPanelPrincipal.add(jPanelGerarRelatorio, "jPanelGerarRelatorio");
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/As_galáxias-2.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanelTelaInicialLayout = new javax.swing.GroupLayout(jPanelTelaInicial);
-        jPanelTelaInicial.setLayout(jPanelTelaInicialLayout);
-        jPanelTelaInicialLayout.setHorizontalGroup(
-            jPanelTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTelaInicialLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanelTelaInicialLayout.setVerticalGroup(
-            jPanelTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTelaInicialLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanelPrincipal.add(jPanelTelaInicial, "jPanelTelaInicial");
 
         jMenuArquivo.setText("Arquivo");
 
@@ -3040,10 +3162,6 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextField5ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
     private void jMenuPlanetaNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPlanetaNovoActionPerformed
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
         cl.show(jPanelPrincipal, "jPanelNovoPlaneta");
@@ -3079,10 +3197,6 @@ public class Main extends javax.swing.JFrame {
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
         cl.show(jPanelPrincipal, "jPanelConsultarPlaneta");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox6ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
@@ -5153,65 +5267,65 @@ public class Main extends javax.swing.JFrame {
 
     private ArrayList< String[]> listaEstrelas() {
 
-        ArrayList< String[]> ArrayEstrela = new ArrayList< String[]>();
-        if (jCheckBoxLiteral3.isSelected()) {
-            switch (jComboBoxWhere3.getSelectedIndex()) {
+       ArrayList< String[]> ArrayEstrela = new ArrayList< String[]>();
+        if (jCheckBoxLiteral4.isSelected()) {
+            switch (jComboBoxWhere4.getSelectedIndex()) {
                 case 0:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldNumero3.getText().replace(',', '.'), true));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldNumero4.getText().replace(',', '.'), true));
                     break;
                 case 1:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jTextFieldTexto3.getText(), true));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jTextFieldTexto4.getText(), true));
                     break;
                 case 2:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldNumero3.getText().replace(',', '.'), true));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldNumero4.getText().replace(',', '.'), true));
                     break;
                 case 3:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldNumero3.getText().replace(',', '.'), true));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldNumero4.getText().replace(',', '.'), true));
                     break;
                 case 4:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldNumero3.getText().replace(',', '.'), true));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldNumero4.getText().replace(',', '.'), true));
                     break;
                 case 5:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldNumero3.getText().replace(',', '.'), true));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldNumero4.getText().replace(',', '.'), true));
                     break;
                 case 6:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldNumero3.getText().replace(',', '.'), true));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldNumero4.getText().replace(',', '.'), true));
                     break;
                 case 7:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldNumero3.getText().replace(',', '.'), true));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldNumero4.getText().replace(',', '.'), true));
                     break;
                 default:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jTextFieldTexto3.getText(), true));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jTextFieldTexto4.getText(), true));
                     break;
             }
         } else {
-            switch (jComboBoxWhere3.getSelectedIndex()) {
+            switch (jComboBoxWhere4.getSelectedIndex()) {
                 case 0:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldValor7.getText().replace(',', '.'), jFormattedTextFieldValor8.getText().replace(',', '.')));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldValor9.getText().replace(',', '.'), jFormattedTextFieldValor10.getText().replace(',', '.')));
                     break;
                 case 1:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jTextFieldTexto3.getText(), false));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jTextFieldTexto4.getText(), false));
                     break;
                 case 2:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldValor7.getText().replace(',', '.'), jFormattedTextFieldValor8.getText().replace(',', '.')));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldValor9.getText().replace(',', '.'), jFormattedTextFieldValor10.getText().replace(',', '.')));
                     break;
                 case 3:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldValor7.getText().replace(',', '.'), jFormattedTextFieldValor8.getText().replace(',', '.')));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldValor9.getText().replace(',', '.'), jFormattedTextFieldValor10.getText().replace(',', '.')));
                     break;
                 case 4:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldValor7.getText().replace(',', '.'), jFormattedTextFieldValor8.getText().replace(',', '.')));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldValor9.getText().replace(',', '.'), jFormattedTextFieldValor10.getText().replace(',', '.')));
                     break;
                 case 5:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldValor7.getText().replace(',', '.'), jFormattedTextFieldValor8.getText().replace(',', '.')));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldValor9.getText().replace(',', '.'), jFormattedTextFieldValor10.getText().replace(',', '.')));
                     break;
                 case 6:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldValor7.getText().replace(',', '.'), jFormattedTextFieldValor8.getText().replace(',', '.')));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldValor9.getText().replace(',', '.'), jFormattedTextFieldValor10.getText().replace(',', '.')));
                     break;
                 case 7:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldValor7.getText().replace(',', '.'), jFormattedTextFieldValor8.getText().replace(',', '.')));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldValor9.getText().replace(',', '.'), jFormattedTextFieldValor10.getText().replace(',', '.')));
                     break;
                 default:
-                    ArrayEstrela = new ArrayList(controle.listaPlanetas(jComboBoxWhere3.getSelectedItem().toString(), jFormattedTextFieldValor7.getText().replace(',', '.'), jFormattedTextFieldValor8.getText().replace(',', '.')));
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere4.getSelectedItem().toString(), jFormattedTextFieldValor9.getText().replace(',', '.'), jFormattedTextFieldValor10.getText().replace(',', '.')));
                     break;
 
             }
@@ -5541,11 +5655,77 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCheckBoxLiteral5ActionPerformed
 
+    private ArrayList< String[]> listaEstrelasEditar() {
+        ArrayList< String[]> ArrayEstrela = new ArrayList< String[]>();
+        if (jCheckBoxLiteral5.isSelected()) {
+            switch (jComboBoxWhere5.getSelectedIndex()) {
+                case 0:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldNumero5.getText().replace(',', '.'), true));
+                    break;
+                case 1:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jTextFieldTexto5.getText(), true));
+                    break;
+                case 2:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldNumero5.getText().replace(',', '.'), true));
+                    break;
+                case 3:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldNumero5.getText().replace(',', '.'), true));
+                    break;
+                case 4:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldNumero5.getText().replace(',', '.'), true));
+                    break;
+                case 5:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldNumero5.getText().replace(',', '.'), true));
+                    break;
+                case 6:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldNumero5.getText().replace(',', '.'), true));
+                    break;
+                case 7:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldNumero5.getText().replace(',', '.'), true));
+                    break;
+                default:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jTextFieldTexto5.getText(), true));
+                    break;
+            }
+        } else {
+            switch (jComboBoxWhere5.getSelectedIndex()) {
+                case 0:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldValor11.getText().replace(',', '.'), jFormattedTextFieldValor12.getText().replace(',', '.')));
+                    break;
+                case 1:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jTextFieldTexto5.getText(), false));
+                    break;
+                case 2:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldValor11.getText().replace(',', '.'), jFormattedTextFieldValor12.getText().replace(',', '.')));
+                    break;
+                case 3:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldValor11.getText().replace(',', '.'), jFormattedTextFieldValor12.getText().replace(',', '.')));
+                    break;
+                case 4:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldValor11.getText().replace(',', '.'), jFormattedTextFieldValor12.getText().replace(',', '.')));
+                    break;
+                case 5:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldValor11.getText().replace(',', '.'), jFormattedTextFieldValor12.getText().replace(',', '.')));
+                    break;
+                case 6:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldValor11.getText().replace(',', '.'), jFormattedTextFieldValor12.getText().replace(',', '.')));
+                    break;
+                case 7:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldValor11.getText().replace(',', '.'), jFormattedTextFieldValor12.getText().replace(',', '.')));
+                    break;
+                default:
+                    ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere5.getSelectedItem().toString(), jFormattedTextFieldValor11.getText().replace(',', '.'), jFormattedTextFieldValor12.getText().replace(',', '.')));
+                    break;
+            }
+        }
+        return ArrayEstrela;
+    }
+    
     private void jButtonSelecionarEstrelaBuscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarEstrelaBuscar2ActionPerformed
         jButtonEditarEstrela.setEnabled(false);
         javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTableEstrela2.getModel();
         model.getDataVector().removeAllElements();
-        ArrayList< String[]> ArrayEstrelas = listaEstrelas();
+        ArrayList< String[]> ArrayEstrelas = listaEstrelasEditar();
 
         for (String[] linha : ArrayEstrelas) {
             model.addRow(linha);
@@ -5557,6 +5737,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jButtonEditarEstrelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarEstrelaActionPerformed
         int linha = jTableEstrela2.getSelectedRow();
+        
         jTextFieldIDEstrela.setText(jTableEstrela2.getValueAt(linha, 0).toString().replace("null", ""));
         jTextFieldNomeEstrela.setText(jTableEstrela2.getValueAt(linha, 1).toString().replace("null", ""));
         jTextFieldDec2Estrela.setText(jTableEstrela2.getValueAt(linha, 3).toString().replace("null", ""));
@@ -5583,9 +5764,73 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDec2EstrelaActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    private void jButtonEdicaoEstrelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEdicaoEstrelaActionPerformed
+        
+        int option = JOptionPane.showOptionDialog(null, "Tem certeza que deseja editar essa estrela?", "Deseja continuar?",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Não");
+        if (option < 1) {
+
+            String[] estrela = new String[]{
+                jTextFieldIDEstrela.getText(),
+                jTextFieldNomeEstrela.getText(),
+                jTextFieldDec2Estrela.getText(),
+                jTextFieldmetalicidadeEstrela.getText(),
+                jTextFieldDistanciaEstrela.getText(),
+                jTextFieldRaioEstrela.getText(),
+                jTextFieldMassaEstrela.getText(),
+                jTextFieldTemperaturaEstrela.getText(),
+                jTextFieldIdadeEstrela.getText()
+            };
+            try {
+                controle.editarEstrela(estrela);
+            } catch (ParseException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            jButtonEditarEstrela.setEnabled(false);
+            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTableEstrela2.getModel();
+            model.getDataVector().removeAllElements();
+            ArrayList< String[]> ArrayEstrelas = listaEstrelasEditar();
+
+            for (String[] linha : ArrayEstrelas) {
+                model.addRow(linha);
+            }
+            
+            CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+            cl.show(jPanelPrincipal, "jPanelEditarEstrela");
+            
+            
+        }
+    }//GEN-LAST:event_jButtonEdicaoEstrelaActionPerformed
+
+    private void jTextFieldTemperaturaEstrelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTemperaturaEstrelaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton19ActionPerformed
+    }//GEN-LAST:event_jTextFieldTemperaturaEstrelaActionPerformed
+
+    private void jComboBoxWhere6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxWhere6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxWhere6ActionPerformed
+
+    private void jCheckBoxLiteral6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxLiteral6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxLiteral6ActionPerformed
+
+    private void jButtonSelecionarEstrelaBuscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarEstrelaBuscar3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSelecionarEstrelaBuscar3ActionPerformed
+
+    private void jButtonEditarEstrela1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarEstrela1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEditarEstrela1ActionPerformed
+
+    private void jFormattedTextFieldNumero6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumero6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldNumero6ActionPerformed
+
+    private void jTableEstrela3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEstrela3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTableEstrela3MouseClicked
 
     public static void main(String args[]) {
 
@@ -5623,7 +5868,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
@@ -5631,10 +5875,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButtonEdicaoEstrela;
     private javax.swing.JButton jButtonEditarEstrela;
+    private javax.swing.JButton jButtonEditarEstrela1;
     private javax.swing.JButton jButtonEditarPlan;
     private javax.swing.JButton jButtonExcluirPlan;
     private javax.swing.JButton jButtonInserirPlaneta;
@@ -5642,19 +5886,21 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSelecionarEstrelaBuscar;
     private javax.swing.JButton jButtonSelecionarEstrelaBuscar1;
     private javax.swing.JButton jButtonSelecionarEstrelaBuscar2;
+    private javax.swing.JButton jButtonSelecionarEstrelaBuscar3;
     private javax.swing.JCheckBox jCheckBoxLiteral;
     private javax.swing.JCheckBox jCheckBoxLiteral1;
     private javax.swing.JCheckBox jCheckBoxLiteral2;
     private javax.swing.JCheckBox jCheckBoxLiteral3;
     private javax.swing.JCheckBox jCheckBoxLiteral4;
     private javax.swing.JCheckBox jCheckBoxLiteral5;
-    private javax.swing.JComboBox jComboBox6;
+    private javax.swing.JCheckBox jCheckBoxLiteral6;
     private javax.swing.JComboBox jComboBoxWhere;
     private javax.swing.JComboBox jComboBoxWhere1;
     private javax.swing.JComboBox jComboBoxWhere2;
     private javax.swing.JComboBox jComboBoxWhere3;
     private javax.swing.JComboBox jComboBoxWhere4;
     private javax.swing.JComboBox jComboBoxWhere5;
+    private javax.swing.JComboBox jComboBoxWhere6;
     private javax.swing.JFormattedTextField jFormattedTextData;
     private javax.swing.JFormattedTextField jFormattedTextData1;
     private javax.swing.JFormattedTextField jFormattedTextData2;
@@ -5674,10 +5920,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextFieldNumero3;
     private javax.swing.JFormattedTextField jFormattedTextFieldNumero4;
     private javax.swing.JFormattedTextField jFormattedTextFieldNumero5;
+    private javax.swing.JFormattedTextField jFormattedTextFieldNumero6;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor1;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor10;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor11;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor12;
+    private javax.swing.JFormattedTextField jFormattedTextFieldValor13;
+    private javax.swing.JFormattedTextField jFormattedTextFieldValor14;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor2;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor3;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor4;
@@ -5697,7 +5946,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel107;
     private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel110;
     private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel112;
@@ -5718,7 +5966,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel127;
     private javax.swing.JLabel jLabel128;
     private javax.swing.JLabel jLabel129;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel130;
     private javax.swing.JLabel jLabel131;
     private javax.swing.JLabel jLabel132;
@@ -5742,6 +5989,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel149;
     private javax.swing.JLabel jLabel150;
     private javax.swing.JLabel jLabel151;
+    private javax.swing.JLabel jLabel152;
+    private javax.swing.JLabel jLabel153;
+    private javax.swing.JLabel jLabel154;
+    private javax.swing.JLabel jLabel155;
+    private javax.swing.JLabel jLabel156;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -5846,6 +6098,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelEntreNumeros3;
     private javax.swing.JPanel jPanelEntreNumeros4;
     private javax.swing.JPanel jPanelEntreNumeros5;
+    private javax.swing.JPanel jPanelEntreNumeros6;
     private javax.swing.JPanel jPanelExcluirEstrela;
     private javax.swing.JPanel jPanelExcluirPlaneta;
     private javax.swing.JPanel jPanelGerarRelatorio;
@@ -5857,6 +6110,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelNumero3;
     private javax.swing.JPanel jPanelNumero4;
     private javax.swing.JPanel jPanelNumero5;
+    private javax.swing.JPanel jPanelNumero6;
     private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JPanel jPanelSelecionarEstrela;
     private javax.swing.JPanel jPanelString;
@@ -5865,6 +6119,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelString3;
     private javax.swing.JPanel jPanelString4;
     private javax.swing.JPanel jPanelString5;
+    private javax.swing.JPanel jPanelString6;
     private javax.swing.JPanel jPanelTelaInicial;
     private javax.swing.JPanel jPanelValores;
     private javax.swing.JPanel jPanelValores1;
@@ -5872,13 +6127,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelValores3;
     private javax.swing.JPanel jPanelValores4;
     private javax.swing.JPanel jPanelValores5;
+    private javax.swing.JPanel jPanelValores6;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator11;
@@ -5899,14 +6155,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator26;
     private javax.swing.JSeparator jSeparator27;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTable jTableEstrela;
     private javax.swing.JTable jTableEstrela1;
     private javax.swing.JTable jTableEstrela2;
+    private javax.swing.JTable jTableEstrela3;
     private javax.swing.JTable jTablePlanetas;
     private javax.swing.JTable jTablePlanetas1;
     private javax.swing.JTable jTablePlanetas2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField63;
     private javax.swing.JTextField jTextField64;
     private javax.swing.JTextField jTextField65;
@@ -5978,6 +6233,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldTexto3;
     private javax.swing.JTextField jTextFieldTexto4;
     private javax.swing.JTextField jTextFieldTexto5;
+    private javax.swing.JTextField jTextFieldTexto6;
     private javax.swing.JTextField jTextFieldmetalicidadeEstrela;
     // End of variables declaration//GEN-END:variables
 }
