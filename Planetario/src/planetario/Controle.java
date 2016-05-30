@@ -20,31 +20,87 @@ import org.hibernate.criterion.Restrictions;
  */
 public class Controle {
 
-    public String selecionaWhereEstrela(String buscar, String valor) {
+    public String selecionaWhereEstrela(String buscar, String valor, boolean literal) {
+        if (valor != null) {
+            if (!valor.trim().isEmpty()) {
+                if (literal) {
+                    switch (buscar) {
+                        case "ID":
+                            return "where ra = '" + valor + "'";
+                        case "Nome":
+                            return "where nome = '" + valor + "'";
+                        case "Distancia":
+                            return "where distancia = '" + valor + "'";
+                        case "Metalicidade":
+                            return "where metalicidade = '" + valor + "'";
+                        case "Massa":
+                            return "where massa = '" + valor + "'";
+                        case "Idade":
+                            return "where idade = '" + valor + "'";
+                        case "Temperatura":
+                            return "where temperatura = '" + valor + "'";
+                        case "Raio":
+                            return "where raio = '" + valor + "'";
+                        case "dec_2":
+                            return "where dec_2 = '" + valor + "'";
+                        default:
+                            return "";
+                    }
+                } else {
+                    switch (buscar) {
+                        case "ID":
+                            return "where ra LIKE '%" + valor + "%'";
+                        case "Nome":
+                            return "where nome LIKE '%" + valor + "%'";
+                        case "Distancia":
+                            return "where distancia LIKE '%" + valor + "%'";
+                        case "Metalicidade":
+                            return "where metalicidade LIKE '%" + valor + "%'";
+                        case "Massa":
+                            return "where massa LIKE '%" + valor + "%'";
+                        case "Idade":
+                            return "where idade LIKE '%" + valor + "%'";
+                        case "Temperatura":
+                            return "where temperatura LIKE '%" + valor + "%'";
+                        case "Raio":
+                            return "where raio LIKE '%" + valor + "%'";
+                        case "dec_2":
+                            return "where dec_2 LIKE '%" + valor + "%'";
+                        default:
+                            return "";
+                    }
+                }
+            }
+        }
+        return "";
+    }
+
+    public String selecionaWhereEstrela(String buscar, String valor, String valor2) {
         if (valor != null) {
             if (!valor.trim().isEmpty()) {
                 switch (buscar) {
                     case "ID":
-                        return "where t.ra = " + valor;
+                        return "where ra >= '" + valor + "' and ra <= '" + valor2 + "'";
                     case "Nome":
-                        return "where t.nome = " + valor;
+                        return "where nome >= '" + valor + "' and nome <= '" + valor2 + "'";
                     case "Distancia":
-                        return "where t.distancia = " + valor;
+                        return "where distancia >= '" + valor + "' and distancia <= '" + valor2 + "'";
                     case "Metalicidade":
-                        return "where t.metalicidade = " + valor;
+                        return "where metalicidade >= '" + valor + "' and metalicidade <= '" + valor2 + "'";
                     case "Massa":
-                        return "where t.massa = " + valor;
+                        return "where massa >= '" + valor + "' and massa <= '" + valor2 + "'";
                     case "Idade":
-                        return "where t.idade = " + valor;
+                        return "where idade >= '" + valor + "' and idade <= '" + valor2 + "'";
                     case "Temperatura":
-                        return "where t.temperatura = " + valor;
+                        return "where temperatura >= '" + valor + "' and temperatura <= '" + valor2 + "'";
                     case "Raio":
-                        return "where t.raio = " + valor;
+                        return "where raio >= '" + valor + "' and raio <= '" + valor2 + "'";
                     case "dec_2":
-                        return "where t.dec_2 = " + valor;
+                        return "where dec_2 >= '" + valor + "' and dec_2 <= '" + valor2 + "'";
                     default:
                         return "";
                 }
+
             }
         }
         return "";
@@ -239,6 +295,92 @@ public class Controle {
         return "";
     }
 
+    public ArrayList<String[]> listaEstrelas(String busca, String valor, boolean literal) {
+        ArrayList< String[]> ArrayEstrelas = new ArrayList< String[]>();
+        Estrelas listaEstrela;
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Iterator i = sessao.createQuery("from Estrelas " + selecionaWhereEstrela(busca, valor, literal)).list().iterator();
+        while (i.hasNext()) {
+            listaEstrela = (Estrelas) i.next();
+            ArrayEstrelas.add(new String[]{
+                listaEstrela.getRa() + "",
+                listaEstrela.getNome() + "",
+                listaEstrela.getDistancia() + "",
+                listaEstrela.getMetalicidade() + "",
+                listaEstrela.getMassa() + "",
+                listaEstrela.getRaio() + "",
+                listaEstrela.getTemperatura() + "",
+                listaEstrela.getDec2() + "",
+                listaEstrela.getIdade() + ""
+            });
+        }
+        sessao.close();
+        return ArrayEstrelas;
+    }
+    
+    public ArrayList<String[]> listaEstrelas(String busca, String valor, String valor2) {
+        ArrayList< String[]> ArrayEstrelas = new ArrayList< String[]>();
+        Estrelas listaEstrela;
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Iterator i = sessao.createQuery("from Estrelas " + selecionaWhereEstrela(busca, valor, valor2)).list().iterator();
+        while (i.hasNext()) {
+            listaEstrela = (Estrelas) i.next();
+            ArrayEstrelas.add(new String[]{
+                listaEstrela.getRa() + "",
+                listaEstrela.getNome() + "",
+                listaEstrela.getDistancia() + "",
+                listaEstrela.getMetalicidade() + "",
+                listaEstrela.getMassa() + "",
+                listaEstrela.getRaio() + "",
+                listaEstrela.getTemperatura() + "",
+                listaEstrela.getDec2() + "",
+                listaEstrela.getIdade() + ""
+            });
+        }
+        sessao.close();
+        return ArrayEstrelas;
+    }
+    
+    public ArrayList<String[]> listaPlanetas(String busca, String valor1, String valor2) {
+        ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
+        Planeta planetas;
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Iterator i = sessao.createQuery("from Planeta " + selecionaWherePlaneta(busca, valor1, valor2)).list().iterator();
+        while (i.hasNext()) {
+            planetas = (Planeta) i.next();
+            ArrayPlanetas.add(new String[]{
+                planetas.getId().getIdPlaneta() + "",
+                planetas.getNomePlaneta() + "",
+                planetas.getEstrelas().getNome(),
+                planetas.getMassa() + "",
+                planetas.getMassaErroMin() + "",
+                planetas.getMassaErroMax() + "",
+                planetas.getPeriodoOrbital() + "",
+                planetas.getMassaErroMin() + "",
+                planetas.getMassaErroMax() + "",
+                planetas.getInclinacao() + "",
+                planetas.getInclinacaoErroMin() + "",
+                planetas.getInclinacaoErroMax() + "",
+                planetas.getDistanciaAngular() + "",
+                planetas.getDescoberta() + "",
+                planetas.getAtualizacao() + "",
+                planetas.getTempoCalculado() + "",
+                planetas.getTempoMedido() + "",
+                planetas.getStatusPublicacao() + "",
+                planetas.getTipoDeteccao() + "",
+                planetas.getTipoDeteccaoMassa() + "",
+                planetas.getTipoDeteccaoRaio() + "",
+                planetas.getNomeAlternativo() + "",
+                planetas.getMoleculas() + "",
+                planetas.getRaio() + "",
+                planetas.getRaioErroMin() + "",
+                planetas.getRaioErroMax() + ""
+            });
+        }
+        sessao.close();
+        return ArrayPlanetas;
+    }
+    
     public ArrayList<String[]> listaPlanetas(String busca, String valor, boolean literal) {
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         Planeta planetas;
@@ -289,6 +431,99 @@ public class Controle {
     }
 
     public void cadastrarPlaneta(String[] planeta) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy/MM/dd");
+
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Planeta planetas = new Planeta();
+        PlanetaId planetaid = new PlanetaId();
+
+        planetaid.setEstrelasNome(planeta[25]);
+        planetaid.setIdPlaneta(1);
+
+        planetas.setId(planetaid);
+
+        if (!planeta[1].trim().isEmpty()) {
+            planetas.setNomePlaneta(planeta[1].toString());
+        }
+        if (!planeta[2].trim().isEmpty()) {
+            planetas.setNomeAlternativo(planeta[2].toString());
+        }
+        if (!planeta[3].trim().isEmpty()) {
+            planetas.setMassa(Float.parseFloat(planeta[3]));
+        }
+        if (!planeta[4].trim().isEmpty()) {
+            planetas.setMassaErroMin(Float.parseFloat(planeta[4]));
+        }
+        if (!planeta[5].trim().isEmpty()) {
+            planetas.setMassaErroMax(Float.parseFloat(planeta[5]));
+        }
+        if (!planeta[6].trim().isEmpty()) {
+            planetas.setRaio(Float.parseFloat(planeta[6]));
+        }
+        if (!planeta[7].trim().isEmpty()) {
+            planetas.setRaioErroMin(Float.parseFloat(planeta[7]));
+        }
+        if (!planeta[8].trim().isEmpty()) {
+            planetas.setRaioErroMax(Float.parseFloat(planeta[8]));
+        }
+        if (!planeta[9].trim().isEmpty()) {
+            planetas.setPeriodoOrbital(Float.parseFloat(planeta[9]));
+        }
+        if (!planeta[10].trim().isEmpty()) {
+            planetas.setPeriodoOrbitalErroMin(Float.parseFloat(planeta[10]));
+        }
+        if (!planeta[11].trim().isEmpty()) {
+            planetas.setPeriodoOrbitalErroMax(Float.parseFloat(planeta[11]));
+        }
+        if (!planeta[12].trim().isEmpty()) {
+            planetas.setInclinacao(Float.parseFloat(planeta[12]));
+        }
+        if (!planeta[13].trim().isEmpty()) {
+            planetas.setInclinacaoErroMin(Float.parseFloat(planeta[13]));
+        }
+        if (!planeta[14].trim().isEmpty()) {
+            planetas.setInclinacaoErroMax(Float.parseFloat(planeta[14]));
+        }
+        if (!planeta[15].trim().isEmpty()) {
+            java.util.Date date = formatter.parse(planeta[15]);
+            String data2 = formatterMYSQL.format(date);
+            planetas.setAtualizacao(formatterMYSQL.parse(data2));
+        }
+        if (!planeta[16].trim().isEmpty()) {
+            planetas.setDescoberta(Integer.parseInt(planeta[16]));
+        }
+        if (!planeta[17].trim().isEmpty()) {
+            planetas.setTempoCalculado(Integer.parseInt(planeta[17]));
+        }
+        if (!planeta[18].trim().isEmpty()) {
+            planetas.setDistanciaAngular(Float.parseFloat(planeta[18]));
+        }
+        if (!planeta[19].trim().isEmpty()) {
+            planetas.setStatusPublicacao(planeta[19].toString());
+        }
+        if (!planeta[20].trim().isEmpty()) {
+            planetas.setTipoDeteccao(planeta[20].toString());
+        }
+        if (!planeta[21].trim().isEmpty()) {
+            planetas.setTipoDeteccaoMassa(planeta[21].toString());
+        }
+        if (!planeta[22].trim().isEmpty()) {
+            planetas.setTipoDeteccaoMassa(planeta[22].toString());
+        }
+        if (!planeta[23].trim().isEmpty()) {
+            planetas.setTipoDeteccaoRaio(planeta[23].toString());
+        }
+        if (!planeta[24].trim().isEmpty()) {
+            planetas.setTempoMedido(Integer.parseInt(planeta[24]));
+        }
+
+        sessao.save(planetas);
+
+        Transaction tr = sessao.beginTransaction();
+
+        tr.commit();
+        sessao.close();
 
     }
 
@@ -308,52 +543,12 @@ public class Controle {
         sessao.close();
     }
 
-    public ArrayList<String[]> listaPlanetas(String busca, String valor1, String valor2) {
-        ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
-        Planeta planetas;
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
-        Iterator i = sessao.createQuery("from Planeta " + selecionaWherePlaneta(busca, valor1, valor2)).list().iterator();
-        while (i.hasNext()) {
-            planetas = (Planeta) i.next();
-            ArrayPlanetas.add(new String[]{
-                planetas.getId().getIdPlaneta() + "",
-                planetas.getNomePlaneta() + "",
-                planetas.getEstrelas().getNome(),
-                planetas.getMassa() + "",
-                planetas.getMassaErroMin() + "",
-                planetas.getMassaErroMax() + "",
-                planetas.getPeriodoOrbital() + "",
-                planetas.getMassaErroMin() + "",
-                planetas.getMassaErroMax() + "",
-                planetas.getInclinacao() + "",
-                planetas.getInclinacaoErroMin() + "",
-                planetas.getInclinacaoErroMax() + "",
-                planetas.getDistanciaAngular() + "",
-                planetas.getDescoberta() + "",
-                planetas.getAtualizacao() + "",
-                planetas.getTempoCalculado() + "",
-                planetas.getTempoMedido() + "",
-                planetas.getStatusPublicacao() + "",
-                planetas.getTipoDeteccao() + "",
-                planetas.getTipoDeteccaoMassa() + "",
-                planetas.getTipoDeteccaoRaio() + "",
-                planetas.getNomeAlternativo() + "",
-                planetas.getMoleculas() + "",
-                planetas.getRaio() + "",
-                planetas.getRaioErroMin() + "",
-                planetas.getRaioErroMax() + ""
-            });
-        }
-        sessao.close();
-        return ArrayPlanetas;
-    }
+    
 
     public void editarPlaneta(String[] planeta) throws ParseException {
 
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
-        Planeta planetas = new Planeta();
-
-        planetas = getPlaneta(planeta[0]);
+        Planeta planetas = getPlaneta(planeta[0]);
 
         //System.out.print(planetas.getNomePlaneta());
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -362,76 +557,76 @@ public class Controle {
         String data2 = formatterMYSQL.format(date).toString();
 
         //planetas.setId(id);
-        if (!planeta[1].trim().isEmpty() && !planeta[1].trim().isEmpty()) {
+        if (!planeta[1].trim().isEmpty()) {
             planetas.setNomePlaneta(planeta[1].toString());
         }
-        if (!planeta[2].trim().isEmpty() && !planeta[2].trim().isEmpty()) {
+        if (!planeta[2].trim().isEmpty()) {
             planetas.setNomeAlternativo(planeta[2].toString());
         }
-        if (!planeta[3].trim().isEmpty() && !planeta[3].trim().isEmpty()) {
+        if (!planeta[3].trim().isEmpty()) {
             planetas.setMassa(Float.parseFloat(planeta[3]));
         }
-        if (!planeta[4].trim().isEmpty() && !planeta[4].trim().isEmpty()) {
-            planetas.setMassaErroMax(Float.parseFloat(planeta[4]));
+        if (!planeta[4].trim().isEmpty()) {
+            planetas.setMassaErroMin(Float.parseFloat(planeta[4]));
         }
-        if (!planeta[5].trim().isEmpty() && !planeta[5].trim().isEmpty()) {
+        if (!planeta[5].trim().isEmpty()) {
             planetas.setMassaErroMax(Float.parseFloat(planeta[5]));
         }
-        if (!planeta[6].trim().isEmpty() && !planeta[6].trim().isEmpty()) {
+        if (!planeta[6].trim().isEmpty()) {
             planetas.setRaio(Float.parseFloat(planeta[6]));
         }
-        if (!planeta[7].trim().isEmpty() && !planeta[7].trim().isEmpty()) {
+        if (!planeta[7].trim().isEmpty()) {
             planetas.setRaioErroMin(Float.parseFloat(planeta[7]));
         }
-        if (!planeta[8].trim().isEmpty() && !planeta[8].trim().isEmpty()) {
-            planetas.setRaioErroMin(Float.parseFloat(planeta[8]));
+        if (!planeta[8].trim().isEmpty()) {
+            planetas.setRaioErroMax(Float.parseFloat(planeta[8]));
         }
-        if (!planeta[9].trim().isEmpty() && !planeta[9].trim().isEmpty()) {
+        if (!planeta[9].trim().isEmpty()) {
             planetas.setPeriodoOrbital(Float.parseFloat(planeta[9]));
         }
-        if (!planeta[10].trim().isEmpty() && !planeta[10].trim().isEmpty()) {
+        if (!planeta[10].trim().isEmpty()) {
             planetas.setPeriodoOrbitalErroMin(Float.parseFloat(planeta[10]));
         }
-        if (!planeta[11].trim().isEmpty() && !planeta[11].trim().isEmpty()) {
+        if (!planeta[11].trim().isEmpty()) {
             planetas.setPeriodoOrbitalErroMax(Float.parseFloat(planeta[11]));
         }
-        if (!planeta[12].trim().isEmpty() && !planeta[12].trim().isEmpty()) {
+        if (!planeta[12].trim().isEmpty()) {
             planetas.setInclinacao(Float.parseFloat(planeta[12]));
         }
-        if (!planeta[13].trim().isEmpty() && !planeta[13].trim().isEmpty()) {
+        if (!planeta[13].trim().isEmpty()) {
             planetas.setInclinacaoErroMin(Float.parseFloat(planeta[13]));
         }
-        if (!planeta[14].trim().isEmpty() && !planeta[14].trim().isEmpty()) {
+        if (!planeta[14].trim().isEmpty()) {
             planetas.setInclinacaoErroMax(Float.parseFloat(planeta[14]));
         }
-        if (!planeta[15].trim().isEmpty() && !planeta[15].trim().isEmpty()) {
+        if (!planeta[15].trim().isEmpty()) {
             planetas.setAtualizacao(formatterMYSQL.parse(data2));
         }
-        if (!planeta[16].trim().isEmpty() && !planeta[16].trim().isEmpty()) {
+        if (!planeta[16].trim().isEmpty()) {
             planetas.setDescoberta(Integer.parseInt(planeta[16]));
         }
-        if (!planeta[17].trim().isEmpty() && !planeta[17].trim().isEmpty()) {
+        if (!planeta[17].trim().isEmpty()) {
             planetas.setTempoCalculado(Integer.parseInt(planeta[17]));
         }
-        if (!planeta[18].trim().isEmpty() && !planeta[18].trim().isEmpty()) {
+        if (!planeta[18].trim().isEmpty()) {
             planetas.setDistanciaAngular(Float.parseFloat(planeta[18]));
         }
-        if (!planeta[19].trim().isEmpty() && !planeta[19].trim().isEmpty()) {
+        if (!planeta[19].trim().isEmpty()) {
             planetas.setStatusPublicacao(planeta[19].toString());
         }
-        if (!planeta[20].trim().isEmpty() && !planeta[20].trim().isEmpty()) {
+        if (!planeta[20].trim().isEmpty()) {
             planetas.setTipoDeteccao(planeta[20].toString());
         }
-        if (!planeta[21].trim().isEmpty() && !planeta[21].trim().isEmpty()) {
+        if (!planeta[21].trim().isEmpty()) {
             planetas.setTipoDeteccaoMassa(planeta[21].toString());
         }
-        if (!planeta[22].trim().isEmpty() && !planeta[22].trim().isEmpty()) {
+        if (!planeta[22].trim().isEmpty()) {
             planetas.setTipoDeteccaoMassa(planeta[22].toString());
         }
-        if (!planeta[23].trim().isEmpty() && !planeta[23].trim().isEmpty()) {
+        if (!planeta[23].trim().isEmpty()) {
             planetas.setTipoDeteccaoRaio(planeta[23].toString());
         }
-        if (!planeta[24].trim().isEmpty() && !planeta[24].trim().isEmpty()) {
+        if (!planeta[24].trim().isEmpty()) {
             planetas.setTempoMedido(Integer.parseInt(planeta[24]));
         }
 
