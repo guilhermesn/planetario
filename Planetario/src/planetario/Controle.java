@@ -537,7 +537,48 @@ public class Controle {
         sessao.close();
 
     }
+    
+    public void cadastrarEstrela(String[] estrelaExluir) throws ParseException {
+        
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Estrelas estrela = new Estrelas();
 
+        if (!estrelaExluir[0].trim().isEmpty()) {
+            estrela.setRa(Float.parseFloat(estrelaExluir[0]));
+        }
+        
+        if (!estrelaExluir[2].trim().isEmpty()) {
+            estrela.setDec2(Float.parseFloat(estrelaExluir[2]));
+        }
+        if (!estrelaExluir[3].trim().isEmpty()) {
+            estrela.setMetalicidade(Float.parseFloat(estrelaExluir[3]));
+        }
+        if (!estrelaExluir[4].trim().isEmpty()) {
+            estrela.setDistancia(Float.parseFloat(estrelaExluir[4]));
+        }
+        if (!estrelaExluir[5].trim().isEmpty()) {
+            estrela.setRaio(Float.parseFloat(estrelaExluir[5]));
+        }
+        if (!estrelaExluir[6].trim().isEmpty()) {
+            estrela.setMassa(Float.parseFloat(estrelaExluir[6]));
+        }
+        if (!estrelaExluir[7].trim().isEmpty()) {
+            estrela.setTemperatura(Float.parseFloat(estrelaExluir[7]));
+        }
+        if (!estrelaExluir[8].trim().isEmpty()) {
+            estrela.setIdade(Float.parseFloat(estrelaExluir[8]));
+        }
+        
+
+        sessao.save(estrela);
+
+        Transaction tr = sessao.beginTransaction();
+
+        tr.commit();
+        sessao.close();
+
+    }
+    
     public void excluirPlaneta(String valor) {
 
         Planeta planetas = new Planeta();
@@ -548,7 +589,18 @@ public class Controle {
         tr.commit();
         sessao.close();
     }
+    
+    public void excluirEstrela(String valor) {
 
+        Estrelas estrela = new Estrelas();
+        estrela = getEstrela(valor);
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        sessao.delete(estrela);
+        Transaction tr = sessao.beginTransaction();
+        tr.commit();
+        sessao.close();
+    }
+    
     public void iniciarConexao() {
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         sessao.close();
@@ -558,17 +610,6 @@ public class Controle {
             
     public void editarEstrela(String[] estrelaEdit) throws ParseException {
         
-        /*
-                jTextFieldIDEstrela.getText(),
-                jTextFieldNomeEstrela.getText(),
-                jTextFieldDec2Estrela.getText(),
-                jTextFieldmetalicidadeEstrela.getText(),
-                jTextFieldDistanciaEstrela.getText(),
-                jTextFieldRaioEstrela.getText(),
-                jTextFieldMassaEstrela.getText(),
-                jTextFieldTemperaturaEstrela.getText(),
-                jTextFieldIdadeEstrela.getText()
-        */
         
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         Estrelas estrela = getEstrela(estrelaEdit[1]);
