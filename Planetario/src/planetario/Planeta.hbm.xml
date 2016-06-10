@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 25/05/2016 18:42:31 by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 4, 2016 5:16:03 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="planetario.Planeta" table="PLANETA" catalog="Planetario" optimistic-lock="version">
+    <class name="planetario.Planeta" table="PLANETA" catalog="Planetario">
         <composite-id name="id" class="planetario.PlanetaId">
             <key-property name="idPlaneta" type="int">
                 <column name="idPlaneta" />

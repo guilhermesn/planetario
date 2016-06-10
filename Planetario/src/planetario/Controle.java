@@ -5,14 +5,24 @@
  */
 package planetario;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import net.sf.ehcache.hibernate.HibernateUtil;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -303,7 +313,7 @@ public class Controle {
         while (i.hasNext()) {
             listaEstrela = (Estrelas) i.next();
             ArrayEstrelas.add(new String[]{
-                 listaEstrela.getRa() + "",
+                listaEstrela.getRa() + "",
                 listaEstrela.getNome() + "",
                 listaEstrela.getRaio() + "",
                 listaEstrela.getDec2() + "",
@@ -317,7 +327,7 @@ public class Controle {
         sessao.close();
         return ArrayEstrelas;
     }
-    
+
     public ArrayList<String[]> listaEstrelas(String busca, String valor, String valor2) {
         ArrayList< String[]> ArrayEstrelas = new ArrayList< String[]>();
         Estrelas listaEstrela;
@@ -340,7 +350,7 @@ public class Controle {
         sessao.close();
         return ArrayEstrelas;
     }
-    
+
     public ArrayList<String[]> listaPlanetas(String busca, String valor1, String valor2) {
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         Planeta planetas;
@@ -380,7 +390,7 @@ public class Controle {
         sessao.close();
         return ArrayPlanetas;
     }
-    
+
     public ArrayList<String[]> listaPlanetas(String busca, String valor, boolean literal) {
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         Planeta planetas;
@@ -420,9 +430,7 @@ public class Controle {
         sessao.close();
         return ArrayPlanetas;
     }
-    
-    
-    
+
     public Estrelas getEstrela(String valor) {
         Estrelas estrela;
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
@@ -431,7 +439,7 @@ public class Controle {
         sessao.close();
         return estrela;
     }
-            
+
     public Planeta getPlaneta(String valor) {
         Planeta planetas;
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
@@ -537,16 +545,16 @@ public class Controle {
         sessao.close();
 
     }
-    
+
     public void cadastrarEstrela(String[] estrelaExluir) throws ParseException {
-        
+
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         Estrelas estrela = new Estrelas();
 
         if (!estrelaExluir[0].trim().isEmpty()) {
             estrela.setRa(Float.parseFloat(estrelaExluir[0]));
         }
-        
+
         if (!estrelaExluir[2].trim().isEmpty()) {
             estrela.setDec2(Float.parseFloat(estrelaExluir[2]));
         }
@@ -568,7 +576,6 @@ public class Controle {
         if (!estrelaExluir[8].trim().isEmpty()) {
             estrela.setIdade(Float.parseFloat(estrelaExluir[8]));
         }
-        
 
         sessao.save(estrela);
 
@@ -578,7 +585,7 @@ public class Controle {
         sessao.close();
 
     }
-    
+
     public void excluirPlaneta(String valor) {
 
         Planeta planetas = new Planeta();
@@ -589,7 +596,7 @@ public class Controle {
         tr.commit();
         sessao.close();
     }
-    
+
     public void excluirEstrela(String valor) {
 
         Estrelas estrela = new Estrelas();
@@ -600,24 +607,21 @@ public class Controle {
         tr.commit();
         sessao.close();
     }
-    
+
     public void iniciarConexao() {
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         sessao.close();
     }
 
-    
-            
     public void editarEstrela(String[] estrelaEdit) throws ParseException {
-        
-        
+
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         Estrelas estrela = getEstrela(estrelaEdit[1]);
-        
+
         if (!estrelaEdit[0].trim().isEmpty()) {
             estrela.setRa(Float.parseFloat(estrelaEdit[0]));
         }
-        
+
         if (!estrelaEdit[2].trim().isEmpty()) {
             estrela.setDec2(Float.parseFloat(estrelaEdit[2]));
         }
@@ -647,7 +651,7 @@ public class Controle {
         sessao.close();
 
     }
-    
+
     public void editarPlaneta(String[] planeta) throws ParseException {
 
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
@@ -740,4 +744,58 @@ public class Controle {
         sessao.close();
 
     }
+
+    public void graficoRelacaoTamanho() throws FileNotFoundException, IOException {
+
+        // cria o conjunto de dados
+        DefaultCategoryDataset ds = new DefaultCategoryDataset();
+        /*Jupiter tem 317 a mais do que a massa da terra
+        jupiter massa = 1
+        Planetas com tamanho da terra 1/317 = 0.0031*/
+        
+       Planeta planeta = new Planeta();
+        long planeta1, planeta2, planeta3, planeta4, planeta5, planeta6, planeta7, planeta8, planeta9;
+        
+        Session sessao  = PlanetarioHibernateUtil.getSessionFactory().openSession(); 
+        Query p1 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.0031");
+        Query p2= sessao.createQuery(" select count(massa) from Planeta where massa < 0.15");
+        Query p3 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.07");
+        Query p4 = sessao.createQuery(" select count(massa) from Planeta where massa < 1");
+        Query p5 = sessao.createQuery(" select count(massa) from Planeta where massa < 5");
+        Query p6 = sessao.createQuery(" select count(massa) from Planeta where massa < 10");
+        Query p7 = sessao.createQuery(" select count(massa) from Planeta where massa < 25");
+        Query p8 = sessao.createQuery(" select count(massa) from Planeta where massa < 50");
+        Query p9 = sessao.createQuery(" select count(massa) from Planeta where massa < 100");
+        
+        
+        
+        planeta1 = (long)p1.uniqueResult();
+        planeta2 = (long)p2.uniqueResult();
+        planeta3 = (long)p3.uniqueResult();
+        planeta4 = (long)p4.uniqueResult();
+        planeta5 = (long)p5.uniqueResult();
+        planeta6 = (long)p6.uniqueResult();
+        planeta7 = (long)p7.uniqueResult();
+        planeta8 = (long)p8.uniqueResult();
+        planeta9 = (long)p9.uniqueResult();
+        
+        ds.addValue(planeta1, "maximo", "0.0031");
+        ds.addValue(planeta2, "maximo", "0.15");
+        ds.addValue(planeta3, "maximo", "0.07");
+        ds.addValue(planeta4, "maximo", "1");
+        ds.addValue(planeta5, "maximo", "5");
+        ds.addValue(planeta6, "maximo", "10");
+        ds.addValue(planeta7, "maximo", "25");
+        ds.addValue(planeta8, "maximo", "50");
+        ds.addValue(planeta9, "maximo", "100");
+
+        JFreeChart grafico = ChartFactory.createBarChart("Relação de tamanho de planetas", "tamanho", "Quantidade", ds, PlotOrientation.VERTICAL, true, true, false);
+
+        OutputStream arquivo = new FileOutputStream("grafico.png");
+        ChartUtilities.writeChartAsPNG(arquivo, grafico, 550, 400);
+        //fos.close();
+
+    }
+    
+   
 }
