@@ -745,7 +745,7 @@ public class Controle {
 
     }
 
-    public void graficoRelacaoTamanho() throws FileNotFoundException, IOException {
+    public void graficoRelacaoTamanhoCres() throws FileNotFoundException, IOException {
 
         // cria o conjunto de dados
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
@@ -788,6 +788,60 @@ public class Controle {
         ds.addValue(planeta7, "maximo", "25");
         ds.addValue(planeta8, "maximo", "50");
         ds.addValue(planeta9, "maximo", "100");
+
+        JFreeChart grafico = ChartFactory.createBarChart("Relação de tamanho de planetas", "tamanho", "Quantidade", ds, PlotOrientation.VERTICAL, true, true, false);
+
+        OutputStream arquivo = new FileOutputStream("grafico.png");
+        ChartUtilities.writeChartAsPNG(arquivo, grafico, 550, 400);
+        //fos.close();
+
+    }
+    
+    
+    public void graficoRelacaoTamanhoDecres() throws FileNotFoundException, IOException {
+
+        // cria o conjunto de dados
+        DefaultCategoryDataset ds = new DefaultCategoryDataset();
+        /*Jupiter tem 317 a mais do que a massa da terra
+        jupiter massa = 1
+        Planetas com tamanho da terra 1/317 = 0.0031*/
+        
+       Planeta planeta = new Planeta();
+        long planeta1, planeta2, planeta3, planeta4, planeta5, planeta6, planeta7, planeta8, planeta9;
+        
+        Session sessao  = PlanetarioHibernateUtil.getSessionFactory().openSession(); 
+        Query p1 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.0031");
+        Query p2= sessao.createQuery(" select count(massa) from Planeta where massa < 0.15");
+        Query p3 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.07");
+        Query p4 = sessao.createQuery(" select count(massa) from Planeta where massa < 1");
+        Query p5 = sessao.createQuery(" select count(massa) from Planeta where massa < 5");
+        Query p6 = sessao.createQuery(" select count(massa) from Planeta where massa < 10");
+        Query p7 = sessao.createQuery(" select count(massa) from Planeta where massa < 25");
+        Query p8 = sessao.createQuery(" select count(massa) from Planeta where massa < 50");
+        Query p9 = sessao.createQuery(" select count(massa) from Planeta where massa < 100");
+        
+        
+        
+        planeta1 = (long)p1.uniqueResult();
+        planeta2 = (long)p2.uniqueResult();
+        planeta3 = (long)p3.uniqueResult();
+        planeta4 = (long)p4.uniqueResult();
+        planeta5 = (long)p5.uniqueResult();
+        planeta6 = (long)p6.uniqueResult();
+        planeta7 = (long)p7.uniqueResult();
+        planeta8 = (long)p8.uniqueResult();
+        planeta9 = (long)p9.uniqueResult();
+        
+        
+        ds.addValue(planeta9, "maximo", "100");
+        ds.addValue(planeta8, "maximo", "50");
+        ds.addValue(planeta7, "maximo", "25");
+        ds.addValue(planeta6, "maximo", "10");
+        ds.addValue(planeta5, "maximo", "5");
+        ds.addValue(planeta4, "maximo", "1");
+        ds.addValue(planeta3, "maximo", "0.07");
+        ds.addValue(planeta2, "maximo", "0.15");
+         ds.addValue(planeta1, "maximo", "0.0031");
 
         JFreeChart grafico = ChartFactory.createBarChart("Relação de tamanho de planetas", "tamanho", "Quantidade", ds, PlotOrientation.VERTICAL, true, true, false);
 

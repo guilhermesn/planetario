@@ -4100,19 +4100,30 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="ordemC" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="OrdemD" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="tamanhobt" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="1387" max="32767" attributes="0"/>
+                      <EmptySpace pref="736" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="tamanhobt" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="892" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tamanhobt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ordemC" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="OrdemD" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="898" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -4120,11 +4131,29 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="tamanhobt">
               <Properties>
-                <Property name="text" type="java.lang.String" value="GraficoTamanho"/>
+                <Property name="text" type="java.lang.String" value="Gerar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tamanhobtActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel10">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gr&#xe1;fico de rela&#xe7;&#xe3;o dos tamanhos dos planetas em rela&#xe7;&#xe3;o a j&#xfa;piter"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="ordemC">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ordem Crencente"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ordemCActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="OrdemD">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ordem Decrescente"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

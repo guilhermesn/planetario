@@ -386,6 +386,9 @@ public class Main extends javax.swing.JFrame {
         jTextFieldIDEstrela1 = new javax.swing.JTextField();
         jPanelGerarRelatorio = new javax.swing.JPanel();
         tamanhobt = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        ordemC = new javax.swing.JRadioButton();
+        OrdemD = new javax.swing.JRadioButton();
         jPanelTelaInicial = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanelEdicaoEstrela = new javax.swing.JPanel();
@@ -2857,28 +2860,49 @@ public class Main extends javax.swing.JFrame {
 
         jPanelPrincipal.add(jPanelNovoEstrela, "jPanelNovoEstrela");
 
-        tamanhobt.setText("GraficoTamanho");
+        tamanhobt.setText("Gerar");
         tamanhobt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tamanhobtActionPerformed(evt);
             }
         });
 
+        jLabel10.setText("Gráfico de relação dos tamanhos dos planetas em relação a júpiter");
+
+        ordemC.setText("Ordem Crencente");
+        ordemC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordemCActionPerformed(evt);
+            }
+        });
+
+        OrdemD.setText("Ordem Decrescente");
+
         javax.swing.GroupLayout jPanelGerarRelatorioLayout = new javax.swing.GroupLayout(jPanelGerarRelatorio);
         jPanelGerarRelatorio.setLayout(jPanelGerarRelatorioLayout);
         jPanelGerarRelatorioLayout.setHorizontalGroup(
             jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(91, 91, 91)
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
+                .addComponent(ordemC)
+                .addGap(18, 18, 18)
+                .addComponent(OrdemD)
+                .addGap(26, 26, 26)
                 .addComponent(tamanhobt)
-                .addContainerGap(1387, Short.MAX_VALUE))
+                .addContainerGap(736, Short.MAX_VALUE))
         );
         jPanelGerarRelatorioLayout.setVerticalGroup(
             jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(tamanhobt)
-                .addContainerGap(892, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(tamanhobt)
+                    .addComponent(ordemC)
+                    .addComponent(OrdemD))
+                .addContainerGap(898, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelGerarRelatorio, "jPanelGerarRelatorio");
@@ -6196,12 +6220,25 @@ public class Main extends javax.swing.JFrame {
     private void tamanhobtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tamanhobtActionPerformed
         try {
             // TODO add your handling code here:
-
-            controle.graficoRelacaoTamanho();
+            
+            if(OrdemD.isSelected() == true){
+                
+            controle.graficoRelacaoTamanhoDecres();
+            
+            }else{
+              controle.graficoRelacaoTamanhoCres();
+                
+            }
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_tamanhobtActionPerformed
+
+    private void ordemCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordemCActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_ordemCActionPerformed
 
     public static void main(String args[]) {
 
@@ -6233,6 +6270,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton OrdemD;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton16;
@@ -6306,6 +6344,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextFieldValor8;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
@@ -6607,6 +6646,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldTexto6;
     private javax.swing.JTextField jTextFieldmetalicidadeEstrela;
     private javax.swing.JTextField jTextFieldmetalicidadeEstrela1;
+    private javax.swing.JRadioButton ordemC;
     private javax.swing.JButton tamanhobt;
     // End of variables declaration//GEN-END:variables
 }
