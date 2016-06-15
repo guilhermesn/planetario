@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
 /**
@@ -53,6 +54,13 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
+        buttonGroup6 = new javax.swing.ButtonGroup();
+        buttonGroup7 = new javax.swing.ButtonGroup();
         jPanelPrincipal = new javax.swing.JPanel();
         jPanelConfigurar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -389,6 +397,7 @@ public class Main extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         ordemC = new javax.swing.JRadioButton();
         OrdemD = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
         jPanelTelaInicial = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanelEdicaoEstrela = new javax.swing.JPanel();
@@ -1095,11 +1104,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel104, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor5, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor5, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel105, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor6, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor6, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelEntreNumeros2Layout.setVerticalGroup(
@@ -1130,7 +1139,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel106)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldNumero2, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE))
+                .addComponent(jFormattedTextFieldNumero2, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE))
         );
         jPanelNumero2Layout.setVerticalGroup(
             jPanelNumero2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1197,7 +1206,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel108, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldData5, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldData5, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel109)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1246,7 +1255,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanelExcluirPlanetaLayout.createSequentialGroup()
                         .addComponent(jLabel103, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxWhere2, 0, 289, Short.MAX_VALUE)
+                        .addComponent(jComboBoxWhere2, 0, 312, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jCheckBoxLiteral2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2860,6 +2869,10 @@ public class Main extends javax.swing.JFrame {
 
         jPanelPrincipal.add(jPanelNovoEstrela, "jPanelNovoEstrela");
 
+        setVisible(false);
+        jPanelGerarRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setVisible(false);
+
         tamanhobt.setText("Gerar");
         tamanhobt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2869,6 +2882,8 @@ public class Main extends javax.swing.JFrame {
 
         jLabel10.setText("Gráfico de relação dos tamanhos dos planetas em relação a júpiter");
 
+        buttonGroup1.add(ordemC);
+        ordemC.setSelected(true);
         ordemC.setText("Ordem Crencente");
         ordemC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2876,22 +2891,36 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(OrdemD);
         OrdemD.setText("Ordem Decrescente");
+        OrdemD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OrdemDActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Thiago\\Desktop\\UNIFEI2016\\TrabalhoBD2\\planetario\\Planetario\\grafico.png")); // NOI18N
+        this.jLabel11.setVisible(false);
 
         javax.swing.GroupLayout jPanelGerarRelatorioLayout = new javax.swing.GroupLayout(jPanelGerarRelatorio);
         jPanelGerarRelatorio.setLayout(jPanelGerarRelatorioLayout);
         jPanelGerarRelatorioLayout.setHorizontalGroup(
             jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jLabel10)
-                .addGap(18, 18, 18)
-                .addComponent(ordemC)
-                .addGap(18, 18, 18)
-                .addComponent(OrdemD)
-                .addGap(26, 26, 26)
-                .addComponent(tamanhobt)
-                .addContainerGap(736, Short.MAX_VALUE))
+                .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
+                        .addComponent(ordemC)
+                        .addGap(18, 18, 18)
+                        .addComponent(OrdemD)
+                        .addGap(26, 26, 26)
+                        .addComponent(tamanhobt))
+                    .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                        .addGap(284, 284, 284)
+                        .addComponent(jLabel11)))
+                .addContainerGap(1101, Short.MAX_VALUE))
         );
         jPanelGerarRelatorioLayout.setVerticalGroup(
             jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2902,7 +2931,9 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(tamanhobt)
                     .addComponent(ordemC)
                     .addComponent(OrdemD))
-                .addContainerGap(898, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addComponent(jLabel11)
+                .addContainerGap(447, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelGerarRelatorio, "jPanelGerarRelatorio");
@@ -6221,13 +6252,19 @@ public class Main extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             
-            if(OrdemD.isSelected() == true){
+            //jLabel11.setVisible(false);
+            
+            if(OrdemD.isSelected() == true || ordemC.isSelected() == false){
                 
             controle.graficoRelacaoTamanhoDecres();
+           jLabel11.setVisible(true);
+    
+          // jLabel11.enable();
             
-            }else{
+            }if(ordemC.isSelected() == true  || OrdemD.isSelected() == false){
               controle.graficoRelacaoTamanhoCres();
-                
+              jLabel11.setVisible(true);
+                //jLabel11.enable();
             }
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -6237,10 +6274,18 @@ public class Main extends javax.swing.JFrame {
     private void ordemCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordemCActionPerformed
         // TODO add your handling code here:
         
+        jLabel11.setVisible(false);
+        
         
     }//GEN-LAST:event_ordemCActionPerformed
 
+    private void OrdemDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrdemDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OrdemDActionPerformed
+
     public static void main(String args[]) {
+        
+        
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -6265,12 +6310,24 @@ public class Main extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Main().setVisible(true);
+                
             }
         });
+        
+        
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton OrdemD;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.ButtonGroup buttonGroup6;
+    private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton16;
@@ -6355,6 +6412,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel107;
     private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel110;
     private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel112;

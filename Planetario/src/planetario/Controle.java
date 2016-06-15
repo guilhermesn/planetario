@@ -793,7 +793,7 @@ public class Controle {
 
         OutputStream arquivo = new FileOutputStream("grafico.png");
         ChartUtilities.writeChartAsPNG(arquivo, grafico, 550, 400);
-        //fos.close();
+        arquivo.close();
 
     }
     
@@ -847,7 +847,7 @@ public class Controle {
 
         OutputStream arquivo = new FileOutputStream("grafico.png");
         ChartUtilities.writeChartAsPNG(arquivo, grafico, 550, 400);
-        //fos.close();
+        arquivo.close();
 
     }
     
