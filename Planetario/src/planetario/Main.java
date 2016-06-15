@@ -6,7 +6,11 @@
 package planetario;
 
 import java.awt.CardLayout;
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+import java.io.File;
+>>>>>>> 6dabec99219a450cdbb21fe3faf387d800220e1b
 //import java.sql.Date;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -21,7 +25,11 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+<<<<<<< HEAD
 import javax.swing.ButtonGroup;
+=======
+import javax.swing.JFileChooser;
+>>>>>>> 6dabec99219a450cdbb21fe3faf387d800220e1b
 import javax.swing.JOptionPane;
 
 /**
@@ -392,12 +400,18 @@ public class Main extends javax.swing.JFrame {
         jButton26 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jTextFieldIDEstrela1 = new javax.swing.JTextField();
+<<<<<<< HEAD
         jPanelGerarRelatorio = new javax.swing.JPanel();
         tamanhobt = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         ordemC = new javax.swing.JRadioButton();
         OrdemD = new javax.swing.JRadioButton();
         jLabel11 = new javax.swing.JLabel();
+=======
+        JtextFieldLocal = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        button1 = new java.awt.Button();
+>>>>>>> 6dabec99219a450cdbb21fe3faf387d800220e1b
         jPanelTelaInicial = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanelEdicaoEstrela = new javax.swing.JPanel();
@@ -834,7 +848,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton24)
                     .addComponent(jButtonEditarPlan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1015,7 +1029,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButtonSelecionarEstrelaBuscar2)
                     .addComponent(jButtonEditarEstrela))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1278,7 +1292,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton25)
                     .addComponent(jButtonExcluirPlan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1459,7 +1473,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButtonSelecionarEstrelaBuscar3)
                     .addComponent(jButtonExcluirEstrela))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1706,7 +1720,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jPanelValores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1881,7 +1895,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jPanelValores4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSelecionarEstrelaBuscar1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2062,7 +2076,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButtonSelecionarEstrelaBuscar)
                     .addComponent(jButtonSelecionaEstrela))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2382,7 +2396,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton18)
                     .addComponent(jButton20))
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addContainerGap(340, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelEdicaoPlaneta, "jPanelEdicaoPlaneta");
@@ -2718,7 +2732,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonInserirPlaneta)
                     .addComponent(jButton27))
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelNovoPlaneta, "jPanelNovoPlaneta");
@@ -2869,6 +2883,7 @@ public class Main extends javax.swing.JFrame {
 
         jPanelPrincipal.add(jPanelNovoEstrela, "jPanelNovoEstrela");
 
+<<<<<<< HEAD
         setVisible(false);
         jPanelGerarRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setVisible(false);
@@ -2934,9 +2949,47 @@ public class Main extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addComponent(jLabel11)
                 .addContainerGap(447, Short.MAX_VALUE))
+=======
+        jButton2.setText("Salvar relatorio PDF");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        button1.setLabel("button1");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JtextFieldLocalLayout = new javax.swing.GroupLayout(JtextFieldLocal);
+        JtextFieldLocal.setLayout(JtextFieldLocalLayout);
+        JtextFieldLocalLayout.setHorizontalGroup(
+            JtextFieldLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JtextFieldLocalLayout.createSequentialGroup()
+                .addGroup(JtextFieldLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JtextFieldLocalLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JtextFieldLocalLayout.createSequentialGroup()
+                        .addGap(424, 424, 424)
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(1118, Short.MAX_VALUE))
+        );
+        JtextFieldLocalLayout.setVerticalGroup(
+            JtextFieldLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JtextFieldLocalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton2)
+                .addGap(131, 131, 131)
+                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(749, Short.MAX_VALUE))
+>>>>>>> 6dabec99219a450cdbb21fe3faf387d800220e1b
         );
 
-        jPanelPrincipal.add(jPanelGerarRelatorio, "jPanelGerarRelatorio");
+        jPanelPrincipal.add(JtextFieldLocal, "jPanelGerarRelatorio");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/As_galáxias-2.jpg"))); // NOI18N
 
@@ -3288,6 +3341,7 @@ public class Main extends javax.swing.JFrame {
     private void jMenuGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGerarRelatorioActionPerformed
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
         cl.show(jPanelPrincipal, "jPanelGerarRelatorio");
+       
     }//GEN-LAST:event_jMenuGerarRelatorioActionPerformed
 
     private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
@@ -6240,6 +6294,7 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton26ActionPerformed
 
+<<<<<<< HEAD
     private void jTextFieldNomeEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeEdit1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeEdit1ActionPerformed
@@ -6282,6 +6337,34 @@ public class Main extends javax.swing.JFrame {
     private void OrdemDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrdemDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_OrdemDActionPerformed
+=======
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JFileChooser file = new JFileChooser(); 
+          file.setFileSelectionMode(JFileChooser.FILES_ONLY);
+          int i= file.showSaveDialog(null);
+          PDF pdf = new PDF();
+            try {
+                pdf.criarPDF();
+            } catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        if (i==1){
+            
+        } else {
+            File arquivo = file.getSelectedFile();
+            //JtextFieldLocalPasta.setText(arquivo.getPath());
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+         PDF pdf = new PDF();
+            try {
+                pdf.criarPDF();
+            } catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_button1ActionPerformed
+>>>>>>> 6dabec99219a450cdbb21fe3faf387d800220e1b
 
     public static void main(String args[]) {
         
@@ -6320,6 +6403,7 @@ public class Main extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JRadioButton OrdemD;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -6328,10 +6412,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.ButtonGroup buttonGroup7;
+=======
+    private javax.swing.JPanel JtextFieldLocal;
+    private java.awt.Button button1;
+>>>>>>> 6dabec99219a450cdbb21fe3faf387d800220e1b
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
@@ -6569,7 +6658,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelEntreNumeros6;
     private javax.swing.JPanel jPanelExcluirEstrela;
     private javax.swing.JPanel jPanelExcluirPlaneta;
-    private javax.swing.JPanel jPanelGerarRelatorio;
     private javax.swing.JPanel jPanelNovoEstrela;
     private javax.swing.JPanel jPanelNovoPlaneta;
     private javax.swing.JPanel jPanelNumero;

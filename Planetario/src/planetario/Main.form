@@ -419,7 +419,7 @@
                           <Component id="jButtonEditarPlan" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane11" pref="837" max="32767" attributes="0"/>
+                      <Component id="jScrollPane11" pref="879" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -848,7 +848,7 @@
                           <Component id="jButtonEditarEstrela" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane14" pref="837" max="32767" attributes="0"/>
+                      <Component id="jScrollPane14" pref="879" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1135,7 +1135,7 @@
                           <Component id="jButtonExcluirPlan" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane12" pref="837" max="32767" attributes="0"/>
+                      <Component id="jScrollPane12" pref="879" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1564,7 +1564,7 @@
                           <Component id="jButtonExcluirEstrela" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane15" pref="837" max="32767" attributes="0"/>
+                      <Component id="jScrollPane15" pref="879" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1848,7 +1848,7 @@
                           <Component id="jButton13" alignment="2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane9" pref="837" max="32767" attributes="0"/>
+                      <Component id="jScrollPane9" pref="879" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -2262,7 +2262,7 @@
                           <Component id="jButtonSelecionarEstrelaBuscar1" alignment="2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane13" pref="837" max="32767" attributes="0"/>
+                      <Component id="jScrollPane13" pref="879" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -2595,7 +2595,7 @@
                           <Component id="jButtonSelecionaEstrela" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane10" pref="837" max="32767" attributes="0"/>
+                      <Component id="jScrollPane10" pref="879" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -3122,7 +3122,7 @@
                           <Component id="jButton18" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton20" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="298" max="32767" attributes="0"/>
+                      <EmptySpace pref="340" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3640,7 +3640,7 @@
                           <Component id="jButtonInserirPlaneta" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton27" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="296" max="32767" attributes="0"/>
+                      <EmptySpace pref="338" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -4104,6 +4104,7 @@
             </Component>
           </SubComponents>
         </Container>
+<<<<<<< HEAD
         <Container class="javax.swing.JPanel" name="jPanelGerarRelatorio">
           <Properties>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -4114,6 +4115,9 @@
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="setVisible(false);&#xd; "/>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="setVisible(false);  "/>
           </AuxValues>
+=======
+        <Container class="javax.swing.JPanel" name="JtextFieldLocal">
+>>>>>>> 6dabec99219a450cdbb21fe3faf387d800220e1b
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="jPanelGerarRelatorio"/>
@@ -4126,6 +4130,7 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                               <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -4141,12 +4146,24 @@
                           </Group>
                       </Group>
                       <EmptySpace pref="1101" max="32767" attributes="0"/>
+=======
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButton2" min="-2" pref="159" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="424" max="-2" attributes="0"/>
+                              <Component id="button1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="1118" max="32767" attributes="0"/>
+>>>>>>> 6dabec99219a450cdbb21fe3faf387d800220e1b
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -4157,11 +4174,19 @@
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="447" max="32767" attributes="0"/>
+=======
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                      <Component id="button1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="749" max="32767" attributes="0"/>
+>>>>>>> 6dabec99219a450cdbb21fe3faf387d800220e1b
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
+<<<<<<< HEAD
             <Component class="javax.swing.JButton" name="tamanhobt">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Gerar"/>
@@ -4208,6 +4233,24 @@
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="this.jLabel11.setVisible(false);&#xd;&#xa;"/>
               </AuxValues>
             </Component>
+=======
+            <Component class="javax.swing.JButton" name="jButton2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Salvar relatorio PDF"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="java.awt.Button" name="button1">
+              <Properties>
+                <Property name="label" type="java.lang.String" value="button1"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+              </Events>
+            </Component>
+>>>>>>> 6dabec99219a450cdbb21fe3faf387d800220e1b
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelTelaInicial">
