@@ -7,6 +7,7 @@ package planetario;
 
 import java.awt.CardLayout;
 import java.io.File;
+import java.io.IOException;
 //import java.sql.Date;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -54,6 +55,7 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanelPrincipal = new javax.swing.JPanel();
         jPanelConfigurar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -414,6 +416,11 @@ public class Main extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jTextFieldIDEstrela = new javax.swing.JTextField();
         jPanelGerarRelatorio = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        tamanhobt = new javax.swing.JButton();
+        ordemC = new javax.swing.JRadioButton();
+        OrdemD = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivo = new javax.swing.JMenu();
         jMenuConfigurar = new javax.swing.JMenuItem();
@@ -3061,15 +3068,59 @@ public class Main extends javax.swing.JFrame {
 
         jPanelPrincipal.add(jPanelEdicaoEstrela, "jPanelEdicaoEstrela");
 
+        jLabel10.setText("Gráfico de relação de tamanhos de planetas:");
+
+        tamanhobt.setText("Gerar");
+        tamanhobt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tamanhobtActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(ordemC);
+        ordemC.setText("crescente");
+        ordemC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordemCActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(OrdemD);
+        OrdemD.setText("Decrescente");
+
+        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Thiago\\Desktop\\UNIFEI2016\\TrabalhoBD2\\Planetario_MASTER\\planetario\\Planetario\\grafico.png")); // NOI18N
+
         javax.swing.GroupLayout jPanelGerarRelatorioLayout = new javax.swing.GroupLayout(jPanelGerarRelatorio);
         jPanelGerarRelatorio.setLayout(jPanelGerarRelatorioLayout);
         jPanelGerarRelatorioLayout.setHorizontalGroup(
             jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1608, Short.MAX_VALUE)
+            .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ordemC, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(OrdemD, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tamanhobt)
+                        .addGap(27, 27, 27))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(901, Short.MAX_VALUE))
         );
         jPanelGerarRelatorioLayout.setVerticalGroup(
             jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 944, Short.MAX_VALUE)
+            .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(tamanhobt)
+                    .addComponent(ordemC)
+                    .addComponent(OrdemD))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(500, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelGerarRelatorio, "jPanelGerarRelatorio2");
@@ -6247,6 +6298,36 @@ public class Main extends javax.swing.JFrame {
         cl.show(jPanelPrincipal, "jPanelGerarRelatorio2");
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+    private void tamanhobtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tamanhobtActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            
+            //jLabel11.setVisible(false);
+            
+            if(OrdemD.isSelected() == true || ordemC.isSelected() == false){
+                
+            controle.graficoRelacaoTamanhoDecres();
+           jLabel11.setVisible(true);
+    
+          // jLabel11.enable();
+            
+            }if(ordemC.isSelected() == true  || OrdemD.isSelected() == false){
+              controle.graficoRelacaoTamanhoCres();
+              jLabel11.setVisible(true);
+                //jLabel11.enable();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_tamanhobtActionPerformed
+
+    private void ordemCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordemCActionPerformed
+        // TODO add your handling code here:
+        
+        jLabel11.setVisible(false);
+    }//GEN-LAST:event_ordemCActionPerformed
+
     public static void main(String args[]) {
 
         try {
@@ -6278,7 +6359,9 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JtextFieldLocal;
+    private javax.swing.JRadioButton OrdemD;
     private java.awt.Button button1;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton16;
@@ -6353,6 +6436,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextFieldValor8;
     private javax.swing.JFormattedTextField jFormattedTextFieldValor9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
@@ -6363,6 +6447,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel107;
     private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel110;
     private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel112;
@@ -6655,5 +6740,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldTexto6;
     private javax.swing.JTextField jTextFieldmetalicidadeEstrela;
     private javax.swing.JTextField jTextFieldmetalicidadeEstrela1;
+    private javax.swing.JRadioButton ordemC;
+    private javax.swing.JButton tamanhobt;
     // End of variables declaration//GEN-END:variables
 }
