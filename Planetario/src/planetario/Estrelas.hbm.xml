@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jun 4, 2016 5:16:03 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 25/05/2016 18:42:31 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="planetario.Estrelas" table="ESTRELAS" catalog="Planetario">
+    <class name="planetario.Estrelas" table="ESTRELAS" catalog="Planetario" optimistic-lock="version">
         <id name="nome" type="string">
             <column name="nome" length="50" />
-            <generator class="assigned"></generator>
+            <generator class="assigned" />
         </id>
         <property name="ra" type="float">
             <column name="ra" precision="12" scale="0" not-null="true" />
