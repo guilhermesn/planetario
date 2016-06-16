@@ -1,5 +1,5 @@
 package planetario;
-// Generated Jun 4, 2016 5:16:00 PM by Hibernate Tools 4.3.1
+// Generated 25/05/2016 18:42:29 by Hibernate Tools 4.3.1
 
 
 
@@ -36,6 +36,23 @@ public class PlanetaId  implements java.io.Serializable {
     }
 
 
+   public boolean equals(Object other) {
+         if ( (this == other ) ) return true;
+		 if ( (other == null ) ) return false;
+		 if ( !(other instanceof PlanetaId) ) return false;
+		 PlanetaId castOther = ( PlanetaId ) other; 
+         
+		 return (this.getIdPlaneta()==castOther.getIdPlaneta())
+ && ( (this.getEstrelasNome()==castOther.getEstrelasNome()) || ( this.getEstrelasNome()!=null && castOther.getEstrelasNome()!=null && this.getEstrelasNome().equals(castOther.getEstrelasNome()) ) );
+   }
+   
+   public int hashCode() {
+         int result = 17;
+         
+         result = 37 * result + this.getIdPlaneta();
+         result = 37 * result + ( getEstrelasNome() == null ? 0 : this.getEstrelasNome().hashCode() );
+         return result;
+   }   
 
 
 }
