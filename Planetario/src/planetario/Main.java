@@ -413,6 +413,7 @@ public class Main extends javax.swing.JFrame {
         jButton22 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jTextFieldIDEstrela = new javax.swing.JTextField();
+        jPanelGerarRelatorio = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivo = new javax.swing.JMenu();
         jMenuConfigurar = new javax.swing.JMenuItem();
@@ -430,6 +431,7 @@ public class Main extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuRelatorio = new javax.swing.JMenu();
         jMenuGerarRelatorio = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -3059,6 +3061,19 @@ public class Main extends javax.swing.JFrame {
 
         jPanelPrincipal.add(jPanelEdicaoEstrela, "jPanelEdicaoEstrela");
 
+        javax.swing.GroupLayout jPanelGerarRelatorioLayout = new javax.swing.GroupLayout(jPanelGerarRelatorio);
+        jPanelGerarRelatorio.setLayout(jPanelGerarRelatorioLayout);
+        jPanelGerarRelatorioLayout.setHorizontalGroup(
+            jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1608, Short.MAX_VALUE)
+        );
+        jPanelGerarRelatorioLayout.setVerticalGroup(
+            jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 944, Short.MAX_VALUE)
+        );
+
+        jPanelPrincipal.add(jPanelGerarRelatorio, "jPanelGerarRelatorio2");
+
         jMenuArquivo.setText("Arquivo");
 
         jMenuConfigurar.setText("Configurar");
@@ -3168,6 +3183,14 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jMenuRelatorio.add(jMenuGerarRelatorio);
+
+        jMenuItem6.setText("Gerar relatorio 2");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenuRelatorio.add(jMenuItem6);
 
         jMenuBar1.add(jMenuRelatorio);
 
@@ -6219,6 +6242,11 @@ public class Main extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_button1ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+               CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelGerarRelatorio2");
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     public static void main(String args[]) {
 
         try {
@@ -6465,6 +6493,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenu jMenuNovo;
     private javax.swing.JMenuItem jMenuPlanetaEditar;
     private javax.swing.JMenuItem jMenuPlanetaNovo;
@@ -6491,6 +6520,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelEntreNumeros6;
     private javax.swing.JPanel jPanelExcluirEstrela;
     private javax.swing.JPanel jPanelExcluirPlaneta;
+    private javax.swing.JPanel jPanelGerarRelatorio;
     private javax.swing.JPanel jPanelNovoEstrela;
     private javax.swing.JPanel jPanelNovoPlaneta;
     private javax.swing.JPanel jPanelNumero;
