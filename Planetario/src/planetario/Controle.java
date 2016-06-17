@@ -781,9 +781,9 @@ public class Controle {
                 Query p = sessao.createQuery(" select count(massa) from Planeta where massa > " + ((((max - min) / (9)) * i) + min) + " and massa <= " + ((((max - min) / (9)) * (i + 1)) + min));
                 planeta = (long) p.uniqueResult();
                 if (comparar) {
-                    ds.addValue(planeta, "maximo", "" + ((((max - min) / (9)) * (i + 1)) + min) * 317);
+                    ds.addValue(planeta, "maximo", String.format("%.1f",((((max - min) / (9)) * (i + 1)) + min) * 317));
                 } else {
-                    ds.addValue(planeta, "maximo", "" + ((((max - min) / (9)) * (i + 1)) + min));
+                    ds.addValue(planeta, "maximo", String.format("%.1f",((((max - min) / (9)) * (i + 1)) + min)));
                 }
             }
         } else {
@@ -791,9 +791,9 @@ public class Controle {
                 Query p = sessao.createQuery(" select count(massa) from Planeta where massa > " + ((((max - min) / (9)) * i) + min) + " and massa <= " + ((((max - min) / (9)) * (i + 1)) + min));
                 planeta = (long) p.uniqueResult();
                 if (comparar) {
-                    ds.addValue(planeta, "maximo", "" + ((((max - min) / (9)) * (i + 1)) + min) * 317);
+                    ds.addValue(planeta, "maximo",  String.format("%.1f",((((max - min) / (9)) * (i + 1)) + min) * 317));
                 } else {
-                    ds.addValue(planeta, "maximo", "" + ((((max - min) / (9)) * (i + 1)) + min));
+                    ds.addValue(planeta, "maximo", String.format("%.1f",((((max - min) / (9)) * (i + 1)) + min)));
                 }
             }
         }
