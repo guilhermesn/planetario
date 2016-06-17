@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -56,6 +58,7 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jPanelPrincipal = new javax.swing.JPanel();
         jPanelConfigurar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -387,9 +390,6 @@ public class Main extends javax.swing.JFrame {
         jButton26 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jTextFieldIDEstrela1 = new javax.swing.JTextField();
-        JtextFieldLocal = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        button1 = new java.awt.Button();
         jPanelTelaInicial = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanelEdicaoEstrela = new javax.swing.JPanel();
@@ -421,6 +421,23 @@ public class Main extends javax.swing.JFrame {
         ordemC = new javax.swing.JRadioButton();
         OrdemD = new javax.swing.JRadioButton();
         jLabel11 = new javax.swing.JLabel();
+        jPanelGerarRelatorioPlanetas = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jSliderTamPlan = new RangeSlider(0,100,0,100);
+        jLabel12 = new javax.swing.JLabel();
+        ordemC1 = new javax.swing.JRadioButton();
+        OrdemD1 = new javax.swing.JRadioButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabelGrafico = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel28 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivo = new javax.swing.JMenu();
         jMenuConfigurar = new javax.swing.JMenuItem();
@@ -2857,46 +2874,6 @@ public class Main extends javax.swing.JFrame {
 
         jPanelPrincipal.add(jPanelNovoEstrela, "jPanelNovoEstrela");
 
-        jButton2.setText("Salvar relatorio PDF");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        button1.setLabel("button1");
-        button1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout JtextFieldLocalLayout = new javax.swing.GroupLayout(JtextFieldLocal);
-        JtextFieldLocal.setLayout(JtextFieldLocalLayout);
-        JtextFieldLocalLayout.setHorizontalGroup(
-            JtextFieldLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JtextFieldLocalLayout.createSequentialGroup()
-                .addGroup(JtextFieldLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JtextFieldLocalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JtextFieldLocalLayout.createSequentialGroup()
-                        .addGap(424, 424, 424)
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1118, Short.MAX_VALUE))
-        );
-        JtextFieldLocalLayout.setVerticalGroup(
-            JtextFieldLocalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JtextFieldLocalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2)
-                .addGap(131, 131, 131)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(749, Short.MAX_VALUE))
-        );
-
-        jPanelPrincipal.add(JtextFieldLocal, "jPanelGerarRelatorio");
-
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/As_galáxias-2.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanelTelaInicialLayout = new javax.swing.GroupLayout(jPanelTelaInicial);
@@ -3088,8 +3065,6 @@ public class Main extends javax.swing.JFrame {
         buttonGroup1.add(OrdemD);
         OrdemD.setText("Decrescente");
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Thiago\\Desktop\\UNIFEI2016\\TrabalhoBD2\\Planetario_MASTER\\planetario\\Planetario\\grafico.png")); // NOI18N
-
         javax.swing.GroupLayout jPanelGerarRelatorioLayout = new javax.swing.GroupLayout(jPanelGerarRelatorio);
         jPanelGerarRelatorio.setLayout(jPanelGerarRelatorioLayout);
         jPanelGerarRelatorioLayout.setHorizontalGroup(
@@ -3120,10 +3095,146 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(OrdemD))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(500, Short.MAX_VALUE))
+                .addContainerGap(497, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelGerarRelatorio, "jPanelGerarRelatorio2");
+
+        jButton2.setText("Salvar relatorio PDF");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jSliderTamPlan.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderTamPlanStateChanged(evt);
+            }
+        });
+
+        jLabel12.setText("Gráfico de relação de tamanhos de planetas:");
+
+        buttonGroup1.add(ordemC1);
+        ordemC1.setSelected(true);
+        ordemC1.setText("Crescente");
+        ordemC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordemC1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(OrdemD1);
+        OrdemD1.setText("Decrescente");
+        OrdemD1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OrdemD1ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Faixa de tamanho:");
+
+        jLabel15.setText("Ordenar:");
+
+        jLabel25.setText("0");
+
+        jLabel26.setText("a");
+
+        jLabel27.setText("6340");
+
+        jLabelGrafico.setBackground(new java.awt.Color(1, 1, 1));
+        jLabelGrafico.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        jLabel28.setText("Comparar massa com:");
+
+        buttonGroup3.add(jRadioButton1);
+        jRadioButton1.setText("Terra");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup3.add(jRadioButton2);
+        jRadioButton2.setSelected(true);
+        jRadioButton2.setText("Jupter");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelGerarRelatorioPlanetasLayout = new javax.swing.GroupLayout(jPanelGerarRelatorioPlanetas);
+        jPanelGerarRelatorioPlanetas.setLayout(jPanelGerarRelatorioPlanetasLayout);
+        jPanelGerarRelatorioPlanetasLayout.setHorizontalGroup(
+            jPanelGerarRelatorioPlanetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelGerarRelatorioPlanetasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelGerarRelatorioPlanetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2)
+                    .addComponent(jSeparator3)
+                    .addComponent(jSliderTamPlan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelGerarRelatorioPlanetasLayout.createSequentialGroup()
+                        .addGroup(jPanelGerarRelatorioPlanetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelGerarRelatorioPlanetasLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel26)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel27))
+                            .addComponent(jLabel12)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelGerarRelatorioPlanetasLayout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ordemC1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(OrdemD1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel28)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton2)))
+                        .addGap(0, 997, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanelGerarRelatorioPlanetasLayout.setVerticalGroup(
+            jPanelGerarRelatorioPlanetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelGerarRelatorioPlanetasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelGerarRelatorioPlanetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(ordemC1)
+                    .addComponent(OrdemD1)
+                    .addComponent(jLabel28)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelGerarRelatorioPlanetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel27))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSliderTamPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(162, Short.MAX_VALUE))
+        );
+
+        jPanelPrincipal.add(jPanelGerarRelatorioPlanetas, "jPanelGerarRelatorio");
 
         jMenuArquivo.setText("Arquivo");
 
@@ -3311,6 +3422,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuPlanetaNovoActionPerformed
 
     private void jMenuGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGerarRelatorioActionPerformed
+        jLabel27.setText(jSliderTamPlan.getUpperValue()+"");
+        try {
+            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float)jSliderTamPlan.getValue(),(float)jSliderTamPlan.getUpperValue(), (float)jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
         cl.show(jPanelPrincipal, "jPanelGerarRelatorio");
        
@@ -6284,15 +6401,6 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-         PDF pdf = new PDF();
-            try {
-                pdf.criarPDF();
-            } catch (Exception ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
-    }//GEN-LAST:event_button1ActionPerformed
-
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
                CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
         cl.show(jPanelPrincipal, "jPanelGerarRelatorio2");
@@ -6328,6 +6436,51 @@ public class Main extends javax.swing.JFrame {
         jLabel11.setVisible(false);
     }//GEN-LAST:event_ordemCActionPerformed
 
+    private void ordemC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordemC1ActionPerformed
+        try {
+            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float)jSliderTamPlan.getValue(),(float)jSliderTamPlan.getUpperValue(), (float)jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ordemC1ActionPerformed
+
+    private void jSliderTamPlanStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderTamPlanStateChanged
+        jLabel25.setText(jSliderTamPlan.getValue() + "");
+        jLabel27.setText(jSliderTamPlan.getUpperValue() + "");
+        try {
+            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float)jSliderTamPlan.getValue(),(float)jSliderTamPlan.getUpperValue(), (float)jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jSliderTamPlanStateChanged
+
+    private void OrdemD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrdemD1ActionPerformed
+        try {
+            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float)jSliderTamPlan.getValue(),(float)jSliderTamPlan.getUpperValue(), (float)jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_OrdemD1ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        jSliderTamPlan.setMaximum(10000);
+        try {
+            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float)jSliderTamPlan.getValue(),(float)jSliderTamPlan.getUpperValue(), (float)jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        jSliderTamPlan.setMaximum(100);
+        try {
+            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float)jSliderTamPlan.getValue(),(float)jSliderTamPlan.getUpperValue(), (float)jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
     public static void main(String args[]) {
 
         try {
@@ -6358,10 +6511,10 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JtextFieldLocal;
     private javax.swing.JRadioButton OrdemD;
-    private java.awt.Button button1;
+    private javax.swing.JRadioButton OrdemD1;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton16;
@@ -6458,6 +6611,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel117;
     private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel119;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel122;
@@ -6468,6 +6622,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel127;
     private javax.swing.JLabel jLabel128;
     private javax.swing.JLabel jLabel129;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel130;
     private javax.swing.JLabel jLabel131;
     private javax.swing.JLabel jLabel132;
@@ -6489,6 +6644,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel147;
     private javax.swing.JLabel jLabel148;
     private javax.swing.JLabel jLabel149;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel150;
     private javax.swing.JLabel jLabel151;
     private javax.swing.JLabel jLabel152;
@@ -6515,6 +6671,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -6563,6 +6723,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
+    private javax.swing.JLabel jLabelGrafico;
     private javax.swing.JTextField jLabelIDedit;
     private javax.swing.JLabel jLabelNomeEstrelaEdit;
     private javax.swing.JMenu jMenuArquivo;
@@ -6606,6 +6767,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelExcluirEstrela;
     private javax.swing.JPanel jPanelExcluirPlaneta;
     private javax.swing.JPanel jPanelGerarRelatorio;
+    private javax.swing.JPanel jPanelGerarRelatorioPlanetas;
     private javax.swing.JPanel jPanelNovoEstrela;
     private javax.swing.JPanel jPanelNovoPlaneta;
     private javax.swing.JPanel jPanelNumero;
@@ -6633,6 +6795,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelValores5;
     private javax.swing.JPanel jPanelValores6;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
@@ -6650,6 +6814,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
     private javax.swing.JSeparator jSeparator19;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator20;
     private javax.swing.JSeparator jSeparator21;
     private javax.swing.JSeparator jSeparator22;
@@ -6658,7 +6823,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator26;
     private javax.swing.JSeparator jSeparator27;
     private javax.swing.JSeparator jSeparator28;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator6;
+    private RangeSlider jSliderTamPlan;/*
+    private javax.swing.JSlider jSliderTamPlan;
+    */
     private javax.swing.JTable jTableEstrela;
     private javax.swing.JTable jTableEstrela1;
     private javax.swing.JTable jTableEstrela2;
@@ -6741,6 +6910,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldmetalicidadeEstrela;
     private javax.swing.JTextField jTextFieldmetalicidadeEstrela1;
     private javax.swing.JRadioButton ordemC;
+    private javax.swing.JRadioButton ordemC1;
     private javax.swing.JButton tamanhobt;
     // End of variables declaration//GEN-END:variables
 }

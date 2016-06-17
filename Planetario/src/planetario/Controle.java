@@ -17,11 +17,13 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.hibernate.Query;
+import static org.hibernate.internal.util.collections.CollectionHelper.arrayList;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
@@ -317,7 +319,7 @@ public class Controle {
         while (i.hasNext()) {
             listaEstrela = (Estrelas) i.next();
             ArrayEstrelas.add(new String[]{
-                 listaEstrela.getRa() + "",
+                listaEstrela.getRa() + "",
                 listaEstrela.getNome() + "",
                 listaEstrela.getRaio() + "",
                 listaEstrela.getDec2() + "",
@@ -331,7 +333,7 @@ public class Controle {
         sessao.close();
         return ArrayEstrelas;
     }
-    
+
     public ArrayList<String[]> listaEstrelas(String busca, String valor, String valor2) {
         ArrayList< String[]> ArrayEstrelas = new ArrayList< String[]>();
         Estrelas listaEstrela;
@@ -354,7 +356,7 @@ public class Controle {
         sessao.close();
         return ArrayEstrelas;
     }
-    
+
     public ArrayList<String[]> listaPlanetas(String busca, String valor1, String valor2) {
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         Planeta planetas;
@@ -394,7 +396,7 @@ public class Controle {
         sessao.close();
         return ArrayPlanetas;
     }
-    
+
     public ArrayList<String[]> listaPlanetas(String busca, String valor, boolean literal) {
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         Planeta planetas;
@@ -434,9 +436,7 @@ public class Controle {
         sessao.close();
         return ArrayPlanetas;
     }
-    
-    
-    
+
     public Estrelas getEstrela(String valor) {
         Estrelas estrela;
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
@@ -445,7 +445,7 @@ public class Controle {
         sessao.close();
         return estrela;
     }
-            
+
     public Planeta getPlaneta(String valor) {
         Planeta planetas;
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
@@ -551,16 +551,16 @@ public class Controle {
         sessao.close();
 
     }
-    
+
     public void cadastrarEstrela(String[] estrelaExluir) throws ParseException {
-        
+
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         Estrelas estrela = new Estrelas();
 
         if (!estrelaExluir[0].trim().isEmpty()) {
             estrela.setRa(Float.parseFloat(estrelaExluir[0]));
         }
-        
+
         if (!estrelaExluir[2].trim().isEmpty()) {
             estrela.setDec2(Float.parseFloat(estrelaExluir[2]));
         }
@@ -582,7 +582,6 @@ public class Controle {
         if (!estrelaExluir[8].trim().isEmpty()) {
             estrela.setIdade(Float.parseFloat(estrelaExluir[8]));
         }
-        
 
         sessao.save(estrela);
 
@@ -592,7 +591,7 @@ public class Controle {
         sessao.close();
 
     }
-    
+
     public void excluirPlaneta(String valor) {
 
         Planeta planetas = new Planeta();
@@ -603,7 +602,7 @@ public class Controle {
         tr.commit();
         sessao.close();
     }
-    
+
     public void excluirEstrela(String valor) {
 
         Estrelas estrela = new Estrelas();
@@ -614,24 +613,21 @@ public class Controle {
         tr.commit();
         sessao.close();
     }
-    
+
     public void iniciarConexao() {
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         sessao.close();
     }
 
-    
-            
     public void editarEstrela(String[] estrelaEdit) throws ParseException {
-        
-        
+
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         Estrelas estrela = getEstrela(estrelaEdit[1]);
-        
+
         if (!estrelaEdit[0].trim().isEmpty()) {
             estrela.setRa(Float.parseFloat(estrelaEdit[0]));
         }
-        
+
         if (!estrelaEdit[2].trim().isEmpty()) {
             estrela.setDec2(Float.parseFloat(estrelaEdit[2]));
         }
@@ -661,7 +657,7 @@ public class Controle {
         sessao.close();
 
     }
-    
+
     public void editarPlaneta(String[] planeta) throws ParseException {
 
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
@@ -754,21 +750,65 @@ public class Controle {
         sessao.close();
 
     }
-    
-     public void graficoRelacaoTamanhoCres() throws FileNotFoundException, IOException {
+
+    public JFreeChart graficoRelacaoTamanhoCores2(float min, float max, float faixa, boolean ordem, boolean comparar) throws FileNotFoundException, IOException {
 
         // cria o conjunto de dados
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
         /*Jupiter tem 317 a mais do que a massa da terra
-        jupiter massa = 1
-        Planetas com tamanho da terra 1/317 = 0.0031*/
-        
-       Planeta planeta = new Planeta();
+         jupiter massa = 1
+         Planetas com tamanho da terra 1/317 = 0.0031*/
+        long planeta;
+        if (comparar) {
+            min = min / 317;
+            max = max / 317;
+        }
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+
+        if (ordem) {
+            for (int i = 0; i < 9; i++) {
+                Query p = sessao.createQuery(" select count(massa) from Planeta where massa > " + ((((max - min) / (9)) * i) + min) + " and massa <= " + ((((max - min) / (9)) * (i + 1)) + min));
+                planeta = (long) p.uniqueResult();
+                if (comparar) {
+                    ds.addValue(planeta, "maximo", "" + ((((max - min) / (9)) * (i + 1)) + min) * 317);
+                } else {
+                    ds.addValue(planeta, "maximo", "" + ((((max - min) / (9)) * (i + 1)) + min));
+                }
+            }
+        } else {
+            for (int i = 8; i >= 0; i--) {
+                Query p = sessao.createQuery(" select count(massa) from Planeta where massa > " + ((((max - min) / (9)) * i) + min) + " and massa <= " + ((((max - min) / (9)) * (i + 1)) + min));
+                planeta = (long) p.uniqueResult();
+                if (comparar) {
+                    ds.addValue(planeta, "maximo", "" + ((((max - min) / (9)) * (i + 1)) + min) * 317);
+                } else {
+                    ds.addValue(planeta, "maximo", "" + ((((max - min) / (9)) * (i + 1)) + min));
+                }
+            }
+        }
+
+        JFreeChart grafico = ChartFactory.createBarChart("Relação de massa de planetas com a massa da Jupter", "tamanho", "Quantidade", ds, PlotOrientation.VERTICAL, true, true, false);
+        if (comparar) {
+            grafico = ChartFactory.createBarChart("Relação de massa de planetas com a massa da Terra", "tamanho", "Quantidade", ds, PlotOrientation.VERTICAL, true, true, false);
+        }
+        return grafico;
+
+    }
+
+    public void graficoRelacaoTamanhoCres() throws FileNotFoundException, IOException {
+
+        // cria o conjunto de dados
+        DefaultCategoryDataset ds = new DefaultCategoryDataset();
+        /*Jupiter tem 317 a mais do que a massa da terra
+         jupiter massa = 1
+         Planetas com tamanho da terra 1/317 = 0.0031*/
+
+        Planeta planeta = new Planeta();
         long planeta1, planeta2, planeta3, planeta4, planeta5, planeta6, planeta7, planeta8, planeta9;
-        
-        Session sessao  = PlanetarioHibernateUtil.getSessionFactory().openSession(); 
+
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         Query p1 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.0031");
-        Query p2= sessao.createQuery(" select count(massa) from Planeta where massa < 0.15");
+        Query p2 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.15");
         Query p3 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.07");
         Query p4 = sessao.createQuery(" select count(massa) from Planeta where massa < 1");
         Query p5 = sessao.createQuery(" select count(massa) from Planeta where massa < 5");
@@ -776,19 +816,17 @@ public class Controle {
         Query p7 = sessao.createQuery(" select count(massa) from Planeta where massa < 25");
         Query p8 = sessao.createQuery(" select count(massa) from Planeta where massa < 50");
         Query p9 = sessao.createQuery(" select count(massa) from Planeta where massa < 100");
-        
-        
-        
-        planeta1 = (long)p1.uniqueResult();
-        planeta2 = (long)p2.uniqueResult();
-        planeta3 = (long)p3.uniqueResult();
-        planeta4 = (long)p4.uniqueResult();
-        planeta5 = (long)p5.uniqueResult();
-        planeta6 = (long)p6.uniqueResult();
-        planeta7 = (long)p7.uniqueResult();
-        planeta8 = (long)p8.uniqueResult();
-        planeta9 = (long)p9.uniqueResult();
-        
+
+        planeta1 = (long) p1.uniqueResult();
+        planeta2 = (long) p2.uniqueResult();
+        planeta3 = (long) p3.uniqueResult();
+        planeta4 = (long) p4.uniqueResult();
+        planeta5 = (long) p5.uniqueResult();
+        planeta6 = (long) p6.uniqueResult();
+        planeta7 = (long) p7.uniqueResult();
+        planeta8 = (long) p8.uniqueResult();
+        planeta9 = (long) p9.uniqueResult();
+
         ds.addValue(planeta1, "maximo", "0.0031");
         ds.addValue(planeta2, "maximo", "0.15");
         ds.addValue(planeta3, "maximo", "0.07");
@@ -806,22 +844,21 @@ public class Controle {
         arquivo.close();
 
     }
-    
-    
+
     public void graficoRelacaoTamanhoDecres() throws FileNotFoundException, IOException {
 
         // cria o conjunto de dados
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
         /*Jupiter tem 317 a mais do que a massa da terra
-        jupiter massa = 1
-        Planetas com tamanho da terra 1/317 = 0.0031*/
-        
-       Planeta planeta = new Planeta();
+         jupiter massa = 1
+         Planetas com tamanho da terra 1/317 = 0.0031*/
+
+        Planeta planeta = new Planeta();
         long planeta1, planeta2, planeta3, planeta4, planeta5, planeta6, planeta7, planeta8, planeta9;
-        
-        Session sessao  = PlanetarioHibernateUtil.getSessionFactory().openSession(); 
+
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         Query p1 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.0031");
-        Query p2= sessao.createQuery(" select count(massa) from Planeta where massa < 0.15");
+        Query p2 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.15");
         Query p3 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.07");
         Query p4 = sessao.createQuery(" select count(massa) from Planeta where massa < 1");
         Query p5 = sessao.createQuery(" select count(massa) from Planeta where massa < 5");
@@ -829,20 +866,17 @@ public class Controle {
         Query p7 = sessao.createQuery(" select count(massa) from Planeta where massa < 25");
         Query p8 = sessao.createQuery(" select count(massa) from Planeta where massa < 50");
         Query p9 = sessao.createQuery(" select count(massa) from Planeta where massa < 100");
-        
-        
-        
-        planeta1 = (long)p1.uniqueResult();
-        planeta2 = (long)p2.uniqueResult();
-        planeta3 = (long)p3.uniqueResult();
-        planeta4 = (long)p4.uniqueResult();
-        planeta5 = (long)p5.uniqueResult();
-        planeta6 = (long)p6.uniqueResult();
-        planeta7 = (long)p7.uniqueResult();
-        planeta8 = (long)p8.uniqueResult();
-        planeta9 = (long)p9.uniqueResult();
-        
-        
+
+        planeta1 = (long) p1.uniqueResult();
+        planeta2 = (long) p2.uniqueResult();
+        planeta3 = (long) p3.uniqueResult();
+        planeta4 = (long) p4.uniqueResult();
+        planeta5 = (long) p5.uniqueResult();
+        planeta6 = (long) p6.uniqueResult();
+        planeta7 = (long) p7.uniqueResult();
+        planeta8 = (long) p8.uniqueResult();
+        planeta9 = (long) p9.uniqueResult();
+
         ds.addValue(planeta9, "maximo", "100");
         ds.addValue(planeta8, "maximo", "50");
         ds.addValue(planeta7, "maximo", "25");
@@ -851,7 +885,7 @@ public class Controle {
         ds.addValue(planeta4, "maximo", "1");
         ds.addValue(planeta3, "maximo", "0.07");
         ds.addValue(planeta2, "maximo", "0.15");
-         ds.addValue(planeta1, "maximo", "0.0031");
+        ds.addValue(planeta1, "maximo", "0.0031");
 
         JFreeChart grafico = ChartFactory.createBarChart("Relação de tamanho de planetas", "tamanho", "Quantidade", ds, PlotOrientation.VERTICAL, true, true, false);
 
