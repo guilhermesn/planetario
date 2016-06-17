@@ -58,7 +58,7 @@ public class PDF {
                     doc.add(p);
                 } else if (obj instanceof JFreeChart) {
                     JFreeChart grafico = (JFreeChart) obj;
-                    BufferedImage bufferedImage = grafico.createBufferedImage(400, 300);
+                    BufferedImage bufferedImage = grafico.createBufferedImage(500, 400);
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
                     ImageIO.write(bufferedImage, "png", baos);
                     Image iTextImage = Image.getInstance(baos.toByteArray());
