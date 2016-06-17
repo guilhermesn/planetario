@@ -22,6 +22,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.Query;
 import static org.hibernate.internal.util.collections.CollectionHelper.arrayList;
 import org.jfree.chart.ChartFactory;
@@ -120,6 +122,15 @@ public class Controle {
             }
         }
         return "";
+    }
+
+    public void salvarPDF(String camilho, ArrayList dados) throws Exception {
+        PDF doc = new PDF();
+        try {
+            doc.criarPDF(camilho, dados);
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public String selecionaWherePlaneta(String buscar, String valor, boolean literal) {

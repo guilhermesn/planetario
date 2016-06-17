@@ -26,6 +26,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import org.jfree.chart.JFreeChart;
 
 /**
  *
@@ -3422,15 +3423,15 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuPlanetaNovoActionPerformed
 
     private void jMenuGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGerarRelatorioActionPerformed
-        jLabel27.setText(jSliderTamPlan.getUpperValue()+"");
+        jLabel27.setText(jSliderTamPlan.getUpperValue() + "");
         try {
-            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float)jSliderTamPlan.getValue(),(float)jSliderTamPlan.getUpperValue(), (float)jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
+            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
         cl.show(jPanelPrincipal, "jPanelGerarRelatorio");
-       
+
     }//GEN-LAST:event_jMenuGerarRelatorioActionPerformed
 
     private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
@@ -5528,7 +5529,7 @@ public class Main extends javax.swing.JFrame {
 
     private ArrayList< String[]> listaEstrelas() {
 
-       ArrayList< String[]> ArrayEstrela = new ArrayList< String[]>();
+        ArrayList< String[]> ArrayEstrela = new ArrayList< String[]>();
         if (jCheckBoxLiteral4.isSelected()) {
             switch (jComboBoxWhere4.getSelectedIndex()) {
                 case 0:
@@ -5981,7 +5982,7 @@ public class Main extends javax.swing.JFrame {
         }
         return ArrayEstrela;
     }
-    
+
     private void jButtonSelecionarEstrelaBuscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarEstrelaBuscar2ActionPerformed
         jButtonEditarEstrela.setEnabled(false);
         javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTableEstrela2.getModel();
@@ -5998,7 +5999,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jButtonEditarEstrelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarEstrelaActionPerformed
         int linha = jTableEstrela2.getSelectedRow();
-        
+
         jTextFieldIDEstrela.setText(jTableEstrela2.getValueAt(linha, 0).toString().replace("null", ""));
         jTextFieldNomeEstrela.setText(jTableEstrela2.getValueAt(linha, 1).toString().replace("null", ""));
         jTextFieldDec2Estrela.setText(jTableEstrela2.getValueAt(linha, 3).toString().replace("null", ""));
@@ -6008,7 +6009,7 @@ public class Main extends javax.swing.JFrame {
         jTextFieldMassaEstrela.setText(jTableEstrela2.getValueAt(linha, 6).toString().replace("null", ""));
         jTextFieldTemperaturaEstrela.setText(jTableEstrela2.getValueAt(linha, 8).toString().replace("null", ""));
         jTextFieldIdadeEstrela.setText(jTableEstrela2.getValueAt(linha, 7).toString().replace("null", ""));
-        
+
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
         cl.show(jPanelPrincipal, "jPanelEdicaoEstrela");
     }//GEN-LAST:event_jButtonEditarEstrelaActionPerformed
@@ -6026,7 +6027,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDec2EstrelaActionPerformed
 
     private void jButtonEdicaoEstrelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEdicaoEstrelaActionPerformed
-        
+
         int option = JOptionPane.showOptionDialog(null, "Tem certeza que deseja editar essa estrela?", "Deseja continuar?",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Não");
@@ -6057,11 +6058,10 @@ public class Main extends javax.swing.JFrame {
             for (String[] linha : ArrayEstrelas) {
                 model.addRow(linha);
             }
-            
+
             CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
             cl.show(jPanelPrincipal, "jPanelEditarEstrela");
-            
-            
+
         }
     }//GEN-LAST:event_jButtonEdicaoEstrelaActionPerformed
 
@@ -6200,7 +6200,7 @@ public class Main extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jCheckBoxLiteral6ActionPerformed
-    
+
     private ArrayList< String[]> listaEstrelasExcluir() {
         ArrayList< String[]> ArrayEstrela = new ArrayList< String[]>();
         if (jCheckBoxLiteral6.isSelected()) {
@@ -6266,7 +6266,7 @@ public class Main extends javax.swing.JFrame {
         }
         return ArrayEstrela;
     }
-    
+
     private void jButtonSelecionarEstrelaBuscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarEstrelaBuscar3ActionPerformed
         jButtonExcluirEstrela.setEnabled(false);
         javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTableEstrela3.getModel();
@@ -6316,7 +6316,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-            cl.show(jPanelPrincipal, "jPanelEditarEstrela");
+        cl.show(jPanelPrincipal, "jPanelEditarEstrela");
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jTextFieldDec2Estrela1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDec2Estrela1ActionPerformed
@@ -6358,11 +6358,10 @@ public class Main extends javax.swing.JFrame {
             } catch (ParseException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
             cl.show(jPanelPrincipal, "jPanelNovoEstrela");
-            
-            
+
         }
     }//GEN-LAST:event_jButtonEdicaoEstrela1ActionPerformed
 
@@ -6372,37 +6371,44 @@ public class Main extends javax.swing.JFrame {
                 JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Não");
         if (option < 1) {
             jTextFieldIDEstrela1.setText("");
-                jTextFieldNomeEstrela1.setText("");
-                jTextFieldDec2Estrela1.setText("");
-                jTextFieldmetalicidadeEstrela1.setText("");
-                jTextFieldDistanciaEstrela1.setText("");
-                jTextFieldRaioEstrela1.setText("");
-                jTextFieldMassaEstrela1.setText("");
-                jTextFieldTemperaturaEstrela1.setText("");
-                jTextFieldIdadeEstrela1.setText("");
+            jTextFieldNomeEstrela1.setText("");
+            jTextFieldDec2Estrela1.setText("");
+            jTextFieldmetalicidadeEstrela1.setText("");
+            jTextFieldDistanciaEstrela1.setText("");
+            jTextFieldRaioEstrela1.setText("");
+            jTextFieldMassaEstrela1.setText("");
+            jTextFieldTemperaturaEstrela1.setText("");
+            jTextFieldIdadeEstrela1.setText("");
         }
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JFileChooser file = new JFileChooser(); 
-          file.setFileSelectionMode(JFileChooser.FILES_ONLY);
-          int i= file.showSaveDialog(null);
-          PDF pdf = new PDF();
+        JFileChooser file = new JFileChooser();
+        file.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int i = file.showSaveDialog(null);
+
+        if (i == 1) {
+
+        } else {
+            ArrayList<Object> dados = new ArrayList();
+            File arquivo = file.getSelectedFile();
+            dados.add("Distribuicao de exoplanetas por massa");
+            dados.add(" ");
+            dados.add(" ");
+            dados.add("Embora a existência de sistemas planetários há muito tenha sido aventada, até a década de 1990 nenhum planeta ao redor de estrelas da sequência principal havia sido descoberto. Todavia, desde então, algumas perturbações em torno da estrela atribuídas a exoplanetas gigantes vêm sendo descobertas com telescópios melhores. Mesmo por estimativas, as observações cada vez mais frequentes de exoplanetas gigantes reforçam a possibilidade de que alguns desses sistemas planetários possam conter planetas menores e consequentemente abrigar vida extraterrestre. A maioria dos exoplanetas possuem condições inóspitas à existência de vida tal como é concebida em nosso planeta. Os planetas detectados até agora são, em sua maioria, do tamanho ou maior do que Júpiter, e giram na maioria das vezes em órbitas muito próximas da estrela-mãe. ");
+            
             try {
-                pdf.criarPDF();
+                dados.add((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())));
+                controle.salvarPDF(arquivo.getPath(), dados);
             } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
-        if (i==1){
-            
-        } else {
-            File arquivo = file.getSelectedFile();
-            //JtextFieldLocalPasta.setText(arquivo.getPath());
+            PDF pdf = new PDF();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-               CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
         cl.show(jPanelPrincipal, "jPanelGerarRelatorio2");
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
@@ -6410,19 +6416,18 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            
+
             //jLabel11.setVisible(false);
-            
-            if(OrdemD.isSelected() == true || ordemC.isSelected() == false){
-                
-            controle.graficoRelacaoTamanhoDecres();
-           jLabel11.setVisible(true);
-    
-          // jLabel11.enable();
-            
-            }if(ordemC.isSelected() == true  || OrdemD.isSelected() == false){
-              controle.graficoRelacaoTamanhoCres();
-              jLabel11.setVisible(true);
+            if (OrdemD.isSelected() == true || ordemC.isSelected() == false) {
+
+                controle.graficoRelacaoTamanhoDecres();
+                jLabel11.setVisible(true);
+
+                // jLabel11.enable();
+            }
+            if (ordemC.isSelected() == true || OrdemD.isSelected() == false) {
+                controle.graficoRelacaoTamanhoCres();
+                jLabel11.setVisible(true);
                 //jLabel11.enable();
             }
         } catch (IOException ex) {
@@ -6432,13 +6437,13 @@ public class Main extends javax.swing.JFrame {
 
     private void ordemCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordemCActionPerformed
         // TODO add your handling code here:
-        
+
         jLabel11.setVisible(false);
     }//GEN-LAST:event_ordemCActionPerformed
 
     private void ordemC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordemC1ActionPerformed
         try {
-            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float)jSliderTamPlan.getValue(),(float)jSliderTamPlan.getUpperValue(), (float)jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
+            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -6448,16 +6453,16 @@ public class Main extends javax.swing.JFrame {
         jLabel25.setText(jSliderTamPlan.getValue() + "");
         jLabel27.setText(jSliderTamPlan.getUpperValue() + "");
         try {
-            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float)jSliderTamPlan.getValue(),(float)jSliderTamPlan.getUpperValue(), (float)jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
+            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_jSliderTamPlanStateChanged
 
     private void OrdemD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrdemD1ActionPerformed
         try {
-            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float)jSliderTamPlan.getValue(),(float)jSliderTamPlan.getUpperValue(), (float)jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
+            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -6466,7 +6471,7 @@ public class Main extends javax.swing.JFrame {
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         jSliderTamPlan.setMaximum(10000);
         try {
-            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float)jSliderTamPlan.getValue(),(float)jSliderTamPlan.getUpperValue(), (float)jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
+            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -6475,7 +6480,7 @@ public class Main extends javax.swing.JFrame {
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         jSliderTamPlan.setMaximum(100);
         try {
-            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float)jSliderTamPlan.getValue(),(float)jSliderTamPlan.getUpperValue(), (float)jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
+            jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
