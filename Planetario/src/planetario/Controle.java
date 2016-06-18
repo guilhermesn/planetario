@@ -22,6 +22,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.hibernate.Query;
@@ -775,11 +776,12 @@ public class Controle {
             max = max / 317;
         }
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
-
+        Query p = sessao.createSQLQuery("call selecionaporDTPlanetas(:min :max)").setParameter("min", min).setParameter("max", max);
+        
+        List result = p.list();
         if (ordem) {
-            for (int i = 0; i < 9; i++) {
-                Query p = sessao.createQuery(" select count(massa) from Planeta where massa > " + ((((max - min) / (9)) * i) + min) + " and massa <= " + ((((max - min) / (9)) * (i + 1)) + min));
-                planeta = (long) p.uniqueResult();
+            for(int i=0; i<result.size(); i++) {
+                planeta = (long) result.get(i);
                 if (comparar) {
                     ds.addValue(planeta, "maximo", String.format("%.1f",((((max - min) / (9)) * (i + 1)) + min) * 317));
                 } else {
@@ -787,9 +789,8 @@ public class Controle {
                 }
             }
         } else {
-            for (int i = 8; i >= 0; i--) {
-                Query p = sessao.createQuery(" select count(massa) from Planeta where massa > " + ((((max - min) / (9)) * i) + min) + " and massa <= " + ((((max - min) / (9)) * (i + 1)) + min));
-                planeta = (long) p.uniqueResult();
+            for(int i=0; i>=0; i--) {
+                planeta = (long) result.get(i);
                 if (comparar) {
                     ds.addValue(planeta, "maximo",  String.format("%.1f",((((max - min) / (9)) * (i + 1)) + min) * 317));
                 } else {
