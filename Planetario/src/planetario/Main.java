@@ -6,12 +6,14 @@
 package planetario;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 //import java.sql.Date;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,9 +26,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
 
 /**
  *
@@ -60,6 +65,7 @@ public class Main extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanelPrincipal = new javax.swing.JPanel();
         jPanelConfigurar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -418,10 +424,17 @@ public class Main extends javax.swing.JFrame {
         jTextFieldIDEstrela = new javax.swing.JTextField();
         jPanelGerarRelatorio = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        tamanhobt = new javax.swing.JButton();
-        ordemC = new javax.swing.JRadioButton();
-        OrdemD = new javax.swing.JRadioButton();
+        jButton4 = new javax.swing.JButton();
+        CorSelection = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        solIni = new javax.swing.JTextField();
+        solFi = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        darkhole2 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
         jPanelGerarRelatorioPlanetas = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jSliderTamPlan = new RangeSlider(0,100,0,100);
@@ -439,6 +452,7 @@ public class Main extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivo = new javax.swing.JMenu();
         jMenuConfigurar = new javax.swing.JMenuItem();
@@ -539,7 +553,7 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(jPanelConfigurarLayout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFormattedTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 1560, Short.MAX_VALUE))
+                                .addComponent(jFormattedTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 1568, Short.MAX_VALUE))
                             .addGroup(jPanelConfigurarLayout.createSequentialGroup()
                                 .addGroup(jPanelConfigurarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -677,11 +691,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel99, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor3, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor3, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel100, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor4, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor4, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelEntreNumeros1Layout.setVerticalGroup(
@@ -712,7 +726,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel101)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldNumero1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE))
+                .addComponent(jFormattedTextFieldNumero1, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE))
         );
         jPanelNumero1Layout.setVerticalGroup(
             jPanelNumero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -779,7 +793,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldData3, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldData3, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -828,7 +842,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanelEditarPlanetaLayout.createSequentialGroup()
                         .addComponent(jLabel98, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxWhere1, 0, 289, Short.MAX_VALUE)
+                        .addComponent(jComboBoxWhere1, 0, 313, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jCheckBoxLiteral1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -851,7 +865,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton24)
                     .addComponent(jButtonEditarPlan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -908,11 +922,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel148, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor11, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor11, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel149, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor12, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor12, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelEntreNumeros5Layout.setVerticalGroup(
@@ -943,7 +957,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel150)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldNumero5, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE))
+                .addComponent(jFormattedTextFieldNumero5, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE))
         );
         jPanelNumero5Layout.setVerticalGroup(
             jPanelNumero5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1008,7 +1022,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanelEditarEstrelaLayout.createSequentialGroup()
                         .addComponent(jLabel147, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxWhere5, 0, 289, Short.MAX_VALUE)
+                        .addComponent(jComboBoxWhere5, 0, 313, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jCheckBoxLiteral5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1032,7 +1046,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButtonSelecionarEstrelaBuscar2)
                     .addComponent(jButtonEditarEstrela))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1121,11 +1135,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel104, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor5, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor5, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel105, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor6, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor6, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelEntreNumeros2Layout.setVerticalGroup(
@@ -1156,7 +1170,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel106)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldNumero2, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE))
+                .addComponent(jFormattedTextFieldNumero2, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE))
         );
         jPanelNumero2Layout.setVerticalGroup(
             jPanelNumero2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1223,7 +1237,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel108, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldData5, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldData5, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel109)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1272,7 +1286,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanelExcluirPlanetaLayout.createSequentialGroup()
                         .addComponent(jLabel103, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxWhere2, 0, 289, Short.MAX_VALUE)
+                        .addComponent(jComboBoxWhere2, 0, 313, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jCheckBoxLiteral2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1295,7 +1309,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton25)
                     .addComponent(jButtonExcluirPlan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1352,11 +1366,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel153, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor13, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor13, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel154, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor14, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor14, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelEntreNumeros6Layout.setVerticalGroup(
@@ -1387,7 +1401,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel155)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldNumero6, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE))
+                .addComponent(jFormattedTextFieldNumero6, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE))
         );
         jPanelNumero6Layout.setVerticalGroup(
             jPanelNumero6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1452,7 +1466,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanelExcluirEstrelaLayout.createSequentialGroup()
                         .addComponent(jLabel152, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxWhere6, 0, 289, Short.MAX_VALUE)
+                        .addComponent(jComboBoxWhere6, 0, 313, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jCheckBoxLiteral6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1476,7 +1490,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButtonSelecionarEstrelaBuscar3)
                     .addComponent(jButtonExcluirEstrela))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1552,11 +1566,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor1, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor1, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel97, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor2, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor2, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelEntreNumerosLayout.setVerticalGroup(
@@ -1587,7 +1601,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldNumero, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE))
+                .addComponent(jFormattedTextFieldNumero, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE))
         );
         jPanelNumeroLayout.setVerticalGroup(
             jPanelNumeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1654,7 +1668,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldData1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldData1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1703,7 +1717,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanelConsultarPlanetaLayout.createSequentialGroup()
                         .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxWhere, 0, 289, Short.MAX_VALUE)
+                        .addComponent(jComboBoxWhere, 0, 313, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jCheckBoxLiteral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1723,7 +1737,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jPanelValores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1772,11 +1786,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel143, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor9, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor9, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel144, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor10, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor10, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelEntreNumeros4Layout.setVerticalGroup(
@@ -1807,7 +1821,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel145)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldNumero4, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE))
+                .addComponent(jFormattedTextFieldNumero4, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE))
         );
         jPanelNumero4Layout.setVerticalGroup(
             jPanelNumero4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1872,7 +1886,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanelConsultarEstrelaLayout.createSequentialGroup()
                         .addComponent(jLabel142, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxWhere4, 0, 289, Short.MAX_VALUE)
+                        .addComponent(jComboBoxWhere4, 0, 313, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jCheckBoxLiteral4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1893,7 +1907,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jPanelValores4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSelecionarEstrelaBuscar1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1950,11 +1964,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel138, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor7, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor7, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel139, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldValor8, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addComponent(jFormattedTextFieldValor8, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelEntreNumeros3Layout.setVerticalGroup(
@@ -1985,7 +1999,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel140)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextFieldNumero3, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE))
+                .addComponent(jFormattedTextFieldNumero3, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE))
         );
         jPanelNumero3Layout.setVerticalGroup(
             jPanelNumero3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2050,7 +2064,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanelSelecionarEstrelaLayout.createSequentialGroup()
                         .addComponent(jLabel136, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxWhere3, 0, 289, Short.MAX_VALUE)
+                        .addComponent(jComboBoxWhere3, 0, 313, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jCheckBoxLiteral3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2074,7 +2088,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButtonSelecionarEstrelaBuscar)
                     .addComponent(jButtonSelecionaEstrela))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2213,7 +2227,7 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel65)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAtualizacaoEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
+                                .addComponent(jTextFieldAtualizacaoEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel64))
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
@@ -2223,11 +2237,11 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
-                                .addComponent(jTextFieldDescobertaEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                                .addComponent(jTextFieldDescobertaEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel66)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldTempCalcEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
+                                .addComponent(jTextFieldTempCalcEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE))
                             .addGroup(jPanelEdicaoPlanetaLayout.createSequentialGroup()
                                 .addComponent(jLabel67)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2288,7 +2302,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel54)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldNomeEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 1401, Short.MAX_VALUE)))
+                        .addComponent(jTextFieldNomeEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 1448, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelEdicaoPlanetaLayout.setVerticalGroup(
@@ -2394,7 +2408,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton18)
                     .addComponent(jButton20))
-                .addContainerGap(340, Short.MAX_VALUE))
+                .addContainerGap(472, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelEdicaoPlaneta, "jPanelEdicaoPlaneta");
@@ -2613,7 +2627,7 @@ public class Main extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButtonInserirPlaneta, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelNovoPlanetaLayout.createSequentialGroup()
-                                .addComponent(jTextFieldEstrelaNome, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                                .addComponent(jTextFieldEstrelaNome, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2724,7 +2738,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonInserirPlaneta)
                     .addComponent(jButton27))
-                .addContainerGap(338, Short.MAX_VALUE))
+                .addContainerGap(469, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelNovoPlaneta, "jPanelNovoPlaneta");
@@ -2812,17 +2826,17 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(jPanelNovoEstrelaLayout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldIDEstrela1, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+                                .addComponent(jTextFieldIDEstrela1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel158, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelNovoEstrelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelNovoEstrelaLayout.createSequentialGroup()
-                                .addComponent(jTextFieldNomeEstrela1, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
+                                .addComponent(jTextFieldNomeEstrela1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel165, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldDec2Estrela1, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE))
+                                .addComponent(jTextFieldDec2Estrela1, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE))
                             .addGroup(jPanelNovoEstrelaLayout.createSequentialGroup()
                                 .addComponent(jLabel160)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2983,13 +2997,13 @@ public class Main extends javax.swing.JFrame {
                             .addGroup(jPanelEdicaoEstrelaLayout.createSequentialGroup()
                                 .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldIDEstrela, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                                .addComponent(jTextFieldIDEstrela, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel89, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelEdicaoEstrelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEdicaoEstrelaLayout.createSequentialGroup()
-                                .addComponent(jTextFieldNomeEstrela, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                                .addComponent(jTextFieldNomeEstrela, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel96, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3046,57 +3060,116 @@ public class Main extends javax.swing.JFrame {
 
         jPanelPrincipal.add(jPanelEdicaoEstrela, "jPanelEdicaoEstrela");
 
-        jLabel10.setText("Gráfico de relação de tamanhos de planetas:");
+        jLabel10.setText("Selecione a cor desejada do gráfico:");
 
-        tamanhobt.setText("Gerar");
-        tamanhobt.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setText("Salvar relatorio PDF");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tamanhobtActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(ordemC);
-        ordemC.setText("crescente");
-        ordemC.addActionListener(new java.awt.event.ActionListener() {
+        CorSelection.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Azul/Preto", "Vermelho/Amarelo", "Preto/Vermelho", "Verde/Amerelo" }));
+        CorSelection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ordemCActionPerformed(evt);
+                CorSelectionActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(OrdemD);
-        OrdemD.setText("Decrescente");
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel11.setText("Estrelas que se tornarão Buracos Negros");
+
+        jLabel29.setText("Distância do sol Inicial:");
+
+        jLabel30.setText("Distância do sol Final:");
+
+        solIni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                solIniActionPerformed(evt);
+            }
+        });
+
+        solFi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                solFiActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Visualizar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/estrelaGrafico.jpg"))); // NOI18N
+
+        jLabel32.setText("<html>Estrelas com tamanho até 2 vezes o do sol <br> Seguem o caminho esquerdo: <br> Main sequence star → red giant → white dwarf → black dwarf <br> <br>Estrelas mais de 2 vezes maiores do que o sol <br>  Seguem o caminho direito: <br> Main sequence star → red super giant → supernova → neutron star or black hole<br> </html>  ");
+        jLabel32.setToolTipText("");
 
         javax.swing.GroupLayout jPanelGerarRelatorioLayout = new javax.swing.GroupLayout(jPanelGerarRelatorio);
         jPanelGerarRelatorio.setLayout(jPanelGerarRelatorioLayout);
         jPanelGerarRelatorioLayout.setHorizontalGroup(
             jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ordemC, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(OrdemD, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tamanhobt)
-                        .addGap(27, 27, 27))
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(901, Short.MAX_VALUE))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CorSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel29)
+                                .addGap(18, 18, 18)
+                                .addComponent(solIni, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(solFi, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(darkhole2, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(529, Short.MAX_VALUE))
         );
         jPanelGerarRelatorioLayout.setVerticalGroup(
             jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(tamanhobt)
-                    .addComponent(ordemC)
-                    .addComponent(OrdemD))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(497, Short.MAX_VALUE))
+                    .addComponent(CorSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29)
+                    .addComponent(solIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(solFi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5))
+                .addGap(7, 7, 7)
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(110, 110, 110)
+                        .addComponent(darkhole2, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelGerarRelatorio, "jPanelGerarRelatorio2");
@@ -3200,7 +3273,7 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jRadioButton1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jRadioButton2)))
-                        .addGap(0, 997, Short.MAX_VALUE)))
+                        .addGap(0, 1073, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelGerarRelatorioPlanetasLayout.setVerticalGroup(
@@ -3232,10 +3305,17 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelGerarRelatorioPlanetas, "jPanelGerarRelatorio");
+
+        jButton3.setText("Salvar relatorio PDF");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jMenuArquivo.setText("Arquivo");
 
@@ -3364,6 +3444,11 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(724, 724, 724)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(725, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3371,6 +3456,11 @@ public class Main extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(460, 460, 460)
+                    .addComponent(jButton3)
+                    .addContainerGap(546, Short.MAX_VALUE)))
         );
 
         pack();
@@ -6412,35 +6502,6 @@ public class Main extends javax.swing.JFrame {
         cl.show(jPanelPrincipal, "jPanelGerarRelatorio2");
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
-    private void tamanhobtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tamanhobtActionPerformed
-        // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-
-            //jLabel11.setVisible(false);
-            if (OrdemD.isSelected() == true || ordemC.isSelected() == false) {
-
-                controle.graficoRelacaoTamanhoDecres();
-                jLabel11.setVisible(true);
-
-                // jLabel11.enable();
-            }
-            if (ordemC.isSelected() == true || OrdemD.isSelected() == false) {
-                controle.graficoRelacaoTamanhoCres();
-                jLabel11.setVisible(true);
-                //jLabel11.enable();
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_tamanhobtActionPerformed
-
-    private void ordemCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordemCActionPerformed
-        // TODO add your handling code here:
-
-        jLabel11.setVisible(false);
-    }//GEN-LAST:event_ordemCActionPerformed
-
     private void ordemC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordemC1ActionPerformed
         try {
             jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
@@ -6486,6 +6547,111 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
+    private void CorSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorSelectionActionPerformed
+        // TODO add your handling code here:
+        JComboBox cb = (JComboBox)evt.getSource();
+        String graphColor = (String)cb.getSelectedItem();
+        try {
+            //System.out.println(graphColor);
+            updateLabel(graphColor);
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_CorSelectionActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        solInicial = Integer.parseInt(solIni.getText());
+        solFinal = Integer.parseInt(solFi.getText());
+
+        JFileChooser file = new JFileChooser();
+        file.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int i = file.showSaveDialog(null);
+
+        if (i == 1) {
+
+        } else {
+            ArrayList<Object> dados = new ArrayList();
+            File arquivo = file.getSelectedFile();
+            dados.add("Distribuicao de estrelas massa");
+            dados.add(" ");
+            dados.add(" ");
+            dados.add("A star goes through a life cycle. This is determined by the size of the star. The diagram below summarises the stages you need to know:");
+            try {
+                dados.add((controle.darkholeLikelihood(1,solInicial,solFinal)));
+                controle.salvarPDF(arquivo.getPath(), dados);
+            } catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            PDF pdf = new PDF();
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        solInicial = Integer.parseInt(solIni.getText());
+        solFinal = Integer.parseInt(solFi.getText());
+        
+        ImageIcon icon;
+        try {
+            icon = new ImageIcon(controle.darkholeLikelihood(numeroCor,solInicial,solFinal).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
+            darkhole2.setIcon(icon);
+        darkhole2.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void solFiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solFiActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_solFiActionPerformed
+
+    private void solIniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solIniActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_solIniActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+ 
+    protected void updateLabel(String cor) throws SQLException {
+        darkhole2.setVisible(true);
+        
+       
+        if(cor.equalsIgnoreCase("Azul/Preto")){
+        ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(1,1,10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
+        darkhole2.setIcon(icon);
+        darkhole2.setVisible(true);
+        numeroCor = 1;
+                
+        }
+        if(cor.equalsIgnoreCase("Vermelho/Amarelo")){
+        ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(2,1,10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
+        darkhole2.setIcon(icon);
+        darkhole2.setVisible(true);
+        numeroCor = 2;
+        }
+        if(cor.equalsIgnoreCase("Preto/Vermelho")){
+        ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(3,1,10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
+        darkhole2.setIcon(icon);
+        darkhole2.setVisible(true);
+        numeroCor = 3;
+        }
+        if(cor.equalsIgnoreCase("Verde/Amerelo")){
+        ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(4,1,10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
+        darkhole2.setIcon(icon);
+        darkhole2.setVisible(true);
+        numeroCor = 4;
+        }
+        
+    }
+   
     public static void main(String args[]) {
 
         try {
@@ -6515,11 +6681,14 @@ public class Main extends javax.swing.JFrame {
         });
     }
 
+    int  solInicial,solFinal,numeroCor;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton OrdemD;
+    private javax.swing.JComboBox CorSelection;
     private javax.swing.JRadioButton OrdemD1;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JLabel darkhole2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton16;
@@ -6533,6 +6702,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonEdicaoEstrela;
     private javax.swing.JButton jButtonEdicaoEstrela1;
     private javax.swing.JButton jButtonEditarEstrela;
@@ -6680,7 +6852,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel52;
@@ -6914,8 +7090,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldTexto6;
     private javax.swing.JTextField jTextFieldmetalicidadeEstrela;
     private javax.swing.JTextField jTextFieldmetalicidadeEstrela1;
-    private javax.swing.JRadioButton ordemC;
     private javax.swing.JRadioButton ordemC1;
-    private javax.swing.JButton tamanhobt;
+    private javax.swing.JTextField solFi;
+    private javax.swing.JTextField solIni;
     // End of variables declaration//GEN-END:variables
 }

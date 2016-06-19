@@ -17,26 +17,42 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.hibernate.Query;
+import org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.Work;
+import org.hibernate.internal.SessionImpl;
 import static org.hibernate.internal.util.collections.CollectionHelper.arrayList;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.title.TextTitle;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.ui.RectangleEdge;
 
 /**
  *
  * @author guilherme
  */
 public class Controle {
+
+    private Object conn;
 
     public String selecionaWhereEstrela(String buscar, String valor, boolean literal) {
         if (valor != null) {
@@ -781,9 +797,9 @@ public class Controle {
                 Query p = sessao.createQuery(" select count(massa) from Planeta where massa > " + ((((max - min) / (9)) * i) + min) + " and massa <= " + ((((max - min) / (9)) * (i + 1)) + min));
                 planeta = (long) p.uniqueResult();
                 if (comparar) {
-                    ds.addValue(planeta, "maximo", String.format("%.1f",((((max - min) / (9)) * (i + 1)) + min) * 317));
+                    ds.addValue(planeta, "maximo", String.format("%.1f", ((((max - min) / (9)) * (i + 1)) + min) * 317));
                 } else {
-                    ds.addValue(planeta, "maximo", String.format("%.1f",((((max - min) / (9)) * (i + 1)) + min)));
+                    ds.addValue(planeta, "maximo", String.format("%.1f", ((((max - min) / (9)) * (i + 1)) + min)));
                 }
             }
         } else {
@@ -791,9 +807,9 @@ public class Controle {
                 Query p = sessao.createQuery(" select count(massa) from Planeta where massa > " + ((((max - min) / (9)) * i) + min) + " and massa <= " + ((((max - min) / (9)) * (i + 1)) + min));
                 planeta = (long) p.uniqueResult();
                 if (comparar) {
-                    ds.addValue(planeta, "maximo",  String.format("%.1f",((((max - min) / (9)) * (i + 1)) + min) * 317));
+                    ds.addValue(planeta, "maximo", String.format("%.1f", ((((max - min) / (9)) * (i + 1)) + min) * 317));
                 } else {
-                    ds.addValue(planeta, "maximo", String.format("%.1f",((((max - min) / (9)) * (i + 1)) + min)));
+                    ds.addValue(planeta, "maximo", String.format("%.1f", ((((max - min) / (9)) * (i + 1)) + min)));
                 }
             }
         }
@@ -905,4 +921,84 @@ public class Controle {
         arquivo.close();
 
     }
+
+    public JFreeChart darkholeLikelihood(int cor, int disIni, int disFin) throws SQLException {
+
+        
+        JFreeChart grafico = null;
+        long estrela1, estrela2;
+        
+        CallableStatement cs = null;
+        
+        DefaultPieDataset pieDataset = new DefaultPieDataset();
+
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        
+       try{
+        SessionImpl sessionImpl = (SessionImpl) sessao;
+        Connection connection = sessionImpl.connection();
+        String sql = "{call selecionaEstrelasSize(?,?,?,?)}";
+        cs = connection.prepareCall(sql);
+          
+        cs.setInt(1, disIni);
+        cs.setInt(2, disFin);
+        cs.registerOutParameter(3, java.sql.Types.INTEGER);
+        cs.registerOutParameter(4, java.sql.Types.INTEGER);
+        
+        
+        cs.executeUpdate();
+        
+        int estrelaValor1 = cs.getInt(3);
+        int estrelaValor2 = cs.getInt(4);
+       
+			
+        
+            
+          /*  Query p1 = sessao.createQuery(" select count(massa) from Estrelas where massa < 2 and distancia between " + disIni + " and " + disFin);
+
+            Query p2 = sessao.createQuery(" select count(massa) from Estrelas where massa >= 2 and massa < 10 and distancia between " + disIni + " and " + disFin); // Planetas que podem virar buracos negros
+
+            estrela1 = (long) p1.uniqueResult();
+            estrela2 = (long) p2.uniqueResult();*/
+
+            String ESTRELA_STRING1 = "" + estrelaValor1 + " são até 2 vezes maiores que o sol";
+            String ESTRELA_STRING2 = "" + estrelaValor2 + " são 2 vezes maiores que o sol";
+
+            pieDataset.setValue(ESTRELA_STRING1, estrelaValor1);
+
+            pieDataset.setValue(ESTRELA_STRING2, estrelaValor2);
+            
+            
+
+            grafico = ChartFactory.createPieChart3D("Comparação de tamanhos de estrelas", pieDataset, true, true, false);
+
+        
+            PiePlot plot = (PiePlot) grafico.getPlot();
+
+            if (cor == 1) {
+
+                plot.setSectionPaint(ESTRELA_STRING1, Color.blue);
+                plot.setSectionPaint(ESTRELA_STRING2, Color.black);
+            }
+            if (cor == 2) {
+                plot.setSectionPaint(ESTRELA_STRING1, Color.red);
+                plot.setSectionPaint(ESTRELA_STRING2, Color.yellow);
+            }
+            if (cor == 3) {
+                plot.setSectionPaint(ESTRELA_STRING1, Color.black);
+                plot.setSectionPaint(ESTRELA_STRING2, Color.red);
+            }
+            if (cor == 4) {
+                plot.setSectionPaint(ESTRELA_STRING1, Color.green);
+                plot.setSectionPaint(ESTRELA_STRING2, Color.yellow);
+            }
+        
+       } catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+
+		}
+             return grafico;
+    }
+
 }

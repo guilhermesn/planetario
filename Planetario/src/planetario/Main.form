@@ -6,6 +6,8 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup3">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenuArquivo">
@@ -146,7 +148,7 @@
   <Properties>
     <Property name="alwaysOnTop" type="boolean" value="true"/>
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-      <Color id="Cursor Padr&#xe3;o"/>
+      <Color id="Default Cursor"/>
     </Property>
     <Property name="name" type="java.lang.String" value="jFramePrincipal" noResource="true"/>
   </Properties>
@@ -171,6 +173,13 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanelPrincipal" alignment="0" max="32767" attributes="0"/>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="724" max="-2" attributes="0"/>
+                  <Component id="jButton3" min="-2" pref="159" max="-2" attributes="0"/>
+                  <EmptySpace pref="725" max="32767" attributes="0"/>
+              </Group>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -179,6 +188,13 @@
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Component id="jPanelPrincipal" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="460" max="-2" attributes="0"/>
+                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="546" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -218,7 +234,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextField5" pref="1560" max="32767" attributes="0"/>
+                                      <Component id="jFormattedTextField5" pref="1568" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -389,7 +405,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel98" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxWhere1" pref="289" max="32767" attributes="0"/>
+                              <Component id="jComboBoxWhere1" pref="313" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jCheckBoxLiteral1" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -417,7 +433,7 @@
                           <Component id="jButtonEditarPlan" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane11" pref="879" max="32767" attributes="0"/>
+                      <Component id="jScrollPane11" pref="967" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -563,11 +579,11 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel99" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor3" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor3" pref="366" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel100" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor4" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor4" pref="366" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -624,7 +640,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel101" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldNumero1" pref="850" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldNumero1" pref="864" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -714,7 +730,7 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel20" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldData3" pref="348" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldData3" pref="386" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -817,7 +833,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel147" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxWhere5" pref="289" max="32767" attributes="0"/>
+                              <Component id="jComboBoxWhere5" pref="313" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jCheckBoxLiteral5" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -846,7 +862,7 @@
                           <Component id="jButtonEditarEstrela" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane14" pref="879" max="32767" attributes="0"/>
+                      <Component id="jScrollPane14" pref="967" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -926,11 +942,11 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel148" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor11" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor11" pref="366" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel149" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor12" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor12" pref="366" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -987,7 +1003,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel150" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldNumero5" pref="850" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldNumero5" pref="864" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1105,7 +1121,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel103" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxWhere2" pref="289" max="32767" attributes="0"/>
+                              <Component id="jComboBoxWhere2" pref="313" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jCheckBoxLiteral2" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -1133,7 +1149,7 @@
                           <Component id="jButtonExcluirPlan" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane12" pref="879" max="32767" attributes="0"/>
+                      <Component id="jScrollPane12" pref="967" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1279,11 +1295,11 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel104" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor5" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor5" pref="366" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel105" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor6" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor6" pref="366" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1340,7 +1356,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel106" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldNumero2" pref="850" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldNumero2" pref="864" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1430,7 +1446,7 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel108" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldData5" pref="348" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldData5" pref="386" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel109" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1533,7 +1549,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel152" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxWhere6" pref="289" max="32767" attributes="0"/>
+                              <Component id="jComboBoxWhere6" pref="313" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jCheckBoxLiteral6" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -1562,7 +1578,7 @@
                           <Component id="jButtonExcluirEstrela" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane15" pref="879" max="32767" attributes="0"/>
+                      <Component id="jScrollPane15" pref="967" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1642,11 +1658,11 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel153" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor13" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor13" pref="366" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel154" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor14" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor14" pref="366" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1703,7 +1719,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel155" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldNumero6" pref="850" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldNumero6" pref="864" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1821,7 +1837,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel23" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxWhere" pref="289" max="32767" attributes="0"/>
+                              <Component id="jComboBoxWhere" pref="313" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jCheckBoxLiteral" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -1846,7 +1862,7 @@
                           <Component id="jButton13" alignment="2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane9" pref="879" max="32767" attributes="0"/>
+                      <Component id="jScrollPane9" pref="967" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1980,11 +1996,11 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel24" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor1" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor1" pref="366" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel97" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor2" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor2" pref="366" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -2041,7 +2057,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldNumero" pref="850" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldNumero" pref="864" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2131,7 +2147,7 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel16" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldData1" pref="348" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldData1" pref="386" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2234,7 +2250,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel142" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxWhere4" pref="289" max="32767" attributes="0"/>
+                              <Component id="jComboBoxWhere4" pref="313" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jCheckBoxLiteral4" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -2260,7 +2276,7 @@
                           <Component id="jButtonSelecionarEstrelaBuscar1" alignment="2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane13" pref="879" max="32767" attributes="0"/>
+                      <Component id="jScrollPane13" pref="967" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -2331,11 +2347,11 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel143" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor9" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor9" pref="366" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel144" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor10" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor10" pref="366" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -2392,7 +2408,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel145" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldNumero4" pref="850" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldNumero4" pref="864" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2509,7 +2525,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel136" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxWhere3" pref="289" max="32767" attributes="0"/>
+                              <Component id="jComboBoxWhere3" pref="313" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jCheckBoxLiteral3" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -2538,7 +2554,7 @@
                           <Component id="jButtonSelecionaEstrela" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane10" pref="879" max="32767" attributes="0"/>
+                      <Component id="jScrollPane10" pref="967" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -2618,11 +2634,11 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel138" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor7" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor7" pref="366" max="32767" attributes="0"/>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel139" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldValor8" pref="349" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldValor8" pref="366" max="32767" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -2679,7 +2695,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel140" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldNumero3" pref="850" max="32767" attributes="0"/>
+                              <Component id="jFormattedTextFieldNumero3" pref="864" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2853,7 +2869,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextFieldAtualizacaoEdit" pref="556" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldAtualizacaoEdit" pref="600" max="32767" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -2866,11 +2882,11 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTextFieldDescobertaEdit" pref="283" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldDescobertaEdit" pref="305" max="32767" attributes="0"/>
                                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel66" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldTempCalcEdit" pref="283" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldTempCalcEdit" pref="306" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel67" min="-2" max="-2" attributes="0"/>
@@ -2942,7 +2958,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel54" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldNomeEdit" pref="1401" max="32767" attributes="0"/>
+                              <Component id="jTextFieldNomeEdit" pref="1448" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -3065,7 +3081,7 @@
                           <Component id="jButton18" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton20" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="340" max="32767" attributes="0"/>
+                      <EmptySpace pref="472" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3453,7 +3469,7 @@
                                       <Component id="jButtonInserirPlaneta" min="-2" pref="139" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jTextFieldEstrelaNome" pref="223" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldEstrelaNome" pref="269" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButton1" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -3583,7 +3599,7 @@
                           <Component id="jButtonInserirPlaneta" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton27" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="338" max="32767" attributes="0"/>
+                      <EmptySpace pref="469" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3871,7 +3887,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel9" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextFieldIDEstrela1" pref="371" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldIDEstrela1" pref="385" max="32767" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel158" max="32767" attributes="0"/>
                                   </Group>
@@ -3879,11 +3895,11 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jTextFieldNomeEstrela1" pref="369" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldNomeEstrela1" pref="383" max="32767" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel165" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextFieldDec2Estrela1" pref="619" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldDec2Estrela1" pref="633" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel160" min="-2" max="-2" attributes="0"/>
@@ -4128,7 +4144,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel8" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextFieldIDEstrela" pref="370" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldIDEstrela" pref="387" max="32767" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel89" max="32767" attributes="0"/>
                                   </Group>
@@ -4136,7 +4152,7 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jTextFieldNomeEstrela" pref="362" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldNomeEstrela" pref="388" max="32767" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jLabel96" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -4318,37 +4334,76 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ordemC" min="-2" pref="105" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="OrdemD" min="-2" pref="103" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="tamanhobt" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel32" alignment="0" min="-2" pref="906" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="CorSelection" min="-2" pref="155" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="solIni" min="-2" pref="58" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jLabel30" min="-2" pref="128" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="solFi" min="-2" pref="58" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="jButton5" min="-2" pref="101" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                      <Component id="jLabel31" min="-2" pref="559" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jButton4" min="-2" pref="159" max="-2" attributes="0"/>
+                                          <Component id="darkhole2" min="-2" pref="479" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Component id="jLabel11" min="-2" pref="594" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
+                              <Component id="jLabel11" min="-2" pref="657" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="901" max="32767" attributes="0"/>
+                      <EmptySpace pref="529" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel11" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tamanhobt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ordemC" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="OrdemD" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="CorSelection" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="solIni" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel30" alignment="3" max="32767" attributes="0"/>
+                          <Component id="solFi" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel11" min="-2" pref="351" max="-2" attributes="0"/>
-                      <EmptySpace pref="497" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                      <Component id="jLabel32" min="-2" pref="131" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButton4" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="darkhole2" min="-2" pref="417" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                              <Component id="jLabel31" min="-2" pref="559" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="156" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -4356,37 +4411,85 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Gr&#xe1;fico de rela&#xe7;&#xe3;o de tamanhos de planetas:"/>
+                <Property name="text" type="java.lang.String" value="Selecione a cor desejada do gr&#xe1;fico:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="tamanhobt">
+            <Component class="javax.swing.JButton" name="jButton4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Gerar"/>
+                <Property name="text" type="java.lang.String" value="Salvar relatorio PDF"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tamanhobtActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="ordemC">
+            <Component class="javax.swing.JComboBox" name="CorSelection">
               <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Azul/Preto"/>
+                    <StringItem index="1" value="Vermelho/Amarelo"/>
+                    <StringItem index="2" value="Preto/Vermelho"/>
+                    <StringItem index="3" value="Verde/Amerelo"/>
+                  </StringArray>
                 </Property>
-                <Property name="text" type="java.lang.String" value="crescente"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ordemCActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CorSelectionActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="OrdemD">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="buttonGroup1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Decrescente"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Estrelas que se tornar&#xe3;o Buracos Negros"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel29">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dist&#xe2;ncia do sol Inicial:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel30">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dist&#xe2;ncia do sol Final:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="solIni">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="solIniActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="solFi">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="solFiActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Visualizar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="darkhole2">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel31">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagens/estrelaGrafico.jpg"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel32">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;Estrelas com tamanho at&#xe9; 2 vezes o do sol &lt;br&gt; Seguem o caminho esquerdo: &lt;br&gt; Main sequence star &#x2192; red giant &#x2192; white dwarf &#x2192; black dwarf &lt;br&gt; &lt;br&gt;Estrelas mais de 2 vezes maiores do que o sol &lt;br&gt;  Seguem o caminho direito: &lt;br&gt; Main sequence star &#x2192; red super giant &#x2192; supernova &#x2192; neutron star or black hole&lt;br&gt; &lt;/html&gt;  "/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -4434,7 +4537,7 @@
                                       <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="997" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="1073" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -4472,7 +4575,7 @@
                       <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabelGrafico" min="-2" pref="602" max="-2" attributes="0"/>
-                      <EmptySpace pref="162" max="32767" attributes="0"/>
+                      <EmptySpace pref="255" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -4594,5 +4697,13 @@
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="jButton3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Salvar relatorio PDF"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
