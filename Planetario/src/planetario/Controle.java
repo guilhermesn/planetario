@@ -780,38 +780,59 @@ public class Controle {
 
     public JFreeChart graficoRelacaoTamanhoCores2(float min, float max, float faixa, boolean ordem, boolean comparar) throws FileNotFoundException, IOException {
 
-        // cria o conjunto de dados
-        DefaultCategoryDataset ds = new DefaultCategoryDataset();
-        /*Jupiter tem 317 a mais do que a massa da terra
-         jupiter massa = 1
-         Planetas com tamanho da terra 1/317 = 0.0031*/
-        long planeta;
+        CallableStatement cs = null;
+        int planeta;
         if (comparar) {
             min = min / 317;
             max = max / 317;
         }
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        DefaultCategoryDataset ds = new DefaultCategoryDataset();
+        
+        try {
 
-        if (ordem) {
-            for (int i = 0; i < 9; i++) {
-                Query p = sessao.createQuery(" select count(massa) from Planeta where massa > " + ((((max - min) / (9)) * i) + min) + " and massa <= " + ((((max - min) / (9)) * (i + 1)) + min));
-                planeta = (long) p.uniqueResult();
-                if (comparar) {
-                    ds.addValue(planeta, "maximo", String.format("%.1f", ((((max - min) / (9)) * (i + 1)) + min) * 317));
-                } else {
-                    ds.addValue(planeta, "maximo", String.format("%.1f", ((((max - min) / (9)) * (i + 1)) + min)));
+            Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+            SessionImpl sessionImpl = (SessionImpl) sessao;
+            Connection connection = sessionImpl.connection();
+            
+            cs = connection.prepareCall("{call selecionaporDTPlanetas(?,?,?,?,?,?,?,?,?,?,?)}");
+
+            cs.setFloat(1, min);
+            cs.setFloat(2, max);
+            cs.registerOutParameter(3, java.sql.Types.INTEGER);
+            cs.registerOutParameter(4, java.sql.Types.INTEGER);
+            cs.registerOutParameter(5, java.sql.Types.INTEGER);
+            cs.registerOutParameter(6, java.sql.Types.INTEGER);
+            cs.registerOutParameter(7, java.sql.Types.INTEGER);
+            cs.registerOutParameter(8, java.sql.Types.INTEGER);
+            cs.registerOutParameter(9, java.sql.Types.INTEGER);
+            cs.registerOutParameter(10, java.sql.Types.INTEGER);
+            cs.registerOutParameter(11, java.sql.Types.INTEGER);
+
+            cs.executeUpdate();
+            
+
+            if (ordem) {
+                for (int i = 0; i < 9; i++) {
+
+                    planeta = cs.getInt(i + 3);
+                    if (comparar) {
+                        ds.addValue(planeta, "maximo", String.format("%.1f", ((((max - min) / (9)) * (i + 1)) + min) * 317));
+                    } else {
+                        ds.addValue(planeta, "maximo", String.format("%.1f", ((((max - min) / (9)) * (i + 1)) + min)));
+                    }
+                }
+            } else {
+                for (int i = 8; i >= 0; i--) {
+                    planeta = cs.getInt(i + 3);
+                    if (comparar) {
+                        ds.addValue(planeta, "maximo", String.format("%.1f", ((((max - min) / (9)) * (i + 1)) + min) * 317));
+                    } else {
+                        ds.addValue(planeta, "maximo", String.format("%.1f", ((((max - min) / (9)) * (i + 1)) + min)));
+                    }
                 }
             }
-        } else {
-            for (int i = 8; i >= 0; i--) {
-                Query p = sessao.createQuery(" select count(massa) from Planeta where massa > " + ((((max - min) / (9)) * i) + min) + " and massa <= " + ((((max - min) / (9)) * (i + 1)) + min));
-                planeta = (long) p.uniqueResult();
-                if (comparar) {
-                    ds.addValue(planeta, "maximo", String.format("%.1f", ((((max - min) / (9)) * (i + 1)) + min) * 317));
-                } else {
-                    ds.addValue(planeta, "maximo", String.format("%.1f", ((((max - min) / (9)) * (i + 1)) + min)));
-                }
-            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
 
         JFreeChart grafico = ChartFactory.createBarChart("Relação de massa de planetas com a massa da Jupter", "tamanho", "Quantidade", ds, PlotOrientation.VERTICAL, true, true, false);
@@ -924,55 +945,46 @@ public class Controle {
 
     public JFreeChart darkholeLikelihood(int cor, int disIni, int disFin) throws SQLException {
 
-        
         JFreeChart grafico = null;
         long estrela1, estrela2;
-        
+
         CallableStatement cs = null;
-        
+
         DefaultPieDataset pieDataset = new DefaultPieDataset();
 
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
-        
-       try{
-        SessionImpl sessionImpl = (SessionImpl) sessao;
-        Connection connection = sessionImpl.connection();
-        String sql = "{call selecionaEstrelasSize(?,?,?,?)}";
-        cs = connection.prepareCall(sql);
-          
-        cs.setInt(1, disIni);
-        cs.setInt(2, disFin);
-        cs.registerOutParameter(3, java.sql.Types.INTEGER);
-        cs.registerOutParameter(4, java.sql.Types.INTEGER);
-        
-        
-        cs.executeUpdate();
-        
-        int estrelaValor1 = cs.getInt(3);
-        int estrelaValor2 = cs.getInt(4);
-       
-			
-        
-            
-          /*  Query p1 = sessao.createQuery(" select count(massa) from Estrelas where massa < 2 and distancia between " + disIni + " and " + disFin);
 
-            Query p2 = sessao.createQuery(" select count(massa) from Estrelas where massa >= 2 and massa < 10 and distancia between " + disIni + " and " + disFin); // Planetas que podem virar buracos negros
+        try {
+            SessionImpl sessionImpl = (SessionImpl) sessao;
+            Connection connection = sessionImpl.connection();
+            String sql = "{call selecionaEstrelasSize(?,?,?,?)}";
+            cs = connection.prepareCall(sql);
 
-            estrela1 = (long) p1.uniqueResult();
-            estrela2 = (long) p2.uniqueResult();*/
+            cs.setInt(1, disIni);
+            cs.setInt(2, disFin);
+            cs.registerOutParameter(3, java.sql.Types.INTEGER);
+            cs.registerOutParameter(4, java.sql.Types.INTEGER);
 
+            cs.executeUpdate();
+
+            int estrelaValor1 = cs.getInt(3);
+            int estrelaValor2 = cs.getInt(4);
+
+            /*  Query p1 = sessao.createQuery(" select count(massa) from Estrelas where massa < 2 and distancia between " + disIni + " and " + disFin);
+
+             Query p2 = sessao.createQuery(" select count(massa) from Estrelas where massa >= 2 and massa < 10 and distancia between " + disIni + " and " + disFin); // Planetas que podem virar buracos negros
+
+             estrela1 = (long) p1.uniqueResult();
+             estrela2 = (long) p2.uniqueResult();*/
             String ESTRELA_STRING1 = "" + estrelaValor1 + " são até 2 vezes maiores que o sol";
             String ESTRELA_STRING2 = "" + estrelaValor2 + " são 2 vezes maiores que o sol";
 
             pieDataset.setValue(ESTRELA_STRING1, estrelaValor1);
 
             pieDataset.setValue(ESTRELA_STRING2, estrelaValor2);
-            
-            
 
             grafico = ChartFactory.createPieChart3D("Comparação de tamanhos de estrelas", pieDataset, true, true, false);
 
-        
             PiePlot plot = (PiePlot) grafico.getPlot();
 
             if (cor == 1) {
@@ -992,13 +1004,13 @@ public class Controle {
                 plot.setSectionPaint(ESTRELA_STRING1, Color.green);
                 plot.setSectionPaint(ESTRELA_STRING2, Color.yellow);
             }
-        
-       } catch (SQLException e) {
 
-			System.out.println(e.getMessage());
+        } catch (SQLException e) {
 
-		}
-             return grafico;
+            System.out.println(e.getMessage());
+
+        }
+        return grafico;
     }
 
 }

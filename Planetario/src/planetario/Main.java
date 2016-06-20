@@ -422,7 +422,7 @@ public class Main extends javax.swing.JFrame {
         jButton22 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jTextFieldIDEstrela = new javax.swing.JTextField();
-        jPanelGerarRelatorio = new javax.swing.JPanel();
+        jPanelGerarRelatorioBuracos = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         CorSelection = new javax.swing.JComboBox();
@@ -452,7 +452,6 @@ public class Main extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivo = new javax.swing.JMenu();
         jMenuConfigurar = new javax.swing.JMenuItem();
@@ -471,6 +470,7 @@ public class Main extends javax.swing.JFrame {
         jMenuRelatorio = new javax.swing.JMenu();
         jMenuGerarRelatorio = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -3108,17 +3108,17 @@ public class Main extends javax.swing.JFrame {
         jLabel32.setText("<html>Estrelas com tamanho até 2 vezes o do sol <br> Seguem o caminho esquerdo: <br> Main sequence star → red giant → white dwarf → black dwarf <br> <br>Estrelas mais de 2 vezes maiores do que o sol <br>  Seguem o caminho direito: <br> Main sequence star → red super giant → supernova → neutron star or black hole<br> </html>  ");
         jLabel32.setToolTipText("");
 
-        javax.swing.GroupLayout jPanelGerarRelatorioLayout = new javax.swing.GroupLayout(jPanelGerarRelatorio);
-        jPanelGerarRelatorio.setLayout(jPanelGerarRelatorioLayout);
-        jPanelGerarRelatorioLayout.setHorizontalGroup(
-            jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
-                .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelGerarRelatorioBuracosLayout = new javax.swing.GroupLayout(jPanelGerarRelatorioBuracos);
+        jPanelGerarRelatorioBuracos.setLayout(jPanelGerarRelatorioBuracosLayout);
+        jPanelGerarRelatorioBuracosLayout.setHorizontalGroup(
+            jPanelGerarRelatorioBuracosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelGerarRelatorioBuracosLayout.createSequentialGroup()
+                .addGroup(jPanelGerarRelatorioBuracosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelGerarRelatorioBuracosLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelGerarRelatorioBuracosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                            .addGroup(jPanelGerarRelatorioBuracosLayout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CorSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3132,25 +3132,25 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(solFi, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27)
                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                            .addGroup(jPanelGerarRelatorioBuracosLayout.createSequentialGroup()
                                 .addGap(5, 5, 5)
                                 .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelGerarRelatorioBuracosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(darkhole2, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                    .addGroup(jPanelGerarRelatorioBuracosLayout.createSequentialGroup()
                         .addGap(190, 190, 190)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(529, Short.MAX_VALUE))
         );
-        jPanelGerarRelatorioLayout.setVerticalGroup(
-            jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+        jPanelGerarRelatorioBuracosLayout.setVerticalGroup(
+            jPanelGerarRelatorioBuracosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelGerarRelatorioBuracosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelGerarRelatorioBuracosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(CorSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel29)
@@ -3160,19 +3160,19 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton5))
                 .addGap(7, 7, 7)
                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanelGerarRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                .addGroup(jPanelGerarRelatorioBuracosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelGerarRelatorioBuracosLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(110, 110, 110)
                         .addComponent(darkhole2, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelGerarRelatorioLayout.createSequentialGroup()
+                    .addGroup(jPanelGerarRelatorioBuracosLayout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
 
-        jPanelPrincipal.add(jPanelGerarRelatorio, "jPanelGerarRelatorio2");
+        jPanelPrincipal.add(jPanelGerarRelatorioBuracos, "jPanelRelatorioBuracos");
 
         jButton2.setText("Salvar relatorio PDF");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -3310,13 +3310,6 @@ public class Main extends javax.swing.JFrame {
 
         jPanelPrincipal.add(jPanelGerarRelatorioPlanetas, "jPanelGerarRelatorio");
 
-        jButton3.setText("Salvar relatorio PDF");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         jMenuArquivo.setText("Arquivo");
 
         jMenuConfigurar.setText("Configurar");
@@ -3435,6 +3428,14 @@ public class Main extends javax.swing.JFrame {
         });
         jMenuRelatorio.add(jMenuItem6);
 
+        jMenuItem7.setText("Buracos negros");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenuRelatorio.add(jMenuItem7);
+
         jMenuBar1.add(jMenuRelatorio);
 
         setJMenuBar(jMenuBar1);
@@ -3444,11 +3445,6 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(724, 724, 724)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(725, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3456,11 +3452,6 @@ public class Main extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(460, 460, 460)
-                    .addComponent(jButton3)
-                    .addContainerGap(546, Short.MAX_VALUE)))
         );
 
         pack();
@@ -6616,9 +6607,10 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_solIniActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+        cl.show(jPanelPrincipal, "jPanelRelatorioBuracos");
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
  
     protected void updateLabel(String cor) throws SQLException {
         darkhole2.setVisible(true);
@@ -6702,7 +6694,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonEdicaoEstrela;
@@ -6921,6 +6912,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenu jMenuNovo;
     private javax.swing.JMenuItem jMenuPlanetaEditar;
     private javax.swing.JMenuItem jMenuPlanetaNovo;
@@ -6947,7 +6939,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelEntreNumeros6;
     private javax.swing.JPanel jPanelExcluirEstrela;
     private javax.swing.JPanel jPanelExcluirPlaneta;
-    private javax.swing.JPanel jPanelGerarRelatorio;
+    private javax.swing.JPanel jPanelGerarRelatorioBuracos;
     private javax.swing.JPanel jPanelGerarRelatorioPlanetas;
     private javax.swing.JPanel jPanelNovoEstrela;
     private javax.swing.JPanel jPanelNovoPlaneta;
