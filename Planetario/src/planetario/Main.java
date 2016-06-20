@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -466,6 +467,8 @@ public class Main extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListMoleculas = new javax.swing.JList();
+        DefaultListModel listModel = new DefaultListModel();
+        jListMoleculas.setModel(listModel);
         jLabel38 = new javax.swing.JLabel();
         jTextFieldMol = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
@@ -3361,11 +3364,23 @@ public class Main extends javax.swing.JFrame {
 
         jLabel37.setText("20");
 
+        jListMoleculas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListMoleculasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jListMoleculas);
 
         jLabel38.setText("Procurar por moleculas");
 
+        jTextFieldMol.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldMolKeyPressed(evt);
+            }
+        });
+
         jButton6.setText("Adicionar molécula");
+        jButton6.setEnabled(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -3373,6 +3388,12 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton7.setText("Remover molécula");
+        jButton7.setEnabled(false);
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jLabel39.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(1, 1, 1));
@@ -6623,7 +6644,7 @@ public class Main extends javax.swing.JFrame {
             dados.add(" ");
             dados.add(" ");
             dados.add("Embora a existência de sistemas planetários há muito tenha sido aventada, até a década de 1990 nenhum planeta ao redor de estrelas da sequência principal havia sido descoberto. Todavia, desde então, algumas perturbações em torno da estrela atribuídas a exoplanetas gigantes vêm sendo descobertas com telescópios melhores. Mesmo por estimativas, as observações cada vez mais frequentes de exoplanetas gigantes reforçam a possibilidade de que alguns desses sistemas planetários possam conter planetas menores e consequentemente abrigar vida extraterrestre. A maioria dos exoplanetas possuem condições inóspitas à existência de vida tal como é concebida em nosso planeta. Os planetas detectados até agora são, em sua maioria, do tamanho ou maior do que Júpiter, e giram na maioria das vezes em órbitas muito próximas da estrela-mãe. ");
-            
+
             try {
                 dados.add((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())));
                 controle.salvarPDF(arquivo.getPath(), dados);
@@ -6686,8 +6707,8 @@ public class Main extends javax.swing.JFrame {
 
     private void CorSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorSelectionActionPerformed
         // TODO add your handling code here:
-        JComboBox cb = (JComboBox)evt.getSource();
-        String graphColor = (String)cb.getSelectedItem();
+        JComboBox cb = (JComboBox) evt.getSource();
+        String graphColor = (String) cb.getSelectedItem();
         try {
             //System.out.println(graphColor);
             updateLabel(graphColor);
@@ -6716,7 +6737,7 @@ public class Main extends javax.swing.JFrame {
             dados.add(" ");
             dados.add("A star goes through a life cycle. This is determined by the size of the star. The diagram below summarises the stages you need to know:");
             try {
-                dados.add((controle.darkholeLikelihood(1,solInicial,solFinal)));
+                dados.add((controle.darkholeLikelihood(1, solInicial, solFinal)));
                 controle.salvarPDF(arquivo.getPath(), dados);
             } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -6729,23 +6750,22 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         solInicial = Integer.parseInt(solIni.getText());
         solFinal = Integer.parseInt(solFi.getText());
-        
+
         ImageIcon icon;
         try {
-            icon = new ImageIcon(controle.darkholeLikelihood(numeroCor,solInicial,solFinal).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
+            icon = new ImageIcon(controle.darkholeLikelihood(numeroCor, solInicial, solFinal).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
             darkhole2.setIcon(icon);
-        darkhole2.setVisible(true);
+            darkhole2.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void solFiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solFiActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_solFiActionPerformed
 
     private void solIniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solIniActionPerformed
@@ -6775,41 +6795,68 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_OrdemD2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jListMoleculas.(jTextFieldMol.getText());
+        DefaultListModel listModel = (DefaultListModel) jListMoleculas.getModel();
+        if (listModel == null) {
+            listModel = new DefaultListModel();
+            jListMoleculas.setModel(listModel);
+        }
+        listModel.addElement(jTextFieldMol.getText());
+        jTextFieldMol.setText("");
+        jButton6.setEnabled(false);
+        jButton7.setEnabled(false);
     }//GEN-LAST:event_jButton6ActionPerformed
- 
+
+    private void jTextFieldMolKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMolKeyPressed
+        if (!jTextFieldMol.getText().trim().isEmpty()){
+            jButton6.setEnabled(true);
+        }
+    }//GEN-LAST:event_jTextFieldMolKeyPressed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        DefaultListModel listModel = (DefaultListModel) jListMoleculas.getModel();
+        if (listModel == null) {
+            listModel = new DefaultListModel();
+            jListMoleculas.setModel(listModel);
+        }
+        listModel.removeElementAt(jListMoleculas.getSelectedIndex());
+        jButton7.setEnabled(false);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jListMoleculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListMoleculasMouseClicked
+        jButton7.setEnabled(true);
+    }//GEN-LAST:event_jListMoleculasMouseClicked
+
     protected void updateLabel(String cor) throws SQLException {
         darkhole2.setVisible(true);
-        
-       
-        if(cor.equalsIgnoreCase("Azul/Preto")){
-        ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(1,1,10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
-        darkhole2.setIcon(icon);
-        darkhole2.setVisible(true);
-        numeroCor = 1;
-                
+
+        if (cor.equalsIgnoreCase("Azul/Preto")) {
+            ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(1, 1, 10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
+            darkhole2.setIcon(icon);
+            darkhole2.setVisible(true);
+            numeroCor = 1;
+
         }
-        if(cor.equalsIgnoreCase("Vermelho/Amarelo")){
-        ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(2,1,10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
-        darkhole2.setIcon(icon);
-        darkhole2.setVisible(true);
-        numeroCor = 2;
+        if (cor.equalsIgnoreCase("Vermelho/Amarelo")) {
+            ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(2, 1, 10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
+            darkhole2.setIcon(icon);
+            darkhole2.setVisible(true);
+            numeroCor = 2;
         }
-        if(cor.equalsIgnoreCase("Preto/Vermelho")){
-        ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(3,1,10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
-        darkhole2.setIcon(icon);
-        darkhole2.setVisible(true);
-        numeroCor = 3;
+        if (cor.equalsIgnoreCase("Preto/Vermelho")) {
+            ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(3, 1, 10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
+            darkhole2.setIcon(icon);
+            darkhole2.setVisible(true);
+            numeroCor = 3;
         }
-        if(cor.equalsIgnoreCase("Verde/Amerelo")){
-        ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(4,1,10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
-        darkhole2.setIcon(icon);
-        darkhole2.setVisible(true);
-        numeroCor = 4;
+        if (cor.equalsIgnoreCase("Verde/Amerelo")) {
+            ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(4, 1, 10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
+            darkhole2.setIcon(icon);
+            darkhole2.setVisible(true);
+            numeroCor = 4;
         }
-        
+
     }
-   
+
     public static void main(String args[]) {
 
         try {
@@ -6839,7 +6886,7 @@ public class Main extends javax.swing.JFrame {
         });
     }
 
-    int  solInicial,solFinal,numeroCor;
+    int solInicial, solFinal, numeroCor;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox CorSelection;
     private javax.swing.JRadioButton OrdemD1;
