@@ -5,8 +5,10 @@
  */
 package planetario;
 
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.io.File;
 import java.io.IOException;
 //import java.sql.Date;
@@ -29,8 +31,12 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
 
@@ -5500,28 +5506,49 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jTablePlanetas2MouseClicked
 
     private void jButtonExcluirPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirPlanActionPerformed
-        int option = JOptionPane.showOptionDialog(null, "Tem certeza que deseja excluir esse planeta?", "Deseja continuar?",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Não");
-        if (option < 1) {
+        JPanel panel = new JPanel(new BorderLayout(5, 5));
 
-            int linha = jTablePlanetas2.getSelectedRow();
-            try {
-                controle.excluirPlaneta(jTablePlanetas2.getValueAt(linha, 0).toString());
-            } catch (Exception ex) {
+        JPanel label = new JPanel(new GridLayout(0, 1, 2, 2));
+        label.add(new JLabel("Usuario", SwingConstants.RIGHT));
+        label.add(new JLabel("Password", SwingConstants.RIGHT));
+        panel.add(label, BorderLayout.WEST);
+
+        JPanel controls = new JPanel(new GridLayout(0, 1, 2, 2));
+        JTextField username = new JTextField();
+        controls.add(username);
+        JPasswordField password = new JPasswordField();
+        controls.add(password);
+        panel.add(controls, BorderLayout.CENTER);
+
+        JOptionPane.showMessageDialog(null, panel, "login", JOptionPane.QUESTION_MESSAGE);
+        
+        if (controle.consultaLogin(username.getText(), password.getPassword().toString())) {
+
+            int option = JOptionPane.showOptionDialog(null, "Tem certeza que deseja excluir esse planeta?", "Deseja continuar?",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Não");
+            if (option < 1) {
+
+                int linha = jTablePlanetas2.getSelectedRow();
+                try {
+                    controle.excluirPlaneta(jTablePlanetas2.getValueAt(linha, 0).toString());
+                } catch (Exception ex) {
+                }
+
+                jButtonExcluirPlan.setEnabled(false);
+                javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas2.getModel();
+                model.getDataVector().removeAllElements();
+                ArrayList< String[]> ArrayPlanetas = buscaPlanetasExcluir();
+
+                for (String[] linhas : ArrayPlanetas) {
+                    model.addRow(linhas);
+                }
+
+                CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+                cl.show(jPanelPrincipal, "jPanelExcluirPlaneta");
             }
-
-            jButtonExcluirPlan.setEnabled(false);
-            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas2.getModel();
-            model.getDataVector().removeAllElements();
-            ArrayList< String[]> ArrayPlanetas = buscaPlanetasExcluir();
-
-            for (String[] linhas : ArrayPlanetas) {
-                model.addRow(linhas);
-            }
-
-            CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-            cl.show(jPanelPrincipal, "jPanelExcluirPlaneta");
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario ou senha não conferem.");
         }
     }//GEN-LAST:event_jButtonExcluirPlanActionPerformed
 
@@ -6807,7 +6834,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTextFieldMolKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMolKeyPressed
-        if (!jTextFieldMol.getText().trim().isEmpty()){
+        if (!jTextFieldMol.getText().trim().isEmpty()) {
             jButton6.setEnabled(true);
         }
     }//GEN-LAST:event_jTextFieldMolKeyPressed

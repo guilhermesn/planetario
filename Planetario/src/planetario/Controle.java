@@ -273,7 +273,21 @@ public class Controle {
         }
         return "";
     }
-
+    
+    public boolean consultaLogin(String name, String Usuario) {
+        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        org.hibernate.Query query = sessao.createQuery("SELECT User FROM mysql.user WHERE ");
+        
+        
+        
+        
+        
+        
+        
+   return true;
+}
+    
+    
     public String selecionaWherePlaneta(String buscar, String valor1, String valor2) {
 
         if (valor1 != null && valor2 != null) {
