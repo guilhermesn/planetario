@@ -1,5 +1,5 @@
 package planetario;
-// Generated 25/05/2016 18:42:29 by Hibernate Tools 4.3.1
+// Generated 22/06/2016 02:26:09 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

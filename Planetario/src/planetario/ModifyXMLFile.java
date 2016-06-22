@@ -28,7 +28,7 @@ public class ModifyXMLFile {
     public void setDadosHibernate(ArrayList<String> dados) throws TransformerConfigurationException, TransformerException {
         
         try {
-            String filepath = "hibernate.cfg.xml";
+            String filepath = "hibernate1.cfg.xml";
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(filepath);
@@ -83,7 +83,7 @@ public class ModifyXMLFile {
         ArrayList<String> dados = new ArrayList<String>();
         
         try {
-            String filepath = "hibernate.cfg.xml";
+            String filepath = "hibernate1.cfg.xml";
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(filepath);
