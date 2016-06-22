@@ -34,12 +34,14 @@ public class ModifyXMLFile {
             Document doc = docBuilder.parse(filepath);
             
             for (int i = 2; i < doc.getElementsByTagName("property").getLength(); i++) {
-                NamedNodeMap list = doc.getElementsByTagName("property").item(i).getAttributes();
+                //NamedNodeMap list = doc.getElementsByTagName("property").item(i).getAttributes();
                 
                 if (!doc.getElementsByTagName("property").item(i).getTextContent().trim().isEmpty()) {
                     
-                    doc.getElementsByTagName("property").item(i).setTextContent(dados.get(i));
-                    
+                    Node alterar = doc.getElementsByTagName("property").item(i);
+                    doc.removeChild(alterar);
+                    alterar.setTextContent(dados.get(i));
+                    doc.appendChild(alterar);
                     //Node ffff = list.(0);
                     //dados.add(list.item(i).getTextContent());
                     //System.out.print(list.item(0).getTextContent() + " ----- ");

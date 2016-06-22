@@ -55,18 +55,18 @@ public class Controle {
 
     private Object conn;
     ModifyXMLFile xml = new ModifyXMLFile();
-    
-    
-    public ArrayList<String> getDadosHibernate(){
+
+    public ArrayList<String> getDadosHibernate() {
         ArrayList<String> dados = xml.getDadosHibernate();
-        
+
         return dados;
     }
-    
-    public void setDadosHibernate(ArrayList<String> dados) throws TransformerException{
-       xml.setDadosHibernate(dados);
-       
+
+    public void setDadosHibernate(ArrayList<String> dados) throws TransformerException {
+        xml.setDadosHibernate(dados);
+
     }
+
     public String selecionaWhereEstrela(String buscar, String valor, boolean literal) {
         if (valor != null) {
             if (!valor.trim().isEmpty()) {
@@ -286,21 +286,14 @@ public class Controle {
         }
         return "";
     }
-    
+
     public boolean consultaLogin(String name, String Usuario) {
         Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
         org.hibernate.Query query = sessao.createQuery("SELECT User FROM mysql.user WHERE ");
-        
-        
-        
-        
-        
-        
-        
-   return true;
-}
-    
-    
+
+        return true;
+    }
+
     public String selecionaWherePlaneta(String buscar, String valor1, String valor2) {
 
         if (valor1 != null && valor2 != null) {
@@ -814,13 +807,13 @@ public class Controle {
             max = max / 317;
         }
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
-        
+
         try {
 
             Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
             SessionImpl sessionImpl = (SessionImpl) sessao;
             Connection connection = sessionImpl.connection();
-            
+
             cs = connection.prepareCall("{call selecionaporDTPlanetas(?,?,?,?,?,?,?,?,?,?,?)}");
 
             cs.setFloat(1, min);
@@ -836,7 +829,6 @@ public class Controle {
             cs.registerOutParameter(11, java.sql.Types.INTEGER);
 
             cs.executeUpdate();
-            
 
             if (ordem) {
                 for (int i = 0; i < 9; i++) {
@@ -920,60 +912,43 @@ public class Controle {
 
     }
 
-    public JFreeChart graficoPlanetasMoleculas(float min, float max, boolean ordem,ArrayList<String> moleculas) throws FileNotFoundException, IOException {
+    public JFreeChart graficoPlanetasMoleculas(float min, float max, boolean comparar, ArrayList<String> moleculas) throws FileNotFoundException, IOException {
         CallableStatement cs = null;
         
+        if(!comparar){
         min = min / 317;
         max = max / 317;
-        
+        }
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
-        
+
         try {
 
             Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
             SessionImpl sessionImpl = (SessionImpl) sessao;
             Connection connection = sessionImpl.connection();
-            
-            cs = connection.prepareCall("{call selecionaPlanetasMoleculas(?,?,?,?,?,?,?,?,?,?)}");
 
-            cs.setFloat(1, min);
-            cs.setFloat(2, max);
-            for (int i = 0; i < moleculas.size(); i++){
-               cs.setString(i+3, moleculas.get(i));
-            }
-            cs.registerOutParameter(7, java.sql.Types.INTEGER);
-             cs.registerOutParameter(8, java.sql.Types.INTEGER);
-              cs.registerOutParameter(9, java.sql.Types.INTEGER);
-               cs.registerOutParameter(10, java.sql.Types.INTEGER);
-            
-            cs.executeUpdate();
-            
+            cs = connection.prepareCall("{call selecionaPlanetasMoleculas(?,?,?,?)}");
+            for (int i = 0; i < moleculas.size(); i++) {
 
-            if (ordem) {
-                for (int i = 7; i < 11; i++) {
-
-                    int planeta = cs.getInt(i);
-                    if(planeta != 0){
-                        ds.addValue(planeta, "Quantidade",null);
-                    }
-                    
-                }
-            } else {
-                for (int i = 10; i > 6; i--) {
-                    int planeta = cs.getInt(i);
-                       if(planeta != 0){
-                        ds.addValue(planeta, "Quantidade",null);
-                    }
-                }
+                cs.setFloat(1, min);
+                cs.setFloat(2, max);
+                cs.setString(3,  "%"+moleculas.get(i)+"%");
+                cs.registerOutParameter(4, java.sql.Types.INTEGER);
+                cs.executeUpdate();
+                
+                int planeta = cs.getInt(4);
+                ds.addValue(planeta, "Quantidade", moleculas.get(i));
+                
+                //cs.setString(i + 3, moleculas.get(i));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
         JFreeChart grafico = ChartFactory.createBarChart("Moleculas em exoplanetas", "tamanho", "Quantidade", ds, PlotOrientation.VERTICAL, true, true, false);
-        
+
         return grafico;
-        
+
     }
 
     public JFreeChart darkholeLikelihood(int cor, int disIni, int disFin) throws SQLException {

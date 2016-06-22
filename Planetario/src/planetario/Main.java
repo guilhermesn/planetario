@@ -5,8 +5,6 @@
  */
 package planetario;
 
-
-
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -63,9 +61,7 @@ public class Main extends javax.swing.JFrame {
         cl.show(jPanelPrincipal, "jPanelTelaInicial");
         //controle.iniciarConexao();;
         inicializar();
-        
-        
-        
+        this.setAlwaysOnTop(false);
     }
 
     /**
@@ -80,6 +76,7 @@ public class Main extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         jPanelPrincipal = new javax.swing.JPanel();
         jPanelConfigurar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -467,8 +464,8 @@ public class Main extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jPanelGerarRelatorioMoleculas = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
-        jSliderTamPlan1 = new RangeSlider(0,100,0,100);
-        ordemC2 = new javax.swing.JRadioButton();
+        jSliderTamPlan1 = new RangeSlider(0,350,0,350);
+        ConpararJupter = new javax.swing.JRadioButton();
         OrdemD2 = new javax.swing.JRadioButton();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -901,7 +898,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton24)
                     .addComponent(jButtonEditarPlan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1082,7 +1079,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButtonSelecionarEstrelaBuscar2)
                     .addComponent(jButtonEditarEstrela))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1345,7 +1342,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton25)
                     .addComponent(jButtonExcluirPlan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1526,7 +1523,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButtonSelecionarEstrelaBuscar3)
                     .addComponent(jButtonExcluirEstrela))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1773,8 +1770,8 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jPanelValores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelConsultarPlaneta, "jPanelConsultarPlaneta");
@@ -1943,7 +1940,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jPanelValores4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSelecionarEstrelaBuscar1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2124,7 +2121,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButtonSelecionarEstrelaBuscar)
                     .addComponent(jButtonSelecionaEstrela))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2444,7 +2441,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanelEdicaoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton18)
                     .addComponent(jButton20))
-                .addContainerGap(482, Short.MAX_VALUE))
+                .addContainerGap(340, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelEdicaoPlaneta, "jPanelEdicaoPlaneta");
@@ -2774,7 +2771,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanelNovoPlanetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonInserirPlaneta)
                     .addComponent(jButton27))
-                .addContainerGap(480, Short.MAX_VALUE))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelNovoPlaneta, "jPanelNovoPlaneta");
@@ -3335,7 +3332,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelGerarRelatorioPlanetas, "jPanelGerarRelatorio");
@@ -3347,21 +3344,24 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jSliderTamPlan1.setMaximum(350);
         jSliderTamPlan1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSliderTamPlan1StateChanged(evt);
             }
         });
 
-        ordemC2.setSelected(true);
-        ordemC2.setText("Crescente");
-        ordemC2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup4.add(ConpararJupter);
+        ConpararJupter.setSelected(true);
+        ConpararJupter.setText("Jupter");
+        ConpararJupter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ordemC2ActionPerformed(evt);
+                ConpararJupterActionPerformed(evt);
             }
         });
 
-        OrdemD2.setText("Decrescente");
+        buttonGroup4.add(OrdemD2);
+        OrdemD2.setText("Terra");
         OrdemD2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OrdemD2ActionPerformed(evt);
@@ -3370,13 +3370,13 @@ public class Main extends javax.swing.JFrame {
 
         jLabel33.setText("Faixa de massa:");
 
-        jLabel34.setText("Ordenar:");
+        jLabel34.setText("Comparar:");
 
         jLabel35.setText("0");
 
         jLabel36.setText("a");
 
-        jLabel37.setText("100");
+        jLabel37.setText("350");
 
         jListMoleculas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -3388,8 +3388,8 @@ public class Main extends javax.swing.JFrame {
         jLabel38.setText("Procurar por moleculas");
 
         jTextFieldMol.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextFieldMolKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldMolKeyReleased(evt);
             }
         });
 
@@ -3411,7 +3411,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel39.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(1, 1, 1));
-        jLabel39.setText("Estrelas que se tornarão Buracos Negros");
+        jLabel39.setText("Planetas com moleculas listadas");
 
         javax.swing.GroupLayout jPanelGerarRelatorioMoleculasLayout = new javax.swing.GroupLayout(jPanelGerarRelatorioMoleculas);
         jPanelGerarRelatorioMoleculas.setLayout(jPanelGerarRelatorioMoleculasLayout);
@@ -3441,7 +3441,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanelGerarRelatorioMoleculasLayout.createSequentialGroup()
                         .addComponent(jLabel34)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ordemC2)
+                        .addComponent(ConpararJupter)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(OrdemD2)
                         .addGap(18, 18, 18)
@@ -3468,7 +3468,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jSliderTamPlan1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelGerarRelatorioMoleculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel34)
-                        .addComponent(ordemC2)
+                        .addComponent(ConpararJupter)
                         .addComponent(OrdemD2)
                         .addComponent(jLabel33)
                         .addComponent(jLabel35)
@@ -3489,8 +3489,8 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelGraficoMol, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(688, Short.MAX_VALUE))
+                .addComponent(jLabelGraficoMol, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         jPanelPrincipal.add(jPanelGerarRelatorioMoleculas, "jPanelGerarRelatorioMoleculas");
@@ -5533,7 +5533,7 @@ public class Main extends javax.swing.JFrame {
         panel.add(controls, BorderLayout.CENTER);
 
         JOptionPane.showMessageDialog(null, panel, "login", JOptionPane.QUESTION_MESSAGE);
-        
+
         if (controle.consultaLogin(username.getText(), password.getPassword().toString())) {
 
             int option = JOptionPane.showOptionDialog(null, "Tem certeza que deseja excluir esse planeta?", "Deseja continuar?",
@@ -5559,7 +5559,7 @@ public class Main extends javax.swing.JFrame {
                 CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
                 cl.show(jPanelPrincipal, "jPanelExcluirPlaneta");
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Usuario ou senha não conferem.");
         }
     }//GEN-LAST:event_jButtonExcluirPlanActionPerformed
@@ -6781,7 +6781,7 @@ public class Main extends javax.swing.JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
-            PDF pdf = new PDF();
+            
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -6818,7 +6818,47 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        /*jLabel35.setText(jSliderTamPlan1.getValue() + "");
+        jLabel37.setText(jSliderTamPlan1.getUpperValue() + "");
+        ArrayList<String> moleculas = new ArrayList<String>();
+        DefaultListModel listModel = (DefaultListModel) jListMoleculas.getModel();
+        for (int i = 0; i < listModel.getSize(); i++) {
+            moleculas.add((String) listModel.getElementAt(i));
+        }
+        try {
+            jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+        
+        ArrayList<String> moleculas = new ArrayList<String>();
+        DefaultListModel listModel = (DefaultListModel) jListMoleculas.getModel();
+        for (int i = 0; i < listModel.getSize(); i++) {
+            moleculas.add((String) listModel.getElementAt(i));
+        }
+        
+        JFileChooser file = new JFileChooser();
+        file.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int i = file.showSaveDialog(null);
+        
+
+        if (i == 1) {
+
+        } else {
+            ArrayList<Object> dados = new ArrayList();
+            File arquivo = file.getSelectedFile();
+            dados.add("Composição quimica dos planetar pela massa");
+            dados.add(" ");
+            dados.add(" ");
+            dados.add("A composição quimica observavel do planeta varia de acordo com sua massa ");
+            try {
+                dados.add((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)));
+                controle.salvarPDF(arquivo.getPath(), dados);
+            } catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jSliderTamPlan1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderTamPlan1StateChanged
@@ -6826,22 +6866,44 @@ public class Main extends javax.swing.JFrame {
         jLabel37.setText(jSliderTamPlan1.getUpperValue() + "");
         ArrayList<String> moleculas = new ArrayList<String>();
         DefaultListModel listModel = (DefaultListModel) jListMoleculas.getModel();
-        for(int i = 0; i<listModel.getSize();i++){
+        for (int i = 0; i < listModel.getSize(); i++) {
             moleculas.add((String) listModel.getElementAt(i));
         }
         try {
-            jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(),  ordemC2.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
+            jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jSliderTamPlan1StateChanged
 
-    private void ordemC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordemC2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ordemC2ActionPerformed
+    private void ConpararJupterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConpararJupterActionPerformed
+        jLabel35.setText(jSliderTamPlan1.getValue() + "");
+        jLabel37.setText(jSliderTamPlan1.getUpperValue() + "");
+        ArrayList<String> moleculas = new ArrayList<String>();
+        DefaultListModel listModel = (DefaultListModel) jListMoleculas.getModel();
+        for (int i = 0; i < listModel.getSize(); i++) {
+            moleculas.add((String) listModel.getElementAt(i));
+        }
+        try {
+            jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ConpararJupterActionPerformed
 
     private void OrdemD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrdemD2ActionPerformed
-        // TODO add your handling code here:
+        jLabel35.setText(jSliderTamPlan1.getValue() + "");
+        jLabel37.setText(jSliderTamPlan1.getUpperValue() + "");
+        ArrayList<String> moleculas = new ArrayList<String>();
+        DefaultListModel listModel = (DefaultListModel) jListMoleculas.getModel();
+        for (int i = 0; i < listModel.getSize(); i++) {
+            moleculas.add((String) listModel.getElementAt(i));
+        }
+        try {
+            jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_OrdemD2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -6854,13 +6916,19 @@ public class Main extends javax.swing.JFrame {
         jTextFieldMol.setText("");
         jButton6.setEnabled(false);
         jButton7.setEnabled(false);
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jTextFieldMolKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMolKeyPressed
-        if (!jTextFieldMol.getText().trim().isEmpty()) {
-            jButton6.setEnabled(true);
+        jLabel35.setText(jSliderTamPlan1.getValue() + "");
+        jLabel37.setText(jSliderTamPlan1.getUpperValue() + "");
+        ArrayList<String> moleculas = new ArrayList<String>();
+        //DefaultListModel listModel = (DefaultListModel) jListMoleculas.getModel();
+        for (int i = 0; i < listModel.getSize(); i++) {
+            moleculas.add((String) listModel.getElementAt(i));
         }
-    }//GEN-LAST:event_jTextFieldMolKeyPressed
+        try {
+            jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         DefaultListModel listModel = (DefaultListModel) jListMoleculas.getModel();
@@ -6870,6 +6938,18 @@ public class Main extends javax.swing.JFrame {
         }
         listModel.removeElementAt(jListMoleculas.getSelectedIndex());
         jButton7.setEnabled(false);
+        jLabel35.setText(jSliderTamPlan1.getValue() + "");
+        jLabel37.setText(jSliderTamPlan1.getUpperValue() + "");
+        ArrayList<String> moleculas = new ArrayList<String>();
+        
+        for (int i = 0; i < listModel.getSize(); i++) {
+            moleculas.add((String) listModel.getElementAt(i));
+        }
+        try {
+            jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jListMoleculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListMoleculasMouseClicked
@@ -6879,23 +6959,30 @@ public class Main extends javax.swing.JFrame {
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         //ModifyXMLFile teste = new ModifyXMLFile(null,null,null,null,null);
         ArrayList<String> dados = new ArrayList<String>();
-        
+
         dados.add(jFormattedTextFieldIP.getText());
         dados.add(jFormattedTextFieldPorta.getText());
         dados.add(jFormattedTextFielHost.getText());
         dados.add(jFormattedTextFieldUser.getText());
         dados.add(jFormattedTextFieldSenha.getText());
-        
+
         /*try {
-            controle.setDadosHibernate(dados);
-        } catch (TransformerException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+         controle.setDadosHibernate(dados);
+         } catch (TransformerException ex) {
+         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+         }*/
         this.inicializar();
         controle.iniciarConexao();
-        
-        
+
+
     }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jTextFieldMolKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMolKeyReleased
+                if (!jTextFieldMol.getText().trim().isEmpty()) {
+            jButton6.setEnabled(true);
+        }
+                
+    }//GEN-LAST:event_jTextFieldMolKeyReleased
 
     protected void updateLabel(String cor) throws SQLException {
         darkhole2.setVisible(true);
@@ -6956,24 +7043,26 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-    
-    private void inicializar(){
-        
+
+    private void inicializar() {
+
         ArrayList<String> dados = controle.getDadosHibernate();
-        if(dados.size()>3){
+        if (dados.size() > 3) {
             jFormattedTextFieldUser.setText(dados.get(3));
-        jFormattedTextFielHost.setText(dados.get(2));
+            jFormattedTextFielHost.setText(dados.get(2));
         }
-        
+
     }
     int solInicial, solFinal, numeroCor;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton ConpararJupter;
     private javax.swing.JComboBox CorSelection;
     private javax.swing.JRadioButton OrdemD1;
     private javax.swing.JRadioButton OrdemD2;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JLabel darkhole2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
@@ -7396,7 +7485,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldmetalicidadeEstrela;
     private javax.swing.JTextField jTextFieldmetalicidadeEstrela1;
     private javax.swing.JRadioButton ordemC1;
-    private javax.swing.JRadioButton ordemC2;
     private javax.swing.JTextField solFi;
     private javax.swing.JTextField solIni;
     // End of variables declaration//GEN-END:variables
