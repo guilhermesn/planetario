@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package planetario;
+package Controle;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,6 +32,7 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import org.hibernate.Query;
 import org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.Work;
@@ -46,6 +47,12 @@ import org.jfree.chart.title.TextTitle;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.ui.RectangleEdge;
+import planetario.Estrelas;
+import planetario.Main;
+import planetario.NewHibernateUtil;
+import planetario.PDF;
+import planetario.Planeta;
+import planetario.PlanetaId;
 
 /**
  *
@@ -62,7 +69,7 @@ public class Controle {
         return dados;
     }
 
-    public void setDadosHibernate(ArrayList<String> dados) throws TransformerException {
+    public void setDadosHibernate(ArrayList<String> dados) throws TransformerException, TransformerConfigurationException, IOException {
         xml.setDadosHibernate(dados);
 
     }
@@ -287,7 +294,7 @@ public class Controle {
         return "";
     }
 
-    public boolean consultaLogin(String name, String Usuario) {
+    public boolean consultaLogin(String name, String Usuario) throws Exception {
         Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         org.hibernate.Query query = sessao.createQuery("SELECT User FROM mysql.user WHERE ");
 
@@ -358,7 +365,7 @@ public class Controle {
         return "";
     }
 
-    public ArrayList<String[]> listaEstrelas(String busca, String valor, boolean literal) {
+    public ArrayList<String[]> listaEstrelas(String busca, String valor, boolean literal) throws Exception {
         ArrayList< String[]> ArrayEstrelas = new ArrayList< String[]>();
         Estrelas listaEstrela;
         Session sessao = NewHibernateUtil.getSessionFactory().openSession();
@@ -381,7 +388,7 @@ public class Controle {
         return ArrayEstrelas;
     }
 
-    public ArrayList<String[]> listaEstrelas(String busca, String valor, String valor2) {
+    public ArrayList<String[]> listaEstrelas(String busca, String valor, String valor2) throws Exception {
         ArrayList< String[]> ArrayEstrelas = new ArrayList< String[]>();
         Estrelas listaEstrela;
         Session sessao = NewHibernateUtil.getSessionFactory().openSession();
@@ -404,7 +411,7 @@ public class Controle {
         return ArrayEstrelas;
     }
 
-    public ArrayList<String[]> listaPlanetas(String busca, String valor1, String valor2) {
+    public ArrayList<String[]> listaPlanetas(String busca, String valor1, String valor2) throws Exception {
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         Planeta planetas;
         Session sessao = NewHibernateUtil.getSessionFactory().openSession();
@@ -444,7 +451,7 @@ public class Controle {
         return ArrayPlanetas;
     }
 
-    public ArrayList<String[]> listaPlanetas(String busca, String valor, boolean literal) {
+    public ArrayList<String[]> listaPlanetas(String busca, String valor, boolean literal) throws Exception {
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         Planeta planetas;
         Session sessao = NewHibernateUtil.getSessionFactory().openSession();
@@ -484,7 +491,7 @@ public class Controle {
         return ArrayPlanetas;
     }
 
-    public Estrelas getEstrela(String valor) {
+    public Estrelas getEstrela(String valor) throws Exception {
         Estrelas estrela;
         Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Iterator i = sessao.createQuery("from Estrelas " + "where nome = '" + valor + "'").list().iterator();
@@ -493,7 +500,7 @@ public class Controle {
         return estrela;
     }
 
-    public Planeta getPlaneta(String valor) {
+    public Planeta getPlaneta(String valor)throws Exception {
         Planeta planetas;
         Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Iterator i = sessao.createQuery("from Planeta " + "where idPlaneta = '" + valor + "'").list().iterator();
@@ -502,7 +509,7 @@ public class Controle {
         return planetas;
     }
 
-    public void cadastrarPlaneta(String[] planeta) throws ParseException {
+    public void cadastrarPlaneta(String[] planeta) throws ParseException, Exception {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy/MM/dd");
 
@@ -599,7 +606,7 @@ public class Controle {
 
     }
 
-    public void cadastrarEstrela(String[] estrelaExluir) throws ParseException {
+    public void cadastrarEstrela(String[] estrelaExluir) throws ParseException, Exception {
 
         Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Estrelas estrela = new Estrelas();
@@ -639,7 +646,7 @@ public class Controle {
 
     }
 
-    public void excluirPlaneta(String valor) {
+    public void excluirPlaneta(String valor) throws Exception {
 
         Planeta planetas = new Planeta();
         planetas = getPlaneta(valor);
@@ -650,7 +657,7 @@ public class Controle {
         sessao.close();
     }
 
-    public void excluirEstrela(String valor) {
+    public void excluirEstrela(String valor) throws Exception {
 
         Estrelas estrela = new Estrelas();
         estrela = getEstrela(valor);
@@ -670,7 +677,7 @@ public class Controle {
         //}
     }
 
-    public void editarEstrela(String[] estrelaEdit) throws ParseException {
+    public void editarEstrela(String[] estrelaEdit) throws ParseException, Exception {
 
         Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Estrelas estrela = getEstrela(estrelaEdit[1]);
@@ -709,7 +716,7 @@ public class Controle {
 
     }
 
-    public void editarPlaneta(String[] planeta) throws ParseException {
+    public void editarPlaneta(String[] planeta) throws ParseException, Exception {
 
         Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Planeta planetas = getPlaneta(planeta[0]);
@@ -802,7 +809,7 @@ public class Controle {
 
     }
 
-    public JFreeChart graficoRelacaoTamanhoCores2(float min, float max, float faixa, boolean ordem, boolean comparar) throws FileNotFoundException, IOException {
+    public JFreeChart graficoRelacaoTamanhoCores2(float min, float max, float faixa, boolean ordem, boolean comparar) throws FileNotFoundException, IOException, Exception {
 
         CallableStatement cs = null;
         int planeta;
@@ -866,7 +873,7 @@ public class Controle {
 
     }
 
-    public void graficoRelacaoTamanhoCres() throws FileNotFoundException, IOException {
+    public void graficoRelacaoTamanhoCres() throws FileNotFoundException, IOException, Exception {
 
         // cria o conjunto de dados
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
@@ -916,7 +923,7 @@ public class Controle {
 
     }
 
-    public JFreeChart graficoPlanetasMoleculas(float min, float max, boolean comparar, ArrayList<String> moleculas) throws FileNotFoundException, IOException {
+    public JFreeChart graficoPlanetasMoleculas(float min, float max, boolean comparar, ArrayList<String> moleculas) throws FileNotFoundException, IOException, Exception {
         CallableStatement cs = null;
 
         if (!comparar) {
@@ -955,7 +962,7 @@ public class Controle {
 
     }
 
-    public JFreeChart darkholeLikelihood(int cor, int disIni, int disFin) throws SQLException {
+    public JFreeChart darkholeLikelihood(int cor, int disIni, int disFin) throws SQLException, Exception {
 
         JFreeChart grafico = null;
         long estrela1, estrela2;

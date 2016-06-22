@@ -17,21 +17,21 @@ import org.hibernate.SessionFactory;
  */
 public class NewHibernateUtil {
 
-    private static final SessionFactory sessionFactory;
+    private static SessionFactory sessionFactory;
     
     static {
-        try {
+       // try {
             // Create the SessionFactory from standard (hibernate.cfg.xml) 
             // config file.
-            sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
-        } catch (Throwable ex) {
+            //set();
+        //} catch (Throwable ex) {
             // Log the exception. 
-            System.err.println("Initial SessionFactory creation failed." + ex);
-            throw new ExceptionInInitializerError(ex);
-        }
+            //System.err.println("Initial SessionFactory creation failed." + ex);
+            //throw new ExceptionInInitializerError(ex);
+        //}
     }
     
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
+    public static SessionFactory getSessionFactory() throws Exception{
+        return sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
     }
 }

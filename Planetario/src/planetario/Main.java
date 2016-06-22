@@ -5,6 +5,7 @@
  */
 package planetario;
 
+import Controle.Controle;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -60,8 +61,9 @@ public class Main extends javax.swing.JFrame {
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
         cl.show(jPanelPrincipal, "jPanelTelaInicial");
         //controle.iniciarConexao();;
-        inicializar();
         this.setAlwaysOnTop(false);
+        inicializar();
+
     }
 
     /**
@@ -92,7 +94,6 @@ public class Main extends javax.swing.JFrame {
         jFormattedTextFieldIP = new javax.swing.JFormattedTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jButton16 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
         jPanelEditarPlaneta = new javax.swing.JPanel();
         jLabel98 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
@@ -565,8 +566,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton23.setText("Cancelar");
-
         javax.swing.GroupLayout jPanelConfigurarLayout = new javax.swing.GroupLayout(jPanelConfigurar);
         jPanelConfigurar.setLayout(jPanelConfigurarLayout);
         jPanelConfigurarLayout.setHorizontalGroup(
@@ -600,8 +599,6 @@ public class Main extends javax.swing.JFrame {
                                     .addComponent(jFormattedTextFielHost)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConfigurarLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -633,9 +630,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextFieldPorta, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanelConfigurarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton16)
-                    .addComponent(jButton23))
+                .addComponent(jButton16)
                 .addContainerGap())
         );
 
@@ -3695,7 +3690,7 @@ public class Main extends javax.swing.JFrame {
         jLabel27.setText(jSliderTamPlan.getUpperValue() + "");
         try {
             jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
@@ -3738,10 +3733,9 @@ public class Main extends javax.swing.JFrame {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy/MM/dd");
         String dateInString;
-        //String dateInString1;
-        //String dateInString2;
-
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
+        try{
+        
         if (jCheckBoxLiteral.isSelected()) {
             switch (jComboBoxWhere.getSelectedIndex()) {
                 case 0:
@@ -3919,6 +3913,9 @@ public class Main extends javax.swing.JFrame {
 
             }
         }
+        } catch (Exception e) {
+                        e.printStackTrace();
+                    }
         return ArrayPlanetas;
     }
     private void jFormattedTextFieldNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldNumeroActionPerformed
@@ -4644,6 +4641,7 @@ public class Main extends javax.swing.JFrame {
         String dateInString;
 
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
+        try{
         if (jCheckBoxLiteral1.isSelected()) {
             switch (jComboBoxWhere1.getSelectedIndex()) {
                 case 0:
@@ -4821,6 +4819,9 @@ public class Main extends javax.swing.JFrame {
 
             }
         }
+        } catch (Exception e) {
+                        e.printStackTrace();
+                    }
         return ArrayPlanetas;
     }
 
@@ -5199,6 +5200,7 @@ public class Main extends javax.swing.JFrame {
         String dateInString;
 
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
+        try{
         if (jCheckBoxLiteral2.isSelected()) {
             switch (jComboBoxWhere2.getSelectedIndex()) {
                 case 0:
@@ -5376,6 +5378,9 @@ public class Main extends javax.swing.JFrame {
 
             }
         }
+        } catch (Exception e) {
+                        e.printStackTrace();
+                    }
         return ArrayPlanetas;
     }
 
@@ -5497,8 +5502,8 @@ public class Main extends javax.swing.JFrame {
             };
             try {
                 controle.editarPlaneta(planeta);
-            } catch (ParseException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Não foi possivel editar o planeta, confira se os dados estão corretos, ou se tem permição para essa ação.");
             }
 
             jButtonEditarPlan.setEnabled(false);
@@ -5535,36 +5540,31 @@ public class Main extends javax.swing.JFrame {
         controls.add(password);
         panel.add(controls, BorderLayout.CENTER);
 
-        JOptionPane.showMessageDialog(null, panel, "login", JOptionPane.QUESTION_MESSAGE);
+        int option = JOptionPane.showOptionDialog(null, "Tem certeza que deseja excluir esse planeta?", "Deseja continuar?",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Não");
+        if (option < 1) {
 
-        if (controle.consultaLogin(username.getText(), password.getPassword().toString())) {
-
-            int option = JOptionPane.showOptionDialog(null, "Tem certeza que deseja excluir esse planeta?", "Deseja continuar?",
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sim", "Não"}, "Não");
-            if (option < 1) {
-
-                int linha = jTablePlanetas2.getSelectedRow();
-                try {
-                    controle.excluirPlaneta(jTablePlanetas2.getValueAt(linha, 0).toString());
-                } catch (Exception ex) {
-                }
-
-                jButtonExcluirPlan.setEnabled(false);
-                javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas2.getModel();
-                model.getDataVector().removeAllElements();
-                ArrayList< String[]> ArrayPlanetas = buscaPlanetasExcluir();
-
-                for (String[] linhas : ArrayPlanetas) {
-                    model.addRow(linhas);
-                }
-
-                CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
-                cl.show(jPanelPrincipal, "jPanelExcluirPlaneta");
+            int linha = jTablePlanetas2.getSelectedRow();
+            try {
+                controle.excluirPlaneta(jTablePlanetas2.getValueAt(linha, 0).toString());
+            } catch (Exception ex) {
+JOptionPane.showMessageDialog(null, "Não foi possivel excluir o planeta, confira se os dados estão corretos, ou se tem permição para essa ação.");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuario ou senha não conferem.");
+
+            jButtonExcluirPlan.setEnabled(false);
+            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTablePlanetas2.getModel();
+            model.getDataVector().removeAllElements();
+            ArrayList< String[]> ArrayPlanetas = buscaPlanetasExcluir();
+
+            for (String[] linhas : ArrayPlanetas) {
+                model.addRow(linhas);
+            }
+
+            CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
+            cl.show(jPanelPrincipal, "jPanelExcluirPlaneta");
         }
+
     }//GEN-LAST:event_jButtonExcluirPlanActionPerformed
 
     private void jButtonInserirPlanetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInserirPlanetaActionPerformed
@@ -5631,8 +5631,9 @@ public class Main extends javax.swing.JFrame {
                 jTextFieldEstrelaNome.setText("");
 
                 JOptionPane.showMessageDialog(null, "Planeta cadastrado com sucesso!");
-            } catch (ParseException ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Não foi possivel cadastrar o planeta, confira se os dados estão corretos, ou se tem permição para essa ação.");
             }
 
         }
@@ -5820,6 +5821,7 @@ public class Main extends javax.swing.JFrame {
     private ArrayList< String[]> listaEstrelas() {
 
         ArrayList< String[]> ArrayEstrela = new ArrayList< String[]>();
+        try{
         if (jCheckBoxLiteral4.isSelected()) {
             switch (jComboBoxWhere4.getSelectedIndex()) {
                 case 0:
@@ -5882,6 +5884,9 @@ public class Main extends javax.swing.JFrame {
 
             }
         }
+        } catch (Exception e) {
+                        e.printStackTrace();
+                    }
         return ArrayEstrela;
     }
 
@@ -6209,6 +6214,7 @@ public class Main extends javax.swing.JFrame {
 
     private ArrayList< String[]> listaEstrelasEditar() {
         ArrayList< String[]> ArrayEstrela = new ArrayList< String[]>();
+        try{
         if (jCheckBoxLiteral5.isSelected()) {
             switch (jComboBoxWhere5.getSelectedIndex()) {
                 case 0:
@@ -6270,6 +6276,9 @@ public class Main extends javax.swing.JFrame {
                     break;
             }
         }
+        } catch (Exception e) {
+                        e.printStackTrace();
+                    }
         return ArrayEstrela;
     }
 
@@ -6336,8 +6345,8 @@ public class Main extends javax.swing.JFrame {
             };
             try {
                 controle.editarEstrela(estrela);
-            } catch (ParseException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Não foi possivel editar a estrela, confira se os dados estão corretos, ou se tem permição para essa ação.");
             }
 
             jButtonEditarEstrela.setEnabled(false);
@@ -6493,6 +6502,7 @@ public class Main extends javax.swing.JFrame {
 
     private ArrayList< String[]> listaEstrelasExcluir() {
         ArrayList< String[]> ArrayEstrela = new ArrayList< String[]>();
+        try{
         if (jCheckBoxLiteral6.isSelected()) {
             switch (jComboBoxWhere6.getSelectedIndex()) {
                 case 0:
@@ -6553,7 +6563,9 @@ public class Main extends javax.swing.JFrame {
                     ArrayEstrela = new ArrayList(controle.listaEstrelas(jComboBoxWhere6.getSelectedItem().toString(), jFormattedTextFieldValor13.getText().replace(',', '.'), jFormattedTextFieldValor14.getText().replace(',', '.')));
                     break;
             }
-        }
+        }} catch (Exception e) {
+                        e.printStackTrace();
+                    }
         return ArrayEstrela;
     }
 
@@ -6580,6 +6592,7 @@ public class Main extends javax.swing.JFrame {
             try {
                 controle.excluirEstrela(jTableEstrela3.getValueAt(linha, 1).toString());
             } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Não foi possivel cadastrar a estrela, confira se os dados estão corretos, ou se tem permição para essa ação.");
             }
 
             jButtonExcluirEstrela.setEnabled(false);
@@ -6645,8 +6658,8 @@ public class Main extends javax.swing.JFrame {
                 jTextFieldMassaEstrela1.setText("");
                 jTextFieldTemperaturaEstrela1.setText("");
                 jTextFieldIdadeEstrela1.setText("");
-            } catch (ParseException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Não foi possivel cadastrar a estrela, confira se os dados estão corretos, ou se tem permição para essa ação.");
             }
 
             CardLayout cl = (CardLayout) jPanelPrincipal.getLayout();
@@ -6705,7 +6718,7 @@ public class Main extends javax.swing.JFrame {
     private void ordemC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordemC1ActionPerformed
         try {
             jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ordemC1ActionPerformed
@@ -6715,7 +6728,7 @@ public class Main extends javax.swing.JFrame {
         jLabel27.setText(jSliderTamPlan.getUpperValue() + "");
         try {
             jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -6724,7 +6737,7 @@ public class Main extends javax.swing.JFrame {
     private void OrdemD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrdemD1ActionPerformed
         try {
             jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_OrdemD1ActionPerformed
@@ -6733,7 +6746,7 @@ public class Main extends javax.swing.JFrame {
         jSliderTamPlan.setMaximum(10000);
         try {
             jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
@@ -6742,7 +6755,7 @@ public class Main extends javax.swing.JFrame {
         jSliderTamPlan.setMaximum(100);
         try {
             jLabelGrafico.setIcon(new ImageIcon((controle.graficoRelacaoTamanhoCores2((float) jSliderTamPlan.getValue(), (float) jSliderTamPlan.getUpperValue(), (float) jSliderTamPlan.getMaximum(), ordemC1.isSelected(), jRadioButton1.isSelected())).createBufferedImage(jLabelGrafico.getWidth(), 600)));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jRadioButton2ActionPerformed
@@ -6798,7 +6811,7 @@ public class Main extends javax.swing.JFrame {
             icon = new ImageIcon(controle.darkholeLikelihood(numeroCor, solInicial, solFinal).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
             darkhole2.setIcon(icon);
             darkhole2.setVisible(true);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -6873,7 +6886,7 @@ public class Main extends javax.swing.JFrame {
         }
         try {
             jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jSliderTamPlan1StateChanged
@@ -6888,7 +6901,7 @@ public class Main extends javax.swing.JFrame {
         }
         try {
             jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ConpararJupterActionPerformed
@@ -6903,7 +6916,7 @@ public class Main extends javax.swing.JFrame {
         }
         try {
             jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_OrdemD2ActionPerformed
@@ -6927,7 +6940,7 @@ public class Main extends javax.swing.JFrame {
         }
         try {
             jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -6949,7 +6962,7 @@ public class Main extends javax.swing.JFrame {
         }
         try {
             jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -6967,28 +6980,16 @@ public class Main extends javax.swing.JFrame {
         dados.add(jFormattedTextFielHost.getText());
         dados.add(jFormattedTextFieldUser.getText());
         dados.add(jFormattedTextFieldSenha.getText());
-        
-        
-        /*try {
-           controle.setDadosHibernate(dados);
-        } catch (TransformerException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao editar o XML!");
-        }*/
-        try {
 
-            controle.iniciarConexao();
-            jMenuEditar.setEnabled(true);
-            jMenuNovo.setEnabled(true);
-            jMenuRelatorio.setEnabled(true);
-            JOptionPane.showMessageDialog(null, "Conexão realizada com sucesso!");
-        } catch (Exception ex) {
+        try {
+            controle.setDadosHibernate(dados);
             jMenuEditar.setEnabled(false);
             jMenuNovo.setEnabled(false);
             jMenuRelatorio.setEnabled(false);
-            JOptionPane.showMessageDialog(null, "Dados digitados incorretos!");
+            JOptionPane.showMessageDialog(null, "Alterações realizadas com sucesso, reinicie a aplicação para continuar!");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao editar o XML!");
         }
-
-
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jTextFieldMolKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMolKeyReleased
@@ -7000,7 +7001,7 @@ public class Main extends javax.swing.JFrame {
 
     protected void updateLabel(String cor) throws SQLException {
         darkhole2.setVisible(true);
-
+        try{
         if (cor.equalsIgnoreCase("Azul/Preto")) {
             ImageIcon icon = new ImageIcon(controle.darkholeLikelihood(1, 1, 10000).createBufferedImage(darkhole2.getWidth(), darkhole2.getHeight()));
             darkhole2.setIcon(icon);
@@ -7026,6 +7027,9 @@ public class Main extends javax.swing.JFrame {
             darkhole2.setVisible(true);
             numeroCor = 4;
         }
+        } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
     }
 
@@ -7059,11 +7063,21 @@ public class Main extends javax.swing.JFrame {
     }
 
     private void inicializar() {
-
-        ArrayList<String> dados = controle.getDadosHibernate();
-        if (dados.size() > 3) {
-            jFormattedTextFieldUser.setText(dados.get(3));
-            jFormattedTextFielHost.setText(dados.get(2));
+        try {
+            ArrayList<String> dados = controle.getDadosHibernate();
+            if (dados.size() > 3) {
+                jFormattedTextFieldUser.setText(dados.get(3));
+                jFormattedTextFielHost.setText(dados.get(2));
+            }
+            controle.iniciarConexao();
+            jMenuEditar.setEnabled(true);
+            jMenuNovo.setEnabled(true);
+            jMenuRelatorio.setEnabled(true);
+        } catch (Exception ex) {
+            jMenuEditar.setEnabled(false);
+            jMenuNovo.setEnabled(false);
+            jMenuRelatorio.setEnabled(false);
+            JOptionPane.showMessageDialog(null, "Dados de configuração do banco incorretos!");
         }
 
     }
@@ -7085,7 +7099,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
