@@ -39,6 +39,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.xml.transform.TransformerException;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
 
@@ -6885,9 +6886,13 @@ public class Main extends javax.swing.JFrame {
         dados.add(jFormattedTextFieldUser.getText());
         dados.add(jFormattedTextFieldSenha.getText());
         
-        controle.setDadosHibernate(dados);
+        /*try {
+            controle.setDadosHibernate(dados);
+        } catch (TransformerException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
         this.inicializar();
-        
+        controle.iniciarConexao();
         
         
     }//GEN-LAST:event_jButton16ActionPerformed

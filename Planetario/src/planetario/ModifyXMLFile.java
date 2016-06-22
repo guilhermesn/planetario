@@ -34,15 +34,16 @@ public class ModifyXMLFile {
             Document doc = docBuilder.parse(filepath);
             
             for (int i = 2; i < doc.getElementsByTagName("property").getLength(); i++) {
-                Node sessionfactory = doc.getElementsByTagName("property").item(i);
-                NamedNodeMap list = sessionfactory.getAttributes();
+                NamedNodeMap list = doc.getElementsByTagName("property").item(i).getAttributes();
                 
-                if (!sessionfactory.getTextContent().trim().isEmpty()) {
+                if (!doc.getElementsByTagName("property").item(i).getTextContent().trim().isEmpty()) {
+                    
+                    doc.getElementsByTagName("property").item(i).setTextContent(dados.get(i));
+                    
                     //Node ffff = list.(0);
                     //dados.add(list.item(i).getTextContent());
                     //System.out.print(list.item(0).getTextContent() + " ----- ");
                     //System.out.print(sessionfactory.getTextContent() + " ******* " + i);
-                    sessionfactory.setTextContent(dados.get(i));
                     //System.out.println(sessionfactory.getTextContent() + " ******* " + i);
                 }
             }
@@ -67,6 +68,7 @@ public class ModifyXMLFile {
             StreamResult result = new StreamResult(new File(filepath));
             transformer.transform(source, result);
             System.out.println("ok");
+            
         } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
         } catch (IOException ioe) {
