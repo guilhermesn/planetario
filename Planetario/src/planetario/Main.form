@@ -46,6 +46,7 @@
         <Menu class="javax.swing.JMenu" name="jMenuEditar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Estrela"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuEstrelaNovo">
@@ -85,6 +86,7 @@
         <Menu class="javax.swing.JMenu" name="jMenuNovo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Planeta"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuPlanetaNovo">
@@ -124,6 +126,7 @@
         <Menu class="javax.swing.JMenu" name="jMenuRelatorio">
           <Properties>
             <Property name="text" type="java.lang.String" value="Relatorio"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuGerarRelatorio">
@@ -376,7 +379,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton16">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Alterar"/>
+                <Property name="text" type="java.lang.String" value="Alterar e conectar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton16ActionPerformed"/>

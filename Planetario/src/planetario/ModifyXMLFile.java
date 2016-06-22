@@ -28,42 +28,22 @@ public class ModifyXMLFile {
     public void setDadosHibernate(ArrayList<String> dados) throws TransformerConfigurationException, TransformerException {
         
         try {
-            String filepath = "hibernate1.cfg.xml";
+            String filepath = "src/hibernate.cfg.xml";
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(filepath);
-            
+            //doc.setTextContent("<!DOCTYPE hibernate-configuration PUBLIC \"-//Hibernate/Hibernate Configuration DTD 3.0//EN\" \"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd\">");
             for (int i = 2; i < doc.getElementsByTagName("property").getLength(); i++) {
                 //NamedNodeMap list = doc.getElementsByTagName("property").item(i).getAttributes();
                 
                 if (!doc.getElementsByTagName("property").item(i).getTextContent().trim().isEmpty()) {
                     
                     Node alterar = doc.getElementsByTagName("property").item(i);
-                    doc.removeChild(alterar);
+                    
                     alterar.setTextContent(dados.get(i));
-                    doc.appendChild(alterar);
-                    //Node ffff = list.(0);
-                    //dados.add(list.item(i).getTextContent());
-                    //System.out.print(list.item(0).getTextContent() + " ----- ");
-                    //System.out.print(sessionfactory.getTextContent() + " ******* " + i);
-                    //System.out.println(sessionfactory.getTextContent() + " ******* " + i);
+                    
                 }
             }
-            //return;
-            /*
-            
-             Node nodeFim = nomesAlter.getNamedItem("hibernate.connection.url");
-             nodeFim.setTextContent(dados.get(j));
-             j++;
-            
-             nodeFim = nomesAlter.getNamedItem("hibernate.connection.username");
-             nodeFim.setTextContent(dados.get(j));
-             j++;
-            
-             nodeFim = nomesAlter.getNamedItem("hibernate.connection.password");
-             nodeFim.setTextContent(dados.get(j));
-             j++;
-             */
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
@@ -85,7 +65,7 @@ public class ModifyXMLFile {
         ArrayList<String> dados = new ArrayList<String>();
         
         try {
-            String filepath = "hibernate1.cfg.xml";
+            String filepath = "src/hibernate.cfg.xml";
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(filepath);

@@ -7,7 +7,5 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Planetario?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
-    <mapping resource="planetario/Estrelas.hbm.xml"/>
-    <mapping resource="planetario/Planeta.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -558,7 +558,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton16.setText("Alterar");
+        jButton16.setText("Alterar e conectar");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton16ActionPerformed(evt);
@@ -3524,6 +3524,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(jMenuArquivo);
 
         jMenuEditar.setText("Estrela");
+        jMenuEditar.setEnabled(false);
 
         jMenuEstrelaNovo.setText("Cadastrar Estrela");
         jMenuEstrelaNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -3560,6 +3561,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(jMenuEditar);
 
         jMenuNovo.setText("Planeta");
+        jMenuNovo.setEnabled(false);
 
         jMenuPlanetaNovo.setText("Cadastrar Planeta");
         jMenuPlanetaNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -3596,6 +3598,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(jMenuNovo);
 
         jMenuRelatorio.setText("Relatorio");
+        jMenuRelatorio.setEnabled(false);
 
         jMenuGerarRelatorio.setText("Relatorio tamanho planetas");
         jMenuGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
@@ -6781,7 +6784,7 @@ public class Main extends javax.swing.JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -6819,28 +6822,27 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         /*jLabel35.setText(jSliderTamPlan1.getValue() + "");
-        jLabel37.setText(jSliderTamPlan1.getUpperValue() + "");
+         jLabel37.setText(jSliderTamPlan1.getUpperValue() + "");
+         ArrayList<String> moleculas = new ArrayList<String>();
+         DefaultListModel listModel = (DefaultListModel) jListMoleculas.getModel();
+         for (int i = 0; i < listModel.getSize(); i++) {
+         moleculas.add((String) listModel.getElementAt(i));
+         }
+         try {
+         jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
+         } catch (IOException ex) {
+         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+         }*/
+
         ArrayList<String> moleculas = new ArrayList<String>();
         DefaultListModel listModel = (DefaultListModel) jListMoleculas.getModel();
         for (int i = 0; i < listModel.getSize(); i++) {
             moleculas.add((String) listModel.getElementAt(i));
         }
-        try {
-            jLabelGraficoMol.setIcon(new ImageIcon((controle.graficoPlanetasMoleculas((float) jSliderTamPlan1.getValue(), (float) jSliderTamPlan1.getUpperValue(), ConpararJupter.isSelected(), moleculas)).createBufferedImage(jLabelGraficoMol.getWidth(), 600)));
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        
-        ArrayList<String> moleculas = new ArrayList<String>();
-        DefaultListModel listModel = (DefaultListModel) jListMoleculas.getModel();
-        for (int i = 0; i < listModel.getSize(); i++) {
-            moleculas.add((String) listModel.getElementAt(i));
-        }
-        
+
         JFileChooser file = new JFileChooser();
         file.setFileSelectionMode(JFileChooser.FILES_ONLY);
         int i = file.showSaveDialog(null);
-        
 
         if (i == 1) {
 
@@ -6858,7 +6860,7 @@ public class Main extends javax.swing.JFrame {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jSliderTamPlan1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderTamPlan1StateChanged
@@ -6941,7 +6943,7 @@ public class Main extends javax.swing.JFrame {
         jLabel35.setText(jSliderTamPlan1.getValue() + "");
         jLabel37.setText(jSliderTamPlan1.getUpperValue() + "");
         ArrayList<String> moleculas = new ArrayList<String>();
-        
+
         for (int i = 0; i < listModel.getSize(); i++) {
             moleculas.add((String) listModel.getElementAt(i));
         }
@@ -6965,23 +6967,35 @@ public class Main extends javax.swing.JFrame {
         dados.add(jFormattedTextFielHost.getText());
         dados.add(jFormattedTextFieldUser.getText());
         dados.add(jFormattedTextFieldSenha.getText());
-
+        
+        
         /*try {
-         controle.setDadosHibernate(dados);
-         } catch (TransformerException ex) {
-         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-         }*/
-        this.inicializar();
-        controle.iniciarConexao();
+           controle.setDadosHibernate(dados);
+        } catch (TransformerException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao editar o XML!");
+        }*/
+        try {
+
+            controle.iniciarConexao();
+            jMenuEditar.setEnabled(true);
+            jMenuNovo.setEnabled(true);
+            jMenuRelatorio.setEnabled(true);
+            JOptionPane.showMessageDialog(null, "Conexão realizada com sucesso!");
+        } catch (Exception ex) {
+            jMenuEditar.setEnabled(false);
+            jMenuNovo.setEnabled(false);
+            jMenuRelatorio.setEnabled(false);
+            JOptionPane.showMessageDialog(null, "Dados digitados incorretos!");
+        }
 
 
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jTextFieldMolKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldMolKeyReleased
-                if (!jTextFieldMol.getText().trim().isEmpty()) {
+        if (!jTextFieldMol.getText().trim().isEmpty()) {
             jButton6.setEnabled(true);
         }
-                
+
     }//GEN-LAST:event_jTextFieldMolKeyReleased
 
     protected void updateLabel(String cor) throws SQLException {

@@ -288,7 +288,7 @@ public class Controle {
     }
 
     public boolean consultaLogin(String name, String Usuario) {
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         org.hibernate.Query query = sessao.createQuery("SELECT User FROM mysql.user WHERE ");
 
         return true;
@@ -361,7 +361,7 @@ public class Controle {
     public ArrayList<String[]> listaEstrelas(String busca, String valor, boolean literal) {
         ArrayList< String[]> ArrayEstrelas = new ArrayList< String[]>();
         Estrelas listaEstrela;
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Iterator i = sessao.createQuery("from Estrelas " + selecionaWhereEstrela(busca, valor, literal)).list().iterator();
         while (i.hasNext()) {
             listaEstrela = (Estrelas) i.next();
@@ -384,7 +384,7 @@ public class Controle {
     public ArrayList<String[]> listaEstrelas(String busca, String valor, String valor2) {
         ArrayList< String[]> ArrayEstrelas = new ArrayList< String[]>();
         Estrelas listaEstrela;
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Iterator i = sessao.createQuery("from Estrelas " + selecionaWhereEstrela(busca, valor, valor2)).list().iterator();
         while (i.hasNext()) {
             listaEstrela = (Estrelas) i.next();
@@ -407,7 +407,7 @@ public class Controle {
     public ArrayList<String[]> listaPlanetas(String busca, String valor1, String valor2) {
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         Planeta planetas;
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Iterator i = sessao.createQuery("from Planeta " + selecionaWherePlaneta(busca, valor1, valor2)).list().iterator();
         while (i.hasNext()) {
             planetas = (Planeta) i.next();
@@ -447,7 +447,7 @@ public class Controle {
     public ArrayList<String[]> listaPlanetas(String busca, String valor, boolean literal) {
         ArrayList< String[]> ArrayPlanetas = new ArrayList< String[]>();
         Planeta planetas;
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Iterator i = sessao.createQuery("from Planeta " + selecionaWherePlaneta(busca, valor, literal)).list().iterator();
         while (i.hasNext()) {
             planetas = (Planeta) i.next();
@@ -486,7 +486,7 @@ public class Controle {
 
     public Estrelas getEstrela(String valor) {
         Estrelas estrela;
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Iterator i = sessao.createQuery("from Estrelas " + "where nome = '" + valor + "'").list().iterator();
         estrela = (Estrelas) i.next();
         sessao.close();
@@ -495,7 +495,7 @@ public class Controle {
 
     public Planeta getPlaneta(String valor) {
         Planeta planetas;
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Iterator i = sessao.createQuery("from Planeta " + "where idPlaneta = '" + valor + "'").list().iterator();
         planetas = (Planeta) i.next();
         sessao.close();
@@ -506,7 +506,7 @@ public class Controle {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatterMYSQL = new SimpleDateFormat("yyyy/MM/dd");
 
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Planeta planetas = new Planeta();
         PlanetaId planetaid = new PlanetaId();
 
@@ -601,7 +601,7 @@ public class Controle {
 
     public void cadastrarEstrela(String[] estrelaExluir) throws ParseException {
 
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Estrelas estrela = new Estrelas();
 
         if (!estrelaExluir[0].trim().isEmpty()) {
@@ -643,7 +643,7 @@ public class Controle {
 
         Planeta planetas = new Planeta();
         planetas = getPlaneta(valor);
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         sessao.delete(planetas);
         Transaction tr = sessao.beginTransaction();
         tr.commit();
@@ -654,21 +654,25 @@ public class Controle {
 
         Estrelas estrela = new Estrelas();
         estrela = getEstrela(valor);
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         sessao.delete(estrela);
         Transaction tr = sessao.beginTransaction();
         tr.commit();
         sessao.close();
     }
 
-    public void iniciarConexao() {
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
-        sessao.close();
+    public void iniciarConexao() throws Exception {
+        //try {
+            Session sessao = NewHibernateUtil.getSessionFactory().openSession();
+            sessao.close();
+        //} catch (Exception ex) {
+         //   throw new Exception(ex);
+        //}
     }
 
     public void editarEstrela(String[] estrelaEdit) throws ParseException {
 
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Estrelas estrela = getEstrela(estrelaEdit[1]);
 
         if (!estrelaEdit[0].trim().isEmpty()) {
@@ -707,7 +711,7 @@ public class Controle {
 
     public void editarPlaneta(String[] planeta) throws ParseException {
 
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Planeta planetas = getPlaneta(planeta[0]);
 
         //System.out.print(planetas.getNomePlaneta());
@@ -810,7 +814,7 @@ public class Controle {
 
         try {
 
-            Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+            Session sessao = NewHibernateUtil.getSessionFactory().openSession();
             SessionImpl sessionImpl = (SessionImpl) sessao;
             Connection connection = sessionImpl.connection();
 
@@ -873,7 +877,7 @@ public class Controle {
         Planeta planeta = new Planeta();
         long planeta1, planeta2, planeta3, planeta4, planeta5, planeta6, planeta7, planeta8, planeta9;
 
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
         Query p1 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.0031");
         Query p2 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.15");
         Query p3 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.07");
@@ -914,16 +918,16 @@ public class Controle {
 
     public JFreeChart graficoPlanetasMoleculas(float min, float max, boolean comparar, ArrayList<String> moleculas) throws FileNotFoundException, IOException {
         CallableStatement cs = null;
-        
-        if(!comparar){
-        min = min / 317;
-        max = max / 317;
+
+        if (!comparar) {
+            min = min / 317;
+            max = max / 317;
         }
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
 
         try {
 
-            Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+            Session sessao = NewHibernateUtil.getSessionFactory().openSession();
             SessionImpl sessionImpl = (SessionImpl) sessao;
             Connection connection = sessionImpl.connection();
 
@@ -932,13 +936,13 @@ public class Controle {
 
                 cs.setFloat(1, min);
                 cs.setFloat(2, max);
-                cs.setString(3,  "%"+moleculas.get(i)+"%");
+                cs.setString(3, "%" + moleculas.get(i) + "%");
                 cs.registerOutParameter(4, java.sql.Types.INTEGER);
                 cs.executeUpdate();
-                
+
                 int planeta = cs.getInt(4);
                 ds.addValue(planeta, "Quantidade", moleculas.get(i));
-                
+
                 //cs.setString(i + 3, moleculas.get(i));
             }
         } catch (SQLException e) {
@@ -960,7 +964,7 @@ public class Controle {
 
         DefaultPieDataset pieDataset = new DefaultPieDataset();
 
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+        Session sessao = NewHibernateUtil.getSessionFactory().openSession();
 
         try {
             SessionImpl sessionImpl = (SessionImpl) sessao;
