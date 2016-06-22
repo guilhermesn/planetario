@@ -47,12 +47,12 @@ import org.jfree.chart.title.TextTitle;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.ui.RectangleEdge;
-import planetario.Estrelas;
-import planetario.Main;
-import planetario.NewHibernateUtil;
-import planetario.PDF;
-import planetario.Planeta;
-import planetario.PlanetaId;
+import Modelo.Estrelas;
+import Visao.Main;
+import Modelo.NewHibernateUtil;
+import Modelo.PDF;
+import Modelo.Planeta;
+import Modelo.PlanetaId;
 
 /**
  *

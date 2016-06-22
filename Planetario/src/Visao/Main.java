@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package planetario;
+package Visao;
 
 import Controle.Controle;
 import java.awt.BorderLayout;
@@ -41,6 +41,9 @@ import javax.swing.SwingConstants;
 import javax.xml.transform.TransformerException;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
+import Modelo.Estrelas;
+import Modelo.PDF;
+import Modelo.Planeta;
 
 /**
  *

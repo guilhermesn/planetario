@@ -1,4 +1,4 @@
-package planetario;
+package Modelo;
 // Generated 22/06/2016 16:45:03 by Hibernate Tools 4.3.1
 
 
