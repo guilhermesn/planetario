@@ -32,6 +32,7 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.transform.TransformerException;
 import org.hibernate.Query;
 import org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.Work;
 import org.hibernate.internal.SessionImpl;
@@ -53,7 +54,19 @@ import org.jfree.ui.RectangleEdge;
 public class Controle {
 
     private Object conn;
-
+    ModifyXMLFile xml = new ModifyXMLFile();
+    
+    
+    public ArrayList<String> getDadosHibernate(){
+        ArrayList<String> dados = xml.getDadosHibernate();
+        
+        return dados;
+    }
+    
+    public void setDadosHibernate(ArrayList<String> dados) throws TransformerException{
+       xml.setDadosHibernate(dados);
+       
+    }
     public String selecionaWhereEstrela(String buscar, String valor, boolean literal) {
         if (valor != null) {
             if (!valor.trim().isEmpty()) {
@@ -907,54 +920,60 @@ public class Controle {
 
     }
 
-    public void graficoRelacaoTamanhoDecres() throws FileNotFoundException, IOException {
-
-        // cria o conjunto de dados
+    public JFreeChart graficoPlanetasMoleculas(float min, float max, boolean ordem,ArrayList<String> moleculas) throws FileNotFoundException, IOException {
+        CallableStatement cs = null;
+        
+        min = min / 317;
+        max = max / 317;
+        
         DefaultCategoryDataset ds = new DefaultCategoryDataset();
-        /*Jupiter tem 317 a mais do que a massa da terra
-         jupiter massa = 1
-         Planetas com tamanho da terra 1/317 = 0.0031*/
+        
+        try {
 
-        Planeta planeta = new Planeta();
-        long planeta1, planeta2, planeta3, planeta4, planeta5, planeta6, planeta7, planeta8, planeta9;
+            Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
+            SessionImpl sessionImpl = (SessionImpl) sessao;
+            Connection connection = sessionImpl.connection();
+            
+            cs = connection.prepareCall("{call selecionaPlanetasMoleculas(?,?,?,?,?,?,?,?,?,?)}");
 
-        Session sessao = PlanetarioHibernateUtil.getSessionFactory().openSession();
-        Query p1 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.0031");
-        Query p2 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.15");
-        Query p3 = sessao.createQuery(" select count(massa) from Planeta where massa < 0.07");
-        Query p4 = sessao.createQuery(" select count(massa) from Planeta where massa < 1");
-        Query p5 = sessao.createQuery(" select count(massa) from Planeta where massa < 5");
-        Query p6 = sessao.createQuery(" select count(massa) from Planeta where massa < 10");
-        Query p7 = sessao.createQuery(" select count(massa) from Planeta where massa < 25");
-        Query p8 = sessao.createQuery(" select count(massa) from Planeta where massa < 50");
-        Query p9 = sessao.createQuery(" select count(massa) from Planeta where massa < 100");
+            cs.setFloat(1, min);
+            cs.setFloat(2, max);
+            for (int i = 0; i < moleculas.size(); i++){
+               cs.setString(i+3, moleculas.get(i));
+            }
+            cs.registerOutParameter(7, java.sql.Types.INTEGER);
+             cs.registerOutParameter(8, java.sql.Types.INTEGER);
+              cs.registerOutParameter(9, java.sql.Types.INTEGER);
+               cs.registerOutParameter(10, java.sql.Types.INTEGER);
+            
+            cs.executeUpdate();
+            
 
-        planeta1 = (long) p1.uniqueResult();
-        planeta2 = (long) p2.uniqueResult();
-        planeta3 = (long) p3.uniqueResult();
-        planeta4 = (long) p4.uniqueResult();
-        planeta5 = (long) p5.uniqueResult();
-        planeta6 = (long) p6.uniqueResult();
-        planeta7 = (long) p7.uniqueResult();
-        planeta8 = (long) p8.uniqueResult();
-        planeta9 = (long) p9.uniqueResult();
+            if (ordem) {
+                for (int i = 7; i < 11; i++) {
 
-        ds.addValue(planeta9, "maximo", "100");
-        ds.addValue(planeta8, "maximo", "50");
-        ds.addValue(planeta7, "maximo", "25");
-        ds.addValue(planeta6, "maximo", "10");
-        ds.addValue(planeta5, "maximo", "5");
-        ds.addValue(planeta4, "maximo", "1");
-        ds.addValue(planeta3, "maximo", "0.07");
-        ds.addValue(planeta2, "maximo", "0.15");
-        ds.addValue(planeta1, "maximo", "0.0031");
+                    int planeta = cs.getInt(i);
+                    if(planeta != 0){
+                        ds.addValue(planeta, "Quantidade",null);
+                    }
+                    
+                }
+            } else {
+                for (int i = 10; i > 6; i--) {
+                    int planeta = cs.getInt(i);
+                       if(planeta != 0){
+                        ds.addValue(planeta, "Quantidade",null);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
 
-        JFreeChart grafico = ChartFactory.createBarChart("Relação de tamanho de planetas", "tamanho", "Quantidade", ds, PlotOrientation.VERTICAL, true, true, false);
-
-        OutputStream arquivo = new FileOutputStream("grafico.png");
-        ChartUtilities.writeChartAsPNG(arquivo, grafico, 550, 400);
-        arquivo.close();
-
+        JFreeChart grafico = ChartFactory.createBarChart("Moleculas em exoplanetas", "tamanho", "Quantidade", ds, PlotOrientation.VERTICAL, true, true, false);
+        
+        return grafico;
+        
     }
 
     public JFreeChart darkholeLikelihood(int cor, int disIni, int disFin) throws SQLException {
